@@ -1,10 +1,10 @@
 import Gtk from "gi://Gtk";
+import Gio from "gi://Gio";
 import resource from "./Shortcuts.blp";
 
 export default function Shortcuts({
   application,
   window,
-  button_shortcuts,
   onGoForward,
   onGoBack,
   onZoomIn,
@@ -13,6 +13,15 @@ export default function Shortcuts({
   onFocusGlobalSearch,
 }) {
   let window_shortcuts;
+  const action_shortcuts = new Gio.SimpleAction({
+    name: "shortcuts",
+    parameter_type: null,
+  });
+  action_shortcuts.connect("activate", () => {
+    open();
+  });
+  application.add_action(action_shortcuts);
+  application.set_accels_for_action("app.shortcuts", ["<Control>question"]);
 
   function open() {
     if (!window_shortcuts) {
@@ -34,8 +43,6 @@ export default function Shortcuts({
     [["<Control>0"], onResetZoom],
     [["<Control>K"], onFocusGlobalSearch],
   ];
-
-  button_shortcuts.connect("clicked", open);
 
   const shortcutController = new Gtk.ShortcutController();
   shortcuts.forEach(([accels, fn]) => {

@@ -5,6 +5,7 @@ import GLib from "gi://GLib";
 import WebKit from "gi://WebKit";
 import { decode } from "../util.js";
 import resource from "./DocumentationViewer.blp";
+import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
 
 import Shortcuts from "./Shortcuts.js";
 import { hasMatch, score } from "./fzy.js";
@@ -80,11 +81,15 @@ export default function DocumentationViewer({ application }) {
   const search_page = builder.get_object("search_page");
   const search_list_view = builder.get_object("search_list_view");
   const search_entry = builder.get_object("search_entry");
-  const button_shortcuts = builder.get_object("button_shortcuts");
 
   const onGoForward = () => {
     webview.go_forward();
   };
+
+  // Popover menu theme switcher
+  const button_menu = builder.get_object("button_menu");
+  const popover = button_menu.get_popover();
+  popover.add_child(new ThemeSelector(), "themeswitcher");
 
   const onGoBack = () => {
     webview.go_back();
@@ -110,7 +115,6 @@ export default function DocumentationViewer({ application }) {
   Shortcuts({
     application,
     window,
-    button_shortcuts,
     onGoForward,
     onGoBack,
     onZoomIn,
@@ -142,6 +146,10 @@ export default function DocumentationViewer({ application }) {
   });
 
   webview.connect("notify::uri", () => {
+    // Hack
+    webview.visible = false;
+    webview.visible = true;
+
     const selected_item = browse_selection_model.selected_item.item;
     if (webview.uri !== selected_item.uri) {
       sync_sidebar = true;
