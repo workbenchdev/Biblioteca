@@ -9,11 +9,6 @@ import resource from "./DocumentationViewer.blp";
 import Shortcuts from "./Shortcuts.js";
 import { hasMatch, score } from "./fzy.js";
 
-import {
-  action_extensions,
-  isDocumentationEnabled,
-} from "../Extensions/Extensions.js";
-
 const DocumentationPage = GObject.registerClass(
   {
     GTypeName: "DocumentationPage",
@@ -230,11 +225,6 @@ export default function DocumentationViewer({ application }) {
     parameter_type: null,
   });
   action_documentation.connect("activate", () => {
-    if (!isDocumentationEnabled()) {
-      action_extensions.activate(null);
-      return;
-    }
-
     // The window is already open
     const mapped = window.get_mapped();
     window.present();

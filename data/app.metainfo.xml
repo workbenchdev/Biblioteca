@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component type="desktop">
+  <id>@app_id@</id>
+  <launchable type="desktop-id">@app_id@.desktop</launchable>
+  <name translatable="no">Workbench</name>
+  <developer_name translatable="no">Sonny Piers</developer_name>
+  <update_contact>sonnyp@gnome.org</update_contact>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <summary>Learn and prototype with GNOME technologies</summary>
+  <translation type="gettext">@app_id@</translation>
+  <description>
+    <p>Workbench lets you experiment with GNOME technologies, no matter if tinkering for the first time or building and testing a GTK user interface.</p>
+    <p>Among other things, Workbench comes with</p>
+    <ul>
+      <li>Live GTK/CSS preview</li>
+      <li>Library of 100+ examples</li>
+      <li>JavaScript, Python, Rust and Vala support</li>
+      <li>Declarative user interface syntax</li>
+      <li>Autosave, sessions and projects</li>
+      <li>Code linter and formatter</li>
+      <li>Offline documentation</li>
+      <li>Terminal output</li>
+      <li>1000+ icons</li>
+    </ul>
+  </description>
+  <url type="homepage">https://workbench.sonny.re</url>
+  <url type="bugtracker">https://workbench.sonny.re/feedback</url>
+  <url type="donation">https://workbench.sonny.re/donate</url>
+  <url type="translate">https://workbench.sonny.re/translate</url>
+  <url type="vcs-browser">https://workbench.sonny.re/source</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/sonnyp/Workbench/main/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1" />
+  <releases>
+  </releases>
+  <kudos>
+    <kudo>HiDpiIcon</kudo>
+    <kudo>HighContrast</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+</component>

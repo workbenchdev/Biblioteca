@@ -1,0 +1,16 @@
+data/app.desktop
+data/app.gschema.xml
+data/app.metainfo.xml
+
+src/init.js
+troll/src/util.js
+src/util.js
+src/about.js
+src/actions.js
+src/Manuals/DocumentationViewer.blp
+src/Manuals/Shortcuts.blp
+src/Manuals/Shortcuts.js
+src/Manuals/fzy.js
+src/Manuals/DocumentationViewer.js
+src/application.js
+src/main.js

@@ -1,0 +1,13 @@
+[Desktop Entry]
+# TRANSLATORS: Don't translate
+Name=Workbench
+Comment=Learn and prototype with GNOME technologies
+Exec=workbench %U
+Terminal=false
+Type=Application
+Categories=WebDevelopment;Development;IDE;GNOME;GTK;
+Icon=@app_id@
+# TRANSLATORS: Don't translate
+Keywords=CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;Python;PyGObject;Rust;doc;playground;code;
+DBusActivatable=true
+StartupNotify=true
