@@ -71,6 +71,7 @@ export default function DocumentationViewer({ application }) {
   const builder = Gtk.Builder.new_from_resource(resource);
 
   const window = builder.get_object("documentation_viewer");
+  window.application = application;
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
   const button_forward = builder.get_object("button_forward");
@@ -228,11 +229,7 @@ export default function DocumentationViewer({ application }) {
     return promise_load;
   }
 
-  const action_documentation = new Gio.SimpleAction({
-    name: "documentation",
-    parameter_type: null,
-  });
-  action_documentation.connect("activate", () => {
+  function present() {
     // The window is already open
     const mapped = window.get_mapped();
     window.present();
@@ -247,9 +244,19 @@ export default function DocumentationViewer({ application }) {
         }
       })
       .catch(console.error);
+  }
+
+  const action_documentation = new Gio.SimpleAction({
+    name: "documentation",
+    parameter_type: null,
+  });
+  action_documentation.connect("activate", () => {
+    present();
   });
   application.add_action(action_documentation);
   application.set_accels_for_action("app.documentation", ["<Control>M"]);
+
+  return { window, present };
 }
 
 function sortFunc(doc1, doc2) {
