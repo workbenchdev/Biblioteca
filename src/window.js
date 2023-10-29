@@ -5,7 +5,7 @@ import GLib from "gi://GLib";
 import WebKit from "gi://WebKit";
 import { decode } from "./util.js";
 import resource from "./window.blp";
-import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
+import ThemeSelector from "../troll/src/widgets/ThemeSelector.js";
 
 import Shortcuts from "./Shortcuts.js";
 import { hasMatch, score } from "./fzy.js";
@@ -72,6 +72,10 @@ export default function DocumentationViewer({ application }) {
 
   const window = builder.get_object("documentation_viewer");
   window.application = application;
+  if (__DEV__) {
+    window.add_css_class("devel");
+  }
+
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
   const button_forward = builder.get_object("button_forward");
