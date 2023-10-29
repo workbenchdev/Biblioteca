@@ -3,8 +3,8 @@ import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 import WebKit from "gi://WebKit";
-import { decode } from "../util.js";
-import resource from "./DocumentationViewer.blp";
+import { decode } from "./util.js";
+import resource from "./window.blp";
 import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
 
 import Shortcuts from "./Shortcuts.js";

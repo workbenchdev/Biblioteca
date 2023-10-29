@@ -2,7 +2,7 @@ import Adw from "gi://Adw";
 
 import Actions from "./actions.js";
 import { settings } from "./util.js";
-import DocumentationViewer from "./Manuals/DocumentationViewer.js";
+import DocumentationViewer from "./window.js";
 
 const application = new Adw.Application({
   application_id: pkg.name,
