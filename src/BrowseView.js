@@ -60,7 +60,6 @@ export const BrowseView = GObject.registerClass(
       this.root_model = Gio.ListStore.new(DocumentationPage);
       this._adj = this._browse_list_view.get_vadjustment();
       this._scrolled_to = false;
-      this.sync_sidebar = false;
       this.#createBrowseSelectionModel();
       this.#loadDocs().catch(console.error);
       this.#adjustScrolling();
@@ -136,11 +135,10 @@ export const BrowseView = GObject.registerClass(
       this.selection_model = Gtk.SingleSelection.new(this._tree_model);
       this.selection_model.connect("selection-changed", () => {
         // If selection changed to sync the sidebar, dont load_uri again
-        if (this.sync_sidebar) {
-          this.sync_sidebar = false;
+        const uri = this.selection_model.selected_item.item.uri;
+        if (this._webview.uri === uri) {
           return;
         }
-        const uri = this.selection_model.selected_item.item.uri;
         this._webview.load_uri(uri);
       });
       this._browse_list_view.model = this.selection_model;

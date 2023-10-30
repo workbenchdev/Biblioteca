@@ -54,7 +54,6 @@ export const Sidebar = GObject.registerClass(
         const selected_item =
           this._browse_view.selection_model.selected_item.item;
         if (this._webview.uri !== selected_item.uri) {
-          this._browse_view.sync_sidebar = true;
           const path = this.uri_to_tree_path[this._webview.uri];
           if (!path) return;
           this._browse_view.selectItem(path);
