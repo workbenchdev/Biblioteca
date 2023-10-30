@@ -2,7 +2,7 @@ import Adw from "gi://Adw";
 
 import Actions from "./actions.js";
 import { settings } from "./util.js";
-import DocumentationViewer from "./window.js";
+import { ManualsWindow } from "./window.js";
 
 const application = new Adw.Application({
   application_id: pkg.name,
@@ -11,12 +11,9 @@ const application = new Adw.Application({
   resource_base_path: "/re/sonny/Workbench",
 });
 
-let documentation_viewer;
 application.connect("activate", () => {
-  if (!documentation_viewer) {
-    documentation_viewer = DocumentationViewer({ application });
-  }
-  documentation_viewer.present();
+  const manuals_window = new ManualsWindow({ application });
+  manuals_window.present();
 });
 
 application.set_option_context_description("<https://workbench.sonny.re>");

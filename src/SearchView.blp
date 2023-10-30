@@ -1,0 +1,29 @@
+using Gtk 4.0;
+
+template $SearchView : ScrolledWindow {
+  vexpand: true;
+  width-request: 400;
+
+  ListView search_list_view {
+    enable-rubberband: false;
+    factory: BuilderListItemFactory {
+      template ListItem {
+        child: Box {
+          Inscription {
+            valign: center;
+            hexpand: true;
+            nat-chars: 25;
+            text-overflow: ellipsize_end;
+            text: bind template.item as <$DocumentationPage>.search_name;
+          }
+          Button {
+            valign: center;
+            label: bind template.item as <$DocumentationPage>.tag;
+            styles ["pill", "small", "doc-tag"]
+          }
+        };
+      }
+    };
+    styles ["navigation-sidebar"]
+  }
+}
