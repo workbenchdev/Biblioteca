@@ -14,11 +14,11 @@ imports.package.init({
   datadir: "@datadir@",
 });
 setConsoleLogDomain(pkg.name);
-GLib.set_application_name("Manuals");
+GLib.set_application_name("Biblioteca");
 
 if (!Xdp.Portal.running_under_flatpak()) {
   console.error(
-    "Flatpak required\nManuals is only meant to be run sandboxed in a specific target environment.\nBypassing this will exposes users to arbitrary code breakage.",
+    "Flatpak required\nBiblioteca is only meant to be run sandboxed in a specific target environment.\nBypassing this will exposes users to arbitrary code breakage.",
   );
   exit(1);
 }

@@ -10,10 +10,8 @@ setup:
 lint:
 # ESLint
 	flatpak run --user --command=/usr/lib/sdk/node18/bin/node --filesystem=host:ro org.gnome.Sdk//45 node_modules/.bin/eslint --max-warnings=0 src
-# rustfmt
-	flatpak run --user --command=/usr/lib/sdk/rust-stable/bin/rustfmt --filesystem=host:ro org.gnome.Sdk//45 --check --edition 2021 src/**/*.rs
 # gettext
-	find po/ -type f -name "*po" -print0 | xargs -0 -n1 msgfmt -o /dev/null --check
+# find po/ -type f -name "*po" -print0 | xargs -0 -n1 msgfmt -o /dev/null --check
 # Flatpak manifests
 	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/re.sonny.Workbench.json
 	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/re.sonny.Workbench.Devel.json

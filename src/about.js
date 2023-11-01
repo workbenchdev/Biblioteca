@@ -26,14 +26,14 @@ Flatpak ${flatpak_info.get_string("Instance", "flatpak-version")}
 
   const dialog = new Adw.AboutWindow({
     transient_for: application.get_active_window(),
-    application_name: "Manuals",
+    application_name: "Biblioteca",
     // developer_name: "Sonny Piers",
     // copyright: "© 2022 Sonny Piers",
     license_type: Gtk.License.GPL_3_0_ONLY,
     version: pkg.version,
-    website: "https://github.com/sonnyp/Manuals",
+    website: "https://github.com/sonnyp/Biblioteca",
     application_icon: pkg.name,
-    issue_url: "https://github.com/sonnyp/Manuals/issues",
+    issue_url: "https://github.com/sonnyp/Biblioteca/issues",
     // TRANSLATORS: eg. 'Translator Name <your.email@domain.com>' or 'Translator Name https://website.example'
     translator_credits: _("translator-credits"),
     debug_info,
