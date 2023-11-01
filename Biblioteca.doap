@@ -5,12 +5,12 @@
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
   xmlns:gnome="http://api.gnome.org/doap-extensions#"
   xmlns="http://usefulinc.com/ns/doap#">
-  <name>Workbench</name>
-  <shortdesc>Learn and prototype with GNOME technologies</shortdesc>
-  <description>Workbench goal is to let you experiment with GNOME technologies, no matter if tinkering for the first time or building and testing a custom GTK widget.</description>
+  <name>Biblioteca</name>
+  <shortdesc>Documentation viewer for GNOME</shortdesc>
+  <description>Biblioteca lets you browse and read GNOME documentation.</description>
 
-  <homepage rdf:resource="https://workbench.sonny.re" />
-  <bug-database rdf:resource="https://workbench.sonny.re/feedback" />
+  <homepage rdf:resource="https://github.com/sonnyp/Biblioteca" />
+  <bug-database rdf:resource="https://github.com/sonnyp/Biblioteca/issues" />
   <programming-language>JavaScript</programming-language>
 
   <platform>GTK 4</platform>

@@ -19,7 +19,9 @@ application.connect("activate", () => {
   documentation_viewer.present();
 });
 
-application.set_option_context_description("<https://workbench.sonny.re>");
+application.set_option_context_description(
+  "<https://github.com/sonnyp/Biblioteca>",
+);
 
 Actions({ application });
 

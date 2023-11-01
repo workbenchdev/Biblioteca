@@ -1,4 +1,4 @@
-project('Workbench', ['vala', 'c'],
+project('Biblioteca',
   version: '45.2',
   meson_version: '>= 0.59.0',
   license: 'GPL-3.0-only'
