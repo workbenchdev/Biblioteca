@@ -1,10 +1,10 @@
-<img style="vertical-align: middle;" src="data/icons/hicolor/scalable/apps/re.sonny.Workbench.svg" width="120" height="120" align="left">
+<img style="vertical-align: middle;" src="data/icons/hicolor/scalable/apps/app.drey.Biblioteca.svg" width="120" height="120" align="left">
 
 # Biblioteca
 
 Documentation viewer for GNOME.
 
-<!-- <a href='https://flathub.org/apps/re.sonny.Workbench'><img width='240' height='80' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.svg'/></a> -->
+<!-- <a href='https://flathub.org/apps/app.drey.Biblioteca'><img width='240' height='80' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.svg'/></a> -->
 
 Biblioteca lets you browse and read GNOME documentation.
 

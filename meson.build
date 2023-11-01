@@ -8,7 +8,7 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 if get_option('profile') == 'development'
-	app_id = 're.sonny.Workbench.Devel'
+	app_id = 'app.drey.Biblioteca.Devel'
   vcs_tag = run_command('git', 'rev-parse', '--short', 'HEAD').stdout().strip()
   if vcs_tag == ''
     version_suffix = '-devel'
@@ -16,7 +16,7 @@ if get_option('profile') == 'development'
     version_suffix = '-@0@'.format(vcs_tag)
   endif
 else
-  app_id = 're.sonny.Workbench'
+  app_id = 'app.drey.Biblioteca'
   version_suffix = ''
 endif
 

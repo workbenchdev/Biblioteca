@@ -7,7 +7,7 @@ import GObject from "gi://GObject";
 
 export const settings = new Gio.Settings({
   schema_id: pkg.name,
-  path: "/re/sonny/Workbench/",
+  path: "/app/drey/Biblioteca/",
 });
 
 export const data_dir = Gio.File.new_for_path(

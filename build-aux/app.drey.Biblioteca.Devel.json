@@ -1,10 +1,10 @@
 {
-  "id": "re.sonny.Workbench.Devel",
+  "id": "app.drey.Biblioteca.Devel",
   "runtime": "org.gnome.Sdk",
   "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
-  "command": "workbench",
+  "command": "biblioteca",
   "finish-args": [
     "--share=ipc",
     "--socket=fallback-x11",
@@ -32,7 +32,7 @@
     "modules/libspelling.json",
     "modules/blueprint-compiler.json",
     {
-      "name": "Workbench",
+      "name": "Biblioteca",
       "buildsystem": "meson",
       "config-opts": ["-Dprofile=development"],
       "sources": [

@@ -13,16 +13,16 @@ lint:
 # gettext
 # find po/ -type f -name "*po" -print0 | xargs -0 -n1 msgfmt -o /dev/null --check
 # Flatpak manifests
-	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/re.sonny.Workbench.json
-	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/re.sonny.Workbench.Devel.json
+	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/app.drey.Biblioteca.json
+	flatpak run --user --command=flatpak-builder-lint org.flatpak.Builder manifest --exceptions build-aux/app.drey.Biblioteca.Devel.json
 
 # https://github.com/ximion/appstream/issues/398#issuecomment-1129454985
 # flatpak run org.freedesktop.appstream.cli validate --override=release-time-missing=info --no-net data/app.metainfo.xml
 #	desktop-file-validate --no-hints data/app.desktop
 # https://discourse.gnome.org/t/gtk-builder-tool-requires-and-libraries/9222
 # gtk-builder-tool validate src/*.ui
-# flatpak run org.flathub.flatpak-external-data-checker re.sonny.Workbench.json
-# flatpak run org.flathub.flatpak-external-data-checker re.sonny.Workbench.Devel.json
+# flatpak run org.flathub.flatpak-external-data-checker app.drey.Biblioteca.json
+# flatpak run org.flathub.flatpak-external-data-checker app.drey.Biblioteca.Devel.json
 # as used by Flathub
 # flatpak run --env=G_DEBUG=fatal-criticals --command=appstream-util org.flatpak.Builder validate data/app.metainfo.xml
 
@@ -33,14 +33,14 @@ ci: setup lint
 # Note that if you have Sdk extensions installed they will be used
 # make sure to test without the sdk extensions installed
 sandbox: setup
-	flatpak-builder --ccache --user --install --force-clean flatpak build-aux/re.sonny.Workbench.Devel.json
+	flatpak-builder --ccache --user --install --force-clean flatpak build-aux/app.drey.Biblioteca.Devel.json
 # flatpak remove --noninteractive org.gnome.Sdk.Docs//45 org.freedesktop.Sdk.Extension.rust-stable//23.08 org.freedesktop.Sdk.Extension.vala//23.08 org.freedesktop.Sdk.Extension.llvm16//23.08
-	flatpak run --command="bash" re.sonny.Workbench.Devel
+	flatpak run --command="bash" app.drey.Biblioteca.Devel
 
 flatpak: setup
-	flatpak-builder --ccache --force-clean flatpak build-aux/re.sonny.Workbench.Devel.json
+	flatpak-builder --ccache --force-clean flatpak build-aux/app.drey.Biblioteca.Devel.json
 # This is what Flathub does - consider moving to lint
-	flatpak run --env=G_DEBUG=fatal-criticals --command=appstream-util org.flatpak.Builder validate flatpak/files/share/appdata/re.sonny.Workbench.Devel.appdata.xml
-	flatpak run --command="desktop-file-validate" --filesystem=host:ro org.freedesktop.Sdk//23.08 flatpak/files/share/applications/re.sonny.Workbench.Devel.desktop
+	flatpak run --env=G_DEBUG=fatal-criticals --command=appstream-util org.flatpak.Builder validate flatpak/files/share/appdata/app.drey.Biblioteca.Devel.appdata.xml
+	flatpak run --command="desktop-file-validate" --filesystem=host:ro org.freedesktop.Sdk//23.08 flatpak/files/share/applications/app.drey.Biblioteca.Devel.desktop
 # appstreamcli validate --override=release-time-missing=info /path/to/your/app.metainfo.xml
-	flatpak-builder --run flatpak build-aux/re.sonny.Workbench.Devel.json bash
+	flatpak-builder --run flatpak build-aux/app.drey.Biblioteca.Devel.json bash

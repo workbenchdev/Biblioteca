@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schemalist gettext-domain="@app_id@">
-  <enum id="re.sonny.Workbench.UserInterfaceLanguage">
+  <enum id="app.drey.Biblioteca.UserInterfaceLanguage">
     <value nick="blueprint" value="0"/>
     <value nick="xml" value="1"/>
   </enum>
 
-  <schema id="@app_id@" path="/re/sonny/Workbench/">
+  <schema id="@app_id@" path="/app/drey/Biblioteca/">
     <key name="color-scheme" type="i">
       <default>0</default>
     </key>
@@ -19,7 +19,7 @@
       <default>false</default>
     </key>
   </schema>
-  <schema id="@app_id@.Session" path="/re/sonny/Workbench/">
+  <schema id="@app_id@.Session" path="/app/drey/Biblioteca/">
     <key name="show-code" type="b">
       <default>false</default>
     </key>
@@ -38,7 +38,7 @@
     <key name="code-language" type="i">
       <default>0</default>
     </key>
-    <key name="user-interface-language" enum="re.sonny.Workbench.UserInterfaceLanguage">
+    <key name="user-interface-language" enum="app.drey.Biblioteca.UserInterfaceLanguage">
       <default>'blueprint'</default>
     </key>
     <key name="preview-align" type="i">

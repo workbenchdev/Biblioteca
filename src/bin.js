@@ -28,6 +28,6 @@ if (__DEV__) {
   pkg.sourcedir = "@sourcedir@";
 }
 
-const module = await import("resource:///re/sonny/Workbench/main.js");
+const module = await import("resource:///app/drey/Biblioteca/main.js");
 const exit_code = await module.main(programArgs);
 exit(exit_code);

@@ -21,8 +21,8 @@ configure_file(
 )
 
 configure_file(
-  input: 'workbench',
-  output: 'workbench',
+  input: 'biblioteca',
+  output: 'biblioteca',
   configuration: bin_conf,
   install: true,
   install_dir: get_option('bindir')
@@ -35,7 +35,7 @@ gresource = custom_target('gjspack',
   command: [
     gjspack,
     '--appid=' + app_id,
-    '--prefix', '/re/sonny/Workbench',
+    '--prefix', '/app/drey/Biblioteca',
     '--project-root', meson.project_source_root(),
     '--resource-root', meson.project_source_root() / 'src',
     '--blueprint-compiler', blueprint_compiler,

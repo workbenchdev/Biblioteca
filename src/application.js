@@ -6,9 +6,9 @@ import DocumentationViewer from "./window.js";
 
 const application = new Adw.Application({
   application_id: pkg.name,
-  // Defaults to /re/sonny/Workbench/Devel
-  // if pkg.name is re.sonny.Workbench.Devel
-  resource_base_path: "/re/sonny/Workbench",
+  // Defaults to /app/drey/Biblioteca/Devel
+  // if pkg.name is app.drey.Biblioteca.Devel
+  resource_base_path: "/app/drey/Biblioteca",
 });
 
 let documentation_viewer;
