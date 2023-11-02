@@ -107,18 +107,16 @@ Adw.ApplicationWindow documentation_viewer {
     content: Adw.NavigationPage {
       title: bind documentation_viewer.title;
       child: Adw.BreakpointBin {
-        Adw.Breakpoint {
+        Adw.Breakpoint change_buttons_breakpoint {
           condition ("max-width: 450sp")
           setters {
-            button_back.visible: false;
-            button_forward.visible: false;
             bottom_toolbar.visible: true;
           }
         }
 
         child: Adw.ToolbarView {
           [top]
-          Adw.HeaderBar {
+          Adw.HeaderBar content_header_bar {
             name: "content-headerbar";
             [start]
             ToggleButton button_sidebar {
@@ -147,19 +145,6 @@ Adw.ApplicationWindow documentation_viewer {
             styles [ "toolbar" ]
             orientation: horizontal;
             visible: false;
-
-            Button button_back_bottom {
-              icon-name: "go-previous-symbolic";
-              tooltip-text: _("Back");
-              halign: start;
-              styles ["flat"]
-            }
-            Button button_forward_bottom {
-              icon-name: "go-next-symbolic";
-              tooltip-text: _("Forward");
-              halign: start;
-              styles ["flat"]
-            }
           }
 
           WebKit.WebView webview {

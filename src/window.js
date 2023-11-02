@@ -78,9 +78,10 @@ export default function DocumentationViewer({ application }) {
 
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
-  const button_back_bottom = builder.get_object("button_back_bottom");
   const button_forward = builder.get_object("button_forward");
-  const button_forward_bottom = builder.get_object("button_forward_bottom");
+  const bottom_toolbar = builder.get_object("bottom_toolbar");
+  const content_header_bar = builder.get_object("content_header_bar");
+  const change_buttons_breakpoint = builder.get_object("change_buttons_breakpoint");
   const stack = builder.get_object("stack");
   const status_page = builder.get_object("status_page");
   const browse_page = builder.get_object("browse_page");
@@ -171,27 +172,26 @@ export default function DocumentationViewer({ application }) {
   });
 
   function updateButtons() {
-    let can_go_back = webview.can_go_back();
-    let can_go_forward = webview.can_go_forward();
-
-    button_back.sensitive = can_go_back;
-    button_forward.sensitive = can_go_forward;
-    button_back_bottom.sensitive = can_go_back;
-    button_forward_bottom.sensitive = can_go_forward;
+    button_back.sensitive = webview.can_go_back();
+    button_forward.sensitive = webview.can_go_forward();
   }
 
-  const go_back = () => {
-    webview.go_back();
-  };
-  const go_forward = () => {
-    webview.go_forward();
-  };
+  button_back.connect("clicked", () => { webview.go_back(); });
+  button_forward.connect("clicked", () => { webview.go_forward(); });
 
-  button_back.connect("clicked", go_back);
-  button_back_bottom.connect("clicked", go_back);
+  change_buttons_breakpoint.connect("apply", breakpoint => {
+    content_header_bar.remove(button_back);
+    content_header_bar.remove(button_forward);
+    bottom_toolbar.append(button_back);
+    bottom_toolbar.append(button_forward);
+  });
 
-  button_forward.connect("clicked", go_forward);
-  button_forward_bottom.connect("clicked", go_forward);
+  change_buttons_breakpoint.connect("unapply", breakpoint => {
+    bottom_toolbar.remove(button_back);
+    bottom_toolbar.remove(button_forward);
+    content_header_bar.pack_start(button_back);
+    content_header_bar.pack_start(button_forward);
+  });
 
   const adj = browse_page.get_vscrollbar().adjustment;
   adj.connect("value-changed", () => {
