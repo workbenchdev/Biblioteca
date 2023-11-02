@@ -78,7 +78,9 @@ export default function DocumentationViewer({ application }) {
 
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
+  const button_back_bottom = builder.get_object("button_back_bottom");
   const button_forward = builder.get_object("button_forward");
+  const button_forward_bottom = builder.get_object("button_forward_bottom");
   const stack = builder.get_object("stack");
   const status_page = builder.get_object("status_page");
   const browse_page = builder.get_object("browse_page");
@@ -169,17 +171,27 @@ export default function DocumentationViewer({ application }) {
   });
 
   function updateButtons() {
-    button_back.sensitive = webview.can_go_back();
-    button_forward.sensitive = webview.can_go_forward();
+    let can_go_back = webview.can_go_back();
+    let can_go_forward = webview.can_go_forward();
+
+    button_back.sensitive = can_go_back;
+    button_forward.sensitive = can_go_forward;
+    button_back_bottom.sensitive = can_go_back;
+    button_forward_bottom.sensitive = can_go_forward;
   }
 
-  button_back.connect("clicked", () => {
+  const go_back = () => {
     webview.go_back();
-  });
-
-  button_forward.connect("clicked", () => {
+  };
+  const go_forward = () => {
     webview.go_forward();
-  });
+  };
+
+  button_back.connect("clicked", go_back);
+  button_back_bottom.connect("clicked", go_back);
+
+  button_forward.connect("clicked", go_forward);
+  button_forward_bottom.connect("clicked", go_forward);
 
   const adj = browse_page.get_vscrollbar().adjustment;
   adj.connect("value-changed", () => {

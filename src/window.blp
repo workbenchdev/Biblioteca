@@ -3,9 +3,9 @@ using Adw 1;
 using GObject 2.0;
 using WebKit 6.0;
 
-Adw.Window documentation_viewer {
-  width-request: 400;
-  height-request: 400;
+Adw.ApplicationWindow documentation_viewer {
+  width-request: 360;
+  height-request: 360;
   default-width: 1024;
   default-height: 768;
   hide-on-close: true;
@@ -18,6 +18,7 @@ Adw.Window documentation_viewer {
       //split_view.show-content: true;
       button_sidebar.visible: true;
       browse_page.width-request: 300;
+      search_page.width-request: 300;
     }
   }
 
@@ -106,40 +107,71 @@ Adw.Window documentation_viewer {
 
     content: Adw.NavigationPage {
       title: bind documentation_viewer.title;
-      child: Adw.ToolbarView {
-        [top]
-        Adw.HeaderBar {
-          name: "content-headerbar";
-          [start]
-          ToggleButton button_sidebar {
-            icon-name: "dock-left-symbolic";
-            tooltip-text: _("Open Sidebar");
-            visible: false;
-            active: bind split_view.show-sidebar;
-            styles ["flat"]
-          }
-          [start]
-          Button button_back {
-            icon-name: "go-previous-symbolic";
-            tooltip-text: _("Back");
-            styles ["flat"]
-          }
-          [start]
-          Button button_forward {
-            icon-name: "go-next-symbolic";
-            tooltip-text: _("Forward");
-            styles ["flat"]
+      child: Adw.BreakpointBin {
+        Adw.Breakpoint {
+          condition ("max-width: 450sp")
+          setters {
+            button_back.visible: false;
+            button_forward.visible: false;
+            bottom_toolbar.visible: true;
           }
         }
 
-        WebKit.WebView webview {
-          vexpand: true;
-          settings: WebKit.Settings {
-            enable-back-forward-navigation-gestures: true;
-            enable-developer-extras: true;
-            enable-smooth-scrolling: true;
-          };
-        }
+        child: Adw.ToolbarView {
+          [top]
+          Adw.HeaderBar {
+            name: "content-headerbar";
+            [start]
+            ToggleButton button_sidebar {
+              icon-name: "dock-left-symbolic";
+              tooltip-text: _("Open Sidebar");
+              visible: false;
+              active: bind split_view.show-sidebar;
+              styles ["flat"]
+            }
+            [start]
+            Button button_back {
+              icon-name: "go-previous-symbolic";
+              tooltip-text: _("Back");
+              styles ["flat"]
+            }
+            [start]
+            Button button_forward {
+              icon-name: "go-next-symbolic";
+              tooltip-text: _("Forward");
+              styles ["flat"]
+            }
+          }
+
+          [bottom]
+          Gtk.Box bottom_toolbar {
+            styles [ "toolbar" ]
+            orientation: horizontal;
+            visible: false;
+
+            Button button_back_bottom {
+              icon-name: "go-previous-symbolic";
+              tooltip-text: _("Back");
+              halign: start;
+              styles ["flat"]
+            }
+            Button button_forward_bottom {
+              icon-name: "go-next-symbolic";
+              tooltip-text: _("Forward");
+              halign: start;
+              styles ["flat"]
+            }
+          }
+
+          WebKit.WebView webview {
+            vexpand: true;
+            settings: WebKit.Settings {
+              enable-back-forward-navigation-gestures: true;
+              enable-developer-extras: true;
+              enable-smooth-scrolling: true;
+            };
+          }
+        };
       };
     };
   };
