@@ -81,7 +81,7 @@ export default function DocumentationViewer({ application }) {
   const button_forward = builder.get_object("button_forward");
   const bottom_toolbar = builder.get_object("bottom_toolbar");
   const content_header_bar = builder.get_object("content_header_bar");
-  const change_buttons_breakpoint = builder.get_object("change_buttons_breakpoint");
+  const toolbar_breakpoint = builder.get_object("toolbar_breakpoint");
   const stack = builder.get_object("stack");
   const status_page = builder.get_object("status_page");
   const browse_page = builder.get_object("browse_page");
@@ -183,21 +183,22 @@ export default function DocumentationViewer({ application }) {
     webview.go_forward();
   });
 
-  const moveButtonsDown = breakpoint => {
+  toolbar_breakpoint.connect("apply", moveButtonsDown);
+  toolbar_breakpoint.connect("unapply", moveButtonsUp);
+
+  function moveButtonsDown() {
     content_header_bar.remove(button_back);
     content_header_bar.remove(button_forward);
     bottom_toolbar.append(button_back);
     bottom_toolbar.append(button_forward);
-  };
-  const moveButtonsUp = breakpoint => {
+  }
+
+  function moveButtonsUp() {
     bottom_toolbar.remove(button_back);
     bottom_toolbar.remove(button_forward);
     content_header_bar.pack_start(button_back);
     content_header_bar.pack_start(button_forward);
-  };
-
-  change_buttons_breakpoint.connect("apply", moveButtonsDown);
-  change_buttons_breakpoint.connect("unapply", moveButtonsUp);
+  }
 
   const adj = browse_page.get_vscrollbar().adjustment;
   adj.connect("value-changed", () => {
