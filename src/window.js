@@ -176,8 +176,12 @@ export default function DocumentationViewer({ application }) {
     button_forward.sensitive = webview.can_go_forward();
   }
 
-  button_back.connect("clicked", () => { webview.go_back(); });
-  button_forward.connect("clicked", () => { webview.go_forward(); });
+  button_back.connect("clicked", () => {
+    webview.go_back();
+  });
+  button_forward.connect("clicked", () => {
+    webview.go_forward();
+  });
 
   change_buttons_breakpoint.connect("apply", breakpoint => {
     content_header_bar.remove(button_back);
