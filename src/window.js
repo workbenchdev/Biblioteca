@@ -183,19 +183,21 @@ export default function DocumentationViewer({ application }) {
     webview.go_forward();
   });
 
-  change_buttons_breakpoint.connect("apply", breakpoint => {
+  const moveButtonsDown = breakpoint => {
     content_header_bar.remove(button_back);
     content_header_bar.remove(button_forward);
     bottom_toolbar.append(button_back);
     bottom_toolbar.append(button_forward);
-  });
-
-  change_buttons_breakpoint.connect("unapply", breakpoint => {
+  };
+  const moveButtonsUp = breakpoint => {
     bottom_toolbar.remove(button_back);
     bottom_toolbar.remove(button_forward);
     content_header_bar.pack_start(button_back);
     content_header_bar.pack_start(button_forward);
-  });
+  };
+
+  change_buttons_breakpoint.connect("apply", moveButtonsDown);
+  change_buttons_breakpoint.connect("unapply", moveButtonsUp);
 
   const adj = browse_page.get_vscrollbar().adjustment;
   adj.connect("value-changed", () => {
