@@ -39,7 +39,7 @@ Flatpak ${flatpak_info.get_string("Instance", "flatpak-version")}
     debug_info,
     developers: [
       "Akshay Warrier https://github.com/AkshayWarrier",
-      "Sonny Piers https://sonny.re",
+      "Sonny Piers https://sonny.re"
     ],
     designers: [],
     artists: [],
@@ -52,6 +52,7 @@ Flatpak ${flatpak_info.get_string("Instance", "flatpak-version")}
     // "John Doe <john@example.com>",
     // or
     // "John Doe https://john.com",
+    "skøldis https://turtle.garden"
   ]);
   dialog.present();
 
