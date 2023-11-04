@@ -1,0 +1,216 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app.drey.Biblioteca package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: app.drey.Biblioteca\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-04 17:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:4
+msgid "Biblioteca"
+msgstr ""
+
+#: data/app.desktop:5
+msgid "Learn and prototype with GNOME technologies"
+msgstr ""
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:12
+msgid "CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;Python;PyGObject;Rust;doc;code;"
+msgstr ""
+
+#: data/app.metainfo.xml:10
+msgid "Documentation viewer for GNOME"
+msgstr ""
+
+#: data/app.metainfo.xml:13
+msgid "Biblioteca lets you browse and read GNOME documentation."
+msgstr ""
+
+#: data/app.metainfo.xml:14
+msgid "Among other things, Biblioteca comes with"
+msgstr ""
+
+#: data/app.metainfo.xml:16
+msgid "Offline documentation"
+msgstr ""
+
+#: data/app.metainfo.xml:17
+msgid "Dark mode support"
+msgstr ""
+
+#: data/app.metainfo.xml:18
+msgid "Fuzzy search"
+msgstr ""
+
+#: data/app.metainfo.xml:19 src/window.blp:231
+msgid "Platform Tools"
+msgstr ""
+
+#: data/app.metainfo.xml:20
+msgid "Mobile / adaptive"
+msgstr ""
+
+#. TRANSLATORS: eg. 'Translator Name <your.email@domain.com>' or 'Translator Name https://website.example'
+#: src/about.js:38
+msgid "translator-credits"
+msgstr ""
+
+#: src/about.js:48
+msgid "Contributors"
+msgstr ""
+
+#: troll/src/widgets/ThemeSelector.blp:22
+#: troll/src/widgets/ThemeSelector.blp:25
+msgid "Follow system style"
+msgstr ""
+
+#: troll/src/widgets/ThemeSelector.blp:41
+#: troll/src/widgets/ThemeSelector.blp:44
+msgid "Light style"
+msgstr ""
+
+#: troll/src/widgets/ThemeSelector.blp:60
+#: troll/src/widgets/ThemeSelector.blp:63
+msgid "Dark style"
+msgstr ""
+
+#: src/window.blp:33
+msgid "Search Biblioteca"
+msgstr ""
+
+#: src/window.blp:39
+msgid "Main Menu"
+msgstr ""
+
+#: src/window.blp:99
+msgid "No Results Found"
+msgstr ""
+
+#: src/window.blp:100
+msgid "Try a different search term"
+msgstr ""
+
+#: src/window.blp:126
+msgid "Open Sidebar"
+msgstr ""
+
+#: src/window.blp:137
+msgid "Back"
+msgstr ""
+
+#: src/window.blp:143
+msgid "Forward"
+msgstr ""
+
+#: src/window.blp:179
+msgid "Bookmarks"
+msgstr ""
+
+#: src/window.blp:182
+msgid "Developer Documentation"
+msgstr ""
+
+#: src/window.blp:188
+msgid "Human Interface Guidelines"
+msgstr ""
+
+#: src/window.blp:194
+msgid "JavaScript"
+msgstr ""
+
+#: src/window.blp:200
+msgid "Vala"
+msgstr ""
+
+#: src/window.blp:206
+msgid "Rust"
+msgstr ""
+
+#: src/window.blp:212
+msgid "Python"
+msgstr ""
+
+#: src/window.blp:218
+msgid "Blueprint"
+msgstr ""
+
+#: src/window.blp:224
+msgid "Get Help"
+msgstr ""
+
+#: src/window.blp:234
+msgid "Adwaita Demo"
+msgstr ""
+
+#: src/window.blp:240
+msgid "GTK Demo"
+msgstr ""
+
+#: src/window.blp:246
+msgid "GTK Widget Factory"
+msgstr ""
+
+#: src/window.blp:255
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/window.blp:260
+msgid "About Biblioteca"
+msgstr ""
+
+#: src/Shortcuts.blp:11
+msgid "Navigation"
+msgstr ""
+
+#: src/Shortcuts.blp:14 src/Shortcuts.blp:30
+msgid "Go back to the previous page"
+msgstr ""
+
+#: src/Shortcuts.blp:19 src/Shortcuts.blp:35
+msgid "Go forward to the next page"
+msgstr ""
+
+#: src/Shortcuts.blp:24
+msgid "Focus global search"
+msgstr ""
+
+#: src/Shortcuts.blp:40
+msgid "Zoom"
+msgstr ""
+
+#: src/Shortcuts.blp:43
+msgid "Zoom in"
+msgstr ""
+
+#: src/Shortcuts.blp:48
+msgid "Zoom out"
+msgstr ""
+
+#: src/Shortcuts.blp:53
+msgid "Reset zoom"
+msgstr ""
+
+#: src/Shortcuts.blp:59
+msgid "General"
+msgstr ""
+
+#: src/Shortcuts.blp:62
+msgid "Close Window"
+msgstr ""
+
+#: src/Shortcuts.blp:67
+msgid "Shortcuts"
+msgstr ""
