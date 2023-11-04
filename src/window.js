@@ -10,6 +10,8 @@ import ThemeSelector from "../troll/src/widgets/ThemeSelector.js";
 import Shortcuts from "./Shortcuts.js";
 import { hasMatch, score } from "./fzy.js";
 
+import "./icons/dock-left-symbolic.svg";
+
 const DocumentationPage = GObject.registerClass(
   {
     GTypeName: "DocumentationPage",
@@ -71,11 +73,6 @@ export default function DocumentationViewer({ application }) {
   const builder = Gtk.Builder.new_from_resource(resource);
 
   const window = builder.get_object("documentation_viewer");
-  window.application = application;
-  if (__DEV__) {
-    window.add_css_class("devel");
-  }
-
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
   const button_forward = builder.get_object("button_forward");
@@ -89,19 +86,25 @@ export default function DocumentationViewer({ application }) {
   const search_page = builder.get_object("search_page");
   const search_list_view = builder.get_object("search_list_view");
   const search_entry = builder.get_object("search_entry");
+  const box_navigation = builder.get_object("box_navigation");
+  const button_menu = builder.get_object("button_menu");
+
+  window.application = application;
+  if (__DEV__) {
+    window.add_css_class("devel");
+  }
 
   const onGoForward = () => {
     webview.go_forward();
   };
 
-  // Popover menu theme switcher
-  const button_menu = builder.get_object("button_menu");
-  const popover = button_menu.get_popover();
-  popover.add_child(new ThemeSelector(), "themeswitcher");
-
   const onGoBack = () => {
     webview.go_back();
   };
+
+  // Popover menu theme switcher
+  const popover = button_menu.get_popover();
+  popover.add_child(new ThemeSelector(), "themeswitcher");
 
   const onZoomIn = () => {
     if (webview.zoom_level < 2) webview.zoom_level += 0.25;
@@ -183,21 +186,17 @@ export default function DocumentationViewer({ application }) {
     webview.go_forward();
   });
 
-  toolbar_breakpoint.connect("apply", moveButtonsDown);
-  toolbar_breakpoint.connect("unapply", moveButtonsUp);
+  toolbar_breakpoint.connect("apply", moveNavigationDown);
+  toolbar_breakpoint.connect("unapply", moveNavigationUp);
 
-  function moveButtonsDown() {
-    content_header_bar.remove(button_back);
-    content_header_bar.remove(button_forward);
-    bottom_toolbar.append(button_back);
-    bottom_toolbar.append(button_forward);
+  function moveNavigationDown() {
+    content_header_bar.remove(box_navigation);
+    bottom_toolbar.append(box_navigation);
   }
 
-  function moveButtonsUp() {
-    bottom_toolbar.remove(button_back);
-    bottom_toolbar.remove(button_forward);
-    content_header_bar.pack_start(button_back);
-    content_header_bar.pack_start(button_forward);
+  function moveNavigationUp() {
+    bottom_toolbar.remove(box_navigation);
+    content_header_bar.pack_start(box_navigation);
   }
 
   const adj = browse_page.get_vscrollbar().adjustment;

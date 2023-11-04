@@ -129,16 +129,20 @@ Adw.ApplicationWindow documentation_viewer {
               styles ["flat"]
             }
             [start]
-            Button button_back {
-              icon-name: "go-previous-symbolic";
-              tooltip-text: _("Back");
-              styles ["flat"]
-            }
-            [start]
-            Button button_forward {
-              icon-name: "go-next-symbolic";
-              tooltip-text: _("Forward");
-              styles ["flat"]
+            Box box_navigation {
+              spacing: 6;
+
+              Button button_back {
+                icon-name: "go-previous-symbolic";
+                tooltip-text: _("Back");
+                styles ["flat"]
+              }
+
+              Button button_forward {
+                icon-name: "go-next-symbolic";
+                tooltip-text: _("Forward");
+                styles ["flat"]
+              }
             }
           }
 

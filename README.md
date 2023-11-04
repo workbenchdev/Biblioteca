@@ -14,6 +14,7 @@ Among other things, Biblioteca comes with
 - Dark mode support
 - Fuzzy search
 - Platform Tools
+- Mobile / adaptive
 
 ℹ️ Biblioteca is made possible by Flatpak. Only Flathub Biblioteca is supported.
 
