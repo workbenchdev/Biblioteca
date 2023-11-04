@@ -17,6 +17,7 @@
       <li>Dark mode support</li>
       <li>Fuzzy search</li>
       <li>Platform Tools</li>
+      <li>Mobile / adaptive</li>
     </ul>
   </description>
   <url type="homepage">https://github.com/sonnyp/Biblioteca</url>
@@ -37,4 +38,12 @@
     <kudo>HighContrast</kudo>
     <kudo>ModernToolkit</kudo>
   </kudos>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
 </component>

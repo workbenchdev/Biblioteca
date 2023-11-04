@@ -10,6 +10,8 @@ import ThemeSelector from "../troll/src/widgets/ThemeSelector.js";
 import Shortcuts from "./Shortcuts.js";
 import { hasMatch, score } from "./fzy.js";
 
+import "./icons/dock-left-symbolic.svg";
+
 const DocumentationPage = GObject.registerClass(
   {
     GTypeName: "DocumentationPage",
@@ -71,14 +73,12 @@ export default function DocumentationViewer({ application }) {
   const builder = Gtk.Builder.new_from_resource(resource);
 
   const window = builder.get_object("documentation_viewer");
-  window.application = application;
-  if (__DEV__) {
-    window.add_css_class("devel");
-  }
-
   const webview = builder.get_object("webview");
   const button_back = builder.get_object("button_back");
   const button_forward = builder.get_object("button_forward");
+  const bottom_toolbar = builder.get_object("bottom_toolbar");
+  const content_header_bar = builder.get_object("content_header_bar");
+  const toolbar_breakpoint = builder.get_object("toolbar_breakpoint");
   const stack = builder.get_object("stack");
   const status_page = builder.get_object("status_page");
   const browse_page = builder.get_object("browse_page");
@@ -86,19 +86,25 @@ export default function DocumentationViewer({ application }) {
   const search_page = builder.get_object("search_page");
   const search_list_view = builder.get_object("search_list_view");
   const search_entry = builder.get_object("search_entry");
+  const box_navigation = builder.get_object("box_navigation");
+  const button_menu = builder.get_object("button_menu");
+
+  window.application = application;
+  if (__DEV__) {
+    window.add_css_class("devel");
+  }
 
   const onGoForward = () => {
     webview.go_forward();
   };
 
-  // Popover menu theme switcher
-  const button_menu = builder.get_object("button_menu");
-  const popover = button_menu.get_popover();
-  popover.add_child(new ThemeSelector(), "themeswitcher");
-
   const onGoBack = () => {
     webview.go_back();
   };
+
+  // Popover menu theme switcher
+  const popover = button_menu.get_popover();
+  popover.add_child(new ThemeSelector(), "themeswitcher");
 
   const onZoomIn = () => {
     if (webview.zoom_level < 2) webview.zoom_level += 0.25;
@@ -176,10 +182,22 @@ export default function DocumentationViewer({ application }) {
   button_back.connect("clicked", () => {
     webview.go_back();
   });
-
   button_forward.connect("clicked", () => {
     webview.go_forward();
   });
+
+  toolbar_breakpoint.connect("apply", moveNavigationDown);
+  toolbar_breakpoint.connect("unapply", moveNavigationUp);
+
+  function moveNavigationDown() {
+    content_header_bar.remove(box_navigation);
+    bottom_toolbar.append(box_navigation);
+  }
+
+  function moveNavigationUp() {
+    bottom_toolbar.remove(box_navigation);
+    content_header_bar.pack_start(box_navigation);
+  }
 
   const adj = browse_page.get_vscrollbar().adjustment;
   adj.connect("value-changed", () => {
