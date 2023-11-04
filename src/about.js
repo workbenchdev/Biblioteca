@@ -40,6 +40,7 @@ Flatpak ${flatpak_info.get_string("Instance", "flatpak-version")}
     developers: [
       "Akshay Warrier https://github.com/AkshayWarrier",
       "Sonny Piers https://sonny.re",
+      "skøldis https://turtle.garden"
     ],
     designers: [],
     artists: [],
