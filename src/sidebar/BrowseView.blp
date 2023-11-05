@@ -1,0 +1,24 @@
+using Gtk 4.0;
+
+template $BrowseView: ScrolledWindow {
+  vexpand: true;
+  width-request: 400;
+
+  ListView browse_list_view {
+    enable-rubberband: false;
+    factory: BuilderListItemFactory {
+      template ListItem {
+        child: TreeExpander expander {
+          list-row: bind template.item;
+          child: Inscription {
+            hexpand: true;
+            nat-chars: 10;
+            text-overflow: ellipsize_end;
+            text: bind expander.item as <$DocumentationPage>.name;
+          };
+        };
+      }
+    };
+    styles ["navigation-sidebar"]
+  }
+}

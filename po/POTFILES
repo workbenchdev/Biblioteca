@@ -17,3 +17,11 @@ src/Shortcuts.blp
 src/Shortcuts.js
 src/fzy.js
 src/window.js
+src/sidebar/DocumentationPage.js
+src/sidebar/BrowseView.blp
+src/sidebar/BrowseView.js
+src/sidebar/fzy.js
+src/sidebar/SearchView.blp
+src/sidebar/SearchView.js
+src/sidebar/Sidebar.blp
+src/sidebar/Sidebar.js
