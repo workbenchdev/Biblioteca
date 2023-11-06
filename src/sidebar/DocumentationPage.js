@@ -1,7 +1,9 @@
 import GObject from "gi://GObject";
 import Gio from "gi://Gio";
 
-export const DocumentationPage = GObject.registerClass(
+class DocumentationPage extends GObject.Object {}
+
+export default GObject.registerClass(
   {
     GTypeName: "DocumentationPage",
     Properties: {
@@ -51,5 +53,5 @@ export const DocumentationPage = GObject.registerClass(
       ),
     },
   },
-  class DocumentationPage extends GObject.Object {},
+  DocumentationPage,
 );

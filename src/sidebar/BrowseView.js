@@ -3,7 +3,7 @@ import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 import GObject from "gi://GObject";
 
-import { DocumentationPage } from "./DocumentationPage.js";
+import DocumentationPage from "./DocumentationPage.js";
 import { decode } from "../util.js";
 
 import Template from "./BrowseView.blp" with { type: "uri" };
@@ -44,7 +44,7 @@ const SUBSECTION_TYPES = {
 
 const REQUIRED = ["class", "interface", "record", "domain"];
 
-export default class BrowseView extends Gtk.ScrolledWindow {
+class BrowseView extends Gtk.ScrolledWindow {
   constructor({ webview, ...params }) {
     super(params);
     this._webview = webview;
@@ -386,7 +386,7 @@ function getTagForDocument(doc) {
   }
 }
 
-GObject.registerClass(
+export default GObject.registerClass(
   {
     GTypeName: "BrowseView",
     Template,

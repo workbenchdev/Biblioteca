@@ -6,11 +6,11 @@ import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
 
 import BrowseView from "./BrowseView.js";
 import SearchView from "./SearchView.js";
-import { DocumentationPage } from "./DocumentationPage.js";
+import DocumentationPage from "./DocumentationPage.js";
 
 import Template from "./Sidebar.blp" with { type: "uri" };
 
-export default class Sidebar extends Adw.NavigationPage {
+class Sidebar extends Adw.NavigationPage {
   constructor({ webview, ...params }) {
     super(params);
     this._webview = webview;
@@ -105,7 +105,7 @@ export default class Sidebar extends Adw.NavigationPage {
   }
 }
 
-GObject.registerClass(
+export default GObject.registerClass(
   {
     GTypeName: "Sidebar",
     Template,

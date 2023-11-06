@@ -32,7 +32,7 @@ const QUERY_PATTERN = new RegExp(
   "i",
 );
 
-export default class SearchView extends Gtk.ScrolledWindow {
+class SearchView extends Gtk.ScrolledWindow {
   constructor() {
     super();
     this.#connectSearchTerm();
@@ -110,7 +110,7 @@ export default class SearchView extends Gtk.ScrolledWindow {
   }
 }
 
-GObject.registerClass(
+export default GObject.registerClass(
   {
     GTypeName: "SearchView",
     Template,
