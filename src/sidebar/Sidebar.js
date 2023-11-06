@@ -2,6 +2,8 @@ import Gio from "gi://Gio";
 import Adw from "gi://Adw";
 import GObject from "gi://GObject";
 
+import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
+
 import BrowseView from "./BrowseView.js";
 import SearchView from "./SearchView.js";
 import { DocumentationPage } from "./DocumentationPage.js";
@@ -25,6 +27,11 @@ export default class Sidebar extends Adw.NavigationPage {
     this._stack.visible_child = this._browse_view;
   }
 
+  focusSearch() {
+    this._search_entry.grab_focus();
+    this._search_entry.select_region(0, -1);
+  }
+
   #initializeSidebar() {
     this._browse_view = new BrowseView({
       webview: this._webview,
@@ -46,6 +53,10 @@ export default class Sidebar extends Adw.NavigationPage {
     this._stack.add_child(this._browse_view);
     this._stack.add_child(this._search_view);
     this._stack.visible_child = this._browse_view;
+
+    // Popover menu theme switcher
+    const popover = this._button_menu.get_popover();
+    popover.add_child(new ThemeSelector(), "themeswitcher");
   }
 
   #connectWebView() {

@@ -1,8 +1,6 @@
 import Gtk from "gi://Gtk";
 import WebKit from "gi://WebKit";
 import resource from "./window.blp";
-import ThemeSelector from "../troll/src/widgets/ThemeSelector.js";
-
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 
@@ -44,11 +42,6 @@ export default function DocumentationViewer({ application }) {
     webview.go_back();
   };
 
-  // Popover menu theme switcher
-  const button_menu = sidebar._button_menu;
-  const popover = button_menu.get_popover();
-  popover.add_child(new ThemeSelector(), "themeswitcher");
-
   const onZoomIn = () => {
     if (webview.zoom_level < 2) webview.zoom_level += 0.25;
   };
@@ -62,8 +55,7 @@ export default function DocumentationViewer({ application }) {
   };
 
   const onFocusGlobalSearch = () => {
-    sidebar._search_entry.grab_focus();
-    sidebar._search_entry.select_region(0, -1);
+    sidebar.focusSearch();
   };
 
   Shortcuts({
