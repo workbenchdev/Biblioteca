@@ -1,127 +1,141 @@
-import Gtk from "gi://Gtk";
-import WebKit from "gi://WebKit";
-import resource from "./window.blp";
+import Adw from "gi://Adw";
+import GObject from "gi://GObject";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
+// eslint-disable-next-line no-unused-vars
+import WebView from "./WebView.js";
+
+import Template from "./window.blp" with { type: "uri" };
 
 import "./icons/dock-left-symbolic.svg";
 
-export default function DocumentationViewer({ application }) {
-  const builder = Gtk.Builder.new_from_resource(resource);
+class Window extends Adw.ApplicationWindow {
+  constructor({ application, params = {} }) {
+    super(params);
+    this.application = application;
 
-  const window = builder.get_object("documentation_viewer");
-  const window_breakpoint = builder.get_object("window_breakpoint");
-  const split_view = builder.get_object("split_view");
-  const webview = builder.get_object("webview");
-  const button_back = builder.get_object("button_back");
-  const button_forward = builder.get_object("button_forward");
-  const bottom_toolbar = builder.get_object("bottom_toolbar");
-  const content_header_bar = builder.get_object("content_header_bar");
-  const toolbar_breakpoint = builder.get_object("toolbar_breakpoint");
-  const box_navigation = builder.get_object("box_navigation");
+    if (__DEV__) {
+      this.add_css_class("devel");
+    }
 
-  const sidebar = new Sidebar({ webview });
-  split_view.sidebar = sidebar;
+    this.#createSidebar();
+    this.#setupBreakpoint();
+    this.#connectWebView();
+    this.#connectButtons();
 
-  window_breakpoint.add_setters(
-    [sidebar._browse_view, sidebar._search_view],
-    ["width-request", "width-request"],
-    [300, 300],
-  );
+    this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
+    this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
-  window.application = application;
-  if (__DEV__) {
-    window.add_css_class("devel");
+    Shortcuts(
+      this.application,
+      this,
+      this.onGoForward,
+      this.onGoBack,
+      this.onZoomIn,
+      this.onZoomOut,
+      this.onResetZoom,
+      this.onFocusGlobalSearch,
+    );
   }
 
-  const onGoForward = () => {
-    webview.go_forward();
-  };
-
-  const onGoBack = () => {
-    webview.go_back();
-  };
-
-  const onZoomIn = () => {
-    if (webview.zoom_level < 2) webview.zoom_level += 0.25;
-  };
-
-  const onZoomOut = () => {
-    if (webview.zoom_level > 0.5) webview.zoom_level -= 0.25;
-  };
-
-  const onResetZoom = () => {
-    webview.zoom_level = 1;
-  };
-
-  const onFocusGlobalSearch = () => {
-    sidebar.focusSearch();
-  };
-
-  Shortcuts({
-    application,
-    window,
-    onGoForward,
-    onGoBack,
-    onZoomIn,
-    onZoomOut,
-    onResetZoom,
-    onFocusGlobalSearch,
-  });
-
-  const user_content_manager = webview.get_user_content_manager();
-
-  const stylesheet = new WebKit.UserStyleSheet(
-    ".devhelp-hidden { display: none; }", // source
-    WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
-    WebKit.UserStyleLevel.USER, // level
-    null,
-    null,
-  );
-  user_content_manager.add_style_sheet(stylesheet);
-
-  webview.connect("load-changed", () => {
-    updateButtons();
-  });
-
-  webview.get_back_forward_list().connect("changed", () => {
-    updateButtons();
-  });
-
-  function updateButtons() {
-    button_back.sensitive = webview.can_go_back();
-    button_forward.sensitive = webview.can_go_forward();
-  }
-
-  button_back.connect("clicked", () => {
-    webview.go_back();
-  });
-  button_forward.connect("clicked", () => {
-    webview.go_forward();
-  });
-
-  toolbar_breakpoint.connect("apply", moveNavigationDown);
-  toolbar_breakpoint.connect("unapply", moveNavigationUp);
-
-  function moveNavigationDown() {
-    content_header_bar.remove(box_navigation);
-    bottom_toolbar.append(box_navigation);
-  }
-
-  function moveNavigationUp() {
-    bottom_toolbar.remove(box_navigation);
-    content_header_bar.pack_start(box_navigation);
-  }
-
-  function present() {
+  open() {
     // The window is already open
-    const mapped = window.get_mapped();
-    window.present();
-    onFocusGlobalSearch();
+    const mapped = this.get_mapped();
+    this.present();
+    this.onFocusGlobalSearch();
     if (!mapped) {
-      sidebar.resetSidebar();
+      this._sidebar.resetSidebar();
     }
   }
 
-  return { window, present };
+  onGoForward = () => {
+    this._webview.go_forward();
+  };
+  onGoBack = () => {
+    this._webview.go_back();
+  };
+
+  onZoomIn = () => {
+    if (this._webview.zoom_level < 2) this._webview.zoom_level += 0.25;
+  };
+
+  onZoomOut = () => {
+    if (this._webview.zoom_level > 0.5) this._webview.zoom_level -= 0.25;
+  };
+
+  onResetZoom = () => {
+    this._webview.zoom_level = 1;
+  };
+
+  onFocusGlobalSearch = () => {
+    this._sidebar._search_entry.grab_focus();
+    this._sidebar._search_entry.select_region(0, -1);
+  };
+
+  #moveNavigationDown() {
+    this._content_header_bar.remove(this._box_navigation);
+    this._bottom_toolbar.append(this._box_navigation);
+  }
+
+  #moveNavigationUp() {
+    this._bottom_toolbar.remove(this._box_navigation);
+    this._content_header_bar.pack_start(this._box_navigation);
+  }
+
+  #createSidebar() {
+    this._sidebar = new Sidebar({ webview: this._webview });
+    this._split_view.sidebar = this._sidebar;
+  }
+
+  #setupBreakpoint() {
+    this._window_breakpoint.add_setters(
+      [this._sidebar.browse_view, this._sidebar.search_view],
+      ["width-request", "width-request"],
+      [300, 300],
+    );
+  }
+
+  #connectWebView() {
+    this._webview.connect("load-changed", () => {
+      this.#updateButtons();
+    });
+
+    this._webview.get_back_forward_list().connect("changed", () => {
+      this.#updateButtons();
+    });
+  }
+
+  #updateButtons() {
+    this._button_back.sensitive = this._webview.can_go_back();
+    this._button_forward.sensitive = this._webview.can_go_forward();
+  }
+
+  #connectButtons() {
+    this._button_back.connect("clicked", () => {
+      this._webview.go_back();
+    });
+
+    this._button_forward.connect("clicked", () => {
+      this._webview.go_forward();
+    });
+  }
 }
+
+export default GObject.registerClass(
+  {
+    GTypeName: "Window",
+    Template,
+    InternalChildren: [
+      "window_breakpoint",
+      "split_view",
+      "toolbar_breakpoint",
+      "content_header_bar",
+      "box_navigation",
+      "button_back",
+      "button_forward",
+      "bottom_toolbar",
+      "webview",
+    ],
+  },
+  Window,
+);

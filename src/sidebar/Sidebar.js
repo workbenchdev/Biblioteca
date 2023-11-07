@@ -21,10 +21,10 @@ class Sidebar extends Adw.NavigationPage {
   }
 
   resetSidebar() {
-    this._browse_view.collapseAllRows();
-    this._browse_view.selection_model.selected = 12;
+    this.browse_view.collapseAllRows();
+    this.browse_view.selection_model.selected = 12;
     this._search_entry.text = "";
-    this._stack.visible_child = this._browse_view;
+    this._stack.visible_child = this.browse_view;
   }
 
   focusSearch() {
@@ -33,26 +33,26 @@ class Sidebar extends Adw.NavigationPage {
   }
 
   #initializeSidebar() {
-    this._browse_view = new BrowseView({
+    this.browse_view = new BrowseView({
       webview: this._webview,
     });
-    this._search_view = new SearchView();
+    this.search_view = new SearchView();
 
-    this._search_view.connect("search-view-selection-changed", (_, uri) => {
+    this.search_view.connect("search-view-selection-changed", (_, uri) => {
       const path = this.uri_to_tree_path[uri];
       if (!path) return;
-      this._browse_view.selectItem(path);
+      this.browse_view.selectItem(path);
     });
 
-    this._browse_view.connect("browse-view-loaded", () => {
-      this.flattened_model = this.#flattenModel(this._browse_view.root_model);
-      this._browse_view.selection_model.selected = 12;
-      this._search_view.initializeModel(this.flattened_model);
+    this.browse_view.connect("browse-view-loaded", () => {
+      this.flattened_model = this.#flattenModel(this.browse_view.root_model);
+      this.browse_view.selection_model.selected = 12;
+      this.search_view.initializeModel(this.flattened_model);
     });
 
-    this._stack.add_child(this._browse_view);
-    this._stack.add_child(this._search_view);
-    this._stack.visible_child = this._browse_view;
+    this._stack.add_child(this.browse_view);
+    this._stack.add_child(this.search_view);
+    this._stack.visible_child = this.browse_view;
 
     // Popover menu theme switcher
     const popover = this._button_menu.get_popover();
@@ -65,12 +65,11 @@ class Sidebar extends Adw.NavigationPage {
       this._webview.visible = false;
       this._webview.visible = true;
 
-      const selected_item =
-        this._browse_view.selection_model.selected_item.item;
+      const selected_item = this.browse_view.selection_model.selected_item.item;
       if (this._webview.uri !== selected_item.uri) {
         const path = this.uri_to_tree_path[this._webview.uri];
         if (!path) return;
-        this._browse_view.selectItem(path);
+        this.browse_view.selectItem(path);
       }
     });
   }
@@ -94,12 +93,12 @@ class Sidebar extends Adw.NavigationPage {
   #connectSearchEntry() {
     this._search_entry.connect("search-changed", () => {
       if (this._search_entry.text) {
-        this._stack.visible_child = this._search_view;
-        this._search_view.search_term = this._search_entry.text;
-        if (!this._search_view.selection_model.n_items)
+        this._stack.visible_child = this.search_view;
+        this.search_view.search_term = this._search_entry.text;
+        if (!this.search_view.selection_model.n_items)
           this._stack.visible_child = this._status_page;
       } else {
-        this._stack.visible_child = this._browse_view;
+        this._stack.visible_child = this.browse_view;
       }
     });
   }
