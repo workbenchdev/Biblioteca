@@ -2,7 +2,7 @@ import Adw from "gi://Adw";
 
 import Actions from "./actions.js";
 import { settings } from "./util.js";
-import DocumentationViewer from "./window.js";
+import Window from "./window.js";
 
 const application = new Adw.Application({
   application_id: pkg.name,
@@ -11,12 +11,12 @@ const application = new Adw.Application({
   resource_base_path: "/app/drey/Biblioteca",
 });
 
-let documentation_viewer;
+let window;
 application.connect("activate", () => {
-  if (!documentation_viewer) {
-    documentation_viewer = DocumentationViewer({ application });
+  if (!window) {
+    window = new Window({ application });
   }
-  documentation_viewer.present();
+  window.open();
 });
 
 application.set_option_context_description(

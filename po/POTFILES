@@ -25,3 +25,5 @@ src/sidebar/SearchView.blp
 src/sidebar/SearchView.js
 src/sidebar/Sidebar.blp
 src/sidebar/Sidebar.js
+src/WebView.blp
+src/WebView.js

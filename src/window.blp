@@ -3,7 +3,7 @@ using Adw 1;
 using GObject 2.0;
 using WebKit 6.0;
 
-Adw.ApplicationWindow documentation_viewer {
+template $Window: Adw.ApplicationWindow {
   width-request: 360;
   height-request: 360;
   default-width: 1024;
@@ -22,7 +22,7 @@ Adw.ApplicationWindow documentation_viewer {
     show-sidebar: bind button_sidebar.active;
 
     content: Adw.NavigationPage {
-      title: bind documentation_viewer.title;
+      title: bind template.title;
       child: Adw.BreakpointBin {
         width-request: 360;
         height-request: 360;
@@ -70,14 +70,8 @@ Adw.ApplicationWindow documentation_viewer {
             visible: false;
           }
 
-          WebKit.WebView webview {
-            vexpand: true;
-            settings: WebKit.Settings {
-              enable-back-forward-navigation-gestures: true;
-              enable-developer-extras: true;
-              enable-smooth-scrolling: true;
-            };
-          }
+          $WebView webview {}
+
         };
       };
     };

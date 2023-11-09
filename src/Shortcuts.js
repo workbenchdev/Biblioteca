@@ -2,7 +2,7 @@ import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
 import resource from "./Shortcuts.blp";
 
-export default function Shortcuts({
+export default function Shortcuts(
   application,
   window,
   onGoForward,
@@ -11,7 +11,7 @@ export default function Shortcuts({
   onZoomOut,
   onResetZoom,
   onFocusGlobalSearch,
-}) {
+) {
   let window_shortcuts;
   const action_shortcuts = new Gio.SimpleAction({
     name: "shortcuts",
