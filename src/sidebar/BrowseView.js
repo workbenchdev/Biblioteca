@@ -140,13 +140,12 @@ class BrowseView extends Gtk.ScrolledWindow {
   }
 
   async #loadDocs() {
-    return Promise.all([
-      this.#scanLibraries(Gio.File.new_for_path("/usr/share/doc")),
-      this.#scanLibraries(Gio.File.new_for_path("/usr/share/gtk-doc/html")),
+    await Promise.all([
+      // this.#scanLibraries(Gio.File.new_for_path("/usr/share/doc")),
       this.#scanLibraries(Gio.File.new_for_path("/app/share/doc")),
-    ]).then(() => {
-      this.emit("browse-view-loaded");
-    });
+    ]);
+
+    this.emit("browse-view-loaded");
   }
 
   async #scanLibraries(base_dir) {

@@ -40,7 +40,8 @@
           "type": "dir",
           "path": ".."
         }
-      ]
+      ],
+      "post-install": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
     }
   ]
 }

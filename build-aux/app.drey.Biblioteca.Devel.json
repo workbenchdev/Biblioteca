@@ -1,6 +1,6 @@
 {
   "id": "app.drey.Biblioteca.Devel",
-  "runtime": "org.gnome.Sdk",
+  "runtime": "org.gnome.Platform",
   "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
@@ -9,8 +9,7 @@
     "--share=ipc",
     "--socket=fallback-x11",
     "--socket=wayland",
-    "--device=dri",
-    "--share=network"
+    "--device=dri"
   ],
   "cleanup": [
     "/include",
@@ -40,7 +39,8 @@
           "type": "dir",
           "path": ".."
         }
-      ]
+      ],
+      "post-install": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
     }
   ]
 }
