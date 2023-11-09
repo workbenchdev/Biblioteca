@@ -397,3 +397,21 @@ export default GObject.registerClass(
   },
   BrowseView,
 );
+
+Gio._promisify(
+  Gio.File.prototype,
+  "load_contents_async",
+  "load_contents_finish",
+);
+
+Gio._promisify(
+  Gio.FileEnumerator.prototype,
+  "next_files_async",
+  "next_files_finish",
+);
+
+Gio._promisify(
+  Gio.File.prototype,
+  "enumerate_children_async",
+  "enumerate_children_finish",
+);
