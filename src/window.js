@@ -2,8 +2,7 @@ import Adw from "gi://Adw";
 import GObject from "gi://GObject";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
-// eslint-disable-next-line no-unused-vars
-import WebView from "./WebView.js";
+import "./WebView.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
