@@ -40,7 +40,10 @@
           "path": ".."
         }
       ],
-      "post-install": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
+      "post-install": [
+        "cp -a /usr/share/runtime/docs/doc/. /app/share/doc/",
+        "cp -a /usr/share/runtime/docs/gtk-doc/html/ /app/share/doc/"
+      ]
     }
   ]
 }

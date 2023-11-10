@@ -141,7 +141,7 @@ class BrowseView extends Gtk.ScrolledWindow {
 
   async #loadDocs() {
     await Promise.all([
-      // this.#scanLibraries(Gio.File.new_for_path("/usr/share/doc")),
+      this.#scanLibraries(Gio.File.new_for_path("/app/share/doc/html")),
       this.#scanLibraries(Gio.File.new_for_path("/app/share/doc")),
     ]);
 
