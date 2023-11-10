@@ -56,9 +56,9 @@ cd Biblioteca # this repo
 # update version in meson.build
 # add or update the release in data/app.metainfo.xml
 git add meson.build data/app.meta.info.xml
-git commit -m '$V'
+git commit -m v$version # it's a convention to prefix version tags with "v"
 git push
-git tag v$version # it's a convention to prefix version tags with "v"
+git tag v$version
 git push -u origin v$version
 
 cd ../app.drey.Biblioteca/ # https://github.com/flathub/app.drey.Biblioteca/
@@ -67,7 +67,7 @@ cp ../Biblioteca/build-aux/app.drey.Biblioteca.json . # copy the release manifes
 # update the commit and tag in the app.drey.Biblioteca.json
 cp -r ../Biblioteca/build-aux/modules . # copy the modules
 git add .
-git commit -m '$V'
+git commit -m v$version
 git push
 ```
 
