@@ -128,6 +128,7 @@ class BrowseView extends Gtk.ScrolledWindow {
       (item) => item.children,
     );
     this.selection_model = Gtk.SingleSelection.new(this._tree_model);
+    this.selection_model.autoselect = false;
     this.selection_model.connect("selection-changed", () => {
       // If selection changed to sync the sidebar, dont load_uri again
       const uri = this.selection_model.selected_item.item.uri;

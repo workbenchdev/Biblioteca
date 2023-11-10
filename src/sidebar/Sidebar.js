@@ -98,7 +98,10 @@ class Sidebar extends Adw.NavigationPage {
         if (!this.search_view.selection_model.n_items)
           this._stack.visible_child = this._status_page;
       } else {
+        const index = this.browse_view.selection_model.selected;
         this._stack.visible_child = this.browse_view;
+        // Make sure the selection doesnt change when switching views
+        this.browse_view.selection_model.selected = index;
       }
     });
   }
