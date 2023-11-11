@@ -198,6 +198,8 @@ class BrowseView extends Gtk.ScrolledWindow {
       });
 
       this.root_model.insert_sorted(page, this.#sortFunc);
+      // Dont move scrollbar while items are being inserted
+      this._adj.value = 0;
     } catch (error) {
       if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.NOT_FOUND))
         throw error;
