@@ -28,7 +28,7 @@ Flatpak ${flatpak_info.get_string("Instance", "flatpak-version")}
     transient_for: application.get_active_window(),
     application_name: "Biblioteca",
     developer_name: "Akshay Warrier",
-    copyright: "© 2022 Akshay Warrier",
+    copyright: "© 2023 Akshay Warrier",
     license_type: Gtk.License.GPL_3_0_ONLY,
     version: pkg.version,
     website: "https://github.com/workbenchdev/Biblioteca",
