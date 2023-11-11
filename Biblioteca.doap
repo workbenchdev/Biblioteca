@@ -18,6 +18,26 @@
 
   <maintainer>
     <foaf:Person>
+      <foaf:name>Akshay Warrier</foaf:name>
+      <foaf:mbox rdf:resource="mailto:akshaywarrier@gnome.org" />
+      <gnome:userid>akshaywarrier</gnome:userid>
+      <foaf:account>
+        <foaf:OnlineAccount>
+            <foaf:accountServiceHomepage rdf:resource="https://github.com/" />
+            <foaf:accountName>AkshayWarrier</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+      <foaf:account>
+        <foaf:OnlineAccount>
+          <foaf:accountServiceHomepage rdf:resource="https://gitlab.gnome.org"/>
+          <foaf:accountName>AkshayWarrier</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+    </foaf:Person>
+  </maintainer>
+
+  <maintainer>
+    <foaf:Person>
       <foaf:name>Sonny Piers</foaf:name>
       <foaf:mbox rdf:resource="mailto:sonnyp@gnome.org" />
       <gnome:userid>sonnyp</gnome:userid>
