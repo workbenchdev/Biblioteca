@@ -6,7 +6,7 @@ import "./WebView.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
-import "./icons/dock-left-symbolic.svg";
+import "./icons/sidebar-show-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
   constructor({ application, params = {} }) {
