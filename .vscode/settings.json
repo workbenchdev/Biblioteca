@@ -21,7 +21,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vala.languageServerPath": "${workspaceFolder}/.flatpak/vala-language-server.sh",
+  "mesonbuild.mesonPath": "${workspaceFolder}/.flatpak/meson.sh",
   "mesonbuild.configureOnOpen": false,
-  "mesonbuild.buildFolder": "_build",
-  "mesonbuild.mesonPath": "${workspaceFolder}/.flatpak/meson.sh"
+  "mesonbuild.buildFolder": "_build"
 }
