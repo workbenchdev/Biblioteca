@@ -22,8 +22,12 @@ class Window extends Adw.ApplicationWindow {
     this.#connectWebView();
     this.#connectButtons();
 
-    this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
-    this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
+    this._toolbar_breakpoint.connect("apply", () => {
+      this.#moveNavigationDown();
+    });
+    this._toolbar_breakpoint.connect("unapply", () => {
+      this.#moveNavigationUp();
+    });
 
     Shortcuts(
       this.application,
