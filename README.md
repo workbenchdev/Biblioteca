@@ -13,7 +13,6 @@ Among other things, Biblioteca comes with
 - Offline documentation
 - Dark mode support
 - Fuzzy search
-- Platform Tools
 - Mobile / adaptive
 
 ℹ️ Biblioteca is made possible by Flatpak. Only Flathub Biblioteca is supported.
@@ -22,7 +21,7 @@ Among other things, Biblioteca comes with
 
 ## History
 
-Biblioteca originally started as a built-in offline documentation viewer for [Workbench](https://github.com/sonnyp/Workbench). It was built by Akshay Warrier as a "stretch-goal" of [his 2023 GSoC internship](https://akshaywarrier.medium.com/) under the mentorship of Andy Holmes and Sonny Piers.
+Biblioteca originally started as a built-in offline documentation viewer for [Workbench](https://github.com/workbenchdev/Workbench). It was built by Akshay Warrier as a "stretch-goal" of [his 2023 GSoC internship](https://akshaywarrier.medium.com/) under the mentorship of Andy Holmes and Sonny Piers.
 
 The offline documentation viewer has been extracted into a standalone repository/app and became Biblioteca.
 

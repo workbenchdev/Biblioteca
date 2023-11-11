@@ -9,8 +9,8 @@
   <shortdesc>Documentation viewer for GNOME</shortdesc>
   <description>Biblioteca lets you browse and read GNOME documentation.</description>
 
-  <homepage rdf:resource="https://github.com/sonnyp/Biblioteca" />
-  <bug-database rdf:resource="https://github.com/sonnyp/Biblioteca/issues" />
+  <homepage rdf:resource="https://github.com/workbenchdev/Biblioteca" />
+  <bug-database rdf:resource="https://github.com/workbenchdev/Biblioteca/issues" />
   <programming-language>JavaScript</programming-language>
 
   <platform>GTK 4</platform>
