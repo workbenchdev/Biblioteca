@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the app.drey.Biblioteca package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app.drey.Biblioteca\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-04 17:06+0100\n"
+"PO-Revision-Date: 2023-11-12 21:28+0100\n"
+"Last-Translator: skøldis <turtle@turtle.garden>\n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:4
+msgid "Biblioteca"
+msgstr "Biblioteca"
+
+#: data/app.desktop:5
+msgid "Learn and prototype with GNOME technologies"
+msgstr "Lär dig och prototypa med GNOME-teknik"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:12
+msgid ""
+"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;"
+"Python;PyGObject;Rust;doc;code;"
+msgstr ""
+"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;"
+"Python;PyGObject;Rust;doc;code;"
+
+#: data/app.metainfo.xml:10
+msgid "Documentation viewer for GNOME"
+msgstr "Dokumentationsvisare för GNOME"
+
+#: data/app.metainfo.xml:13
+msgid "Biblioteca lets you browse and read GNOME documentation."
+msgstr ""
+"Biblioteca tillåter dig att bläddra och läsa GNOME-"
+"dokumentation."
+
+#: data/app.metainfo.xml:14
+msgid "Among other things, Biblioteca comes with"
+msgstr "Biblioteca levereras bland annat med"
+
+#: data/app.metainfo.xml:16
+msgid "Offline documentation"
+msgstr "Offline-dokumentation"
+
+#: data/app.metainfo.xml:17
+msgid "Dark mode support"
+msgstr "Stöd för mörkt läge"
+
+#: data/app.metainfo.xml:18
+msgid "Fuzzy search"
+msgstr "Fuzzy-sökning"
+
+#: data/app.metainfo.xml:19 src/window.blp:231
+msgid "Platform Tools"
+msgstr "Platformsverktyg"
+
+#: data/app.metainfo.xml:20
+msgid "Mobile / adaptive"
+msgstr "Adaptivitet"
+
+#. TRANSLATORS: eg. 'Translator Name <your.email@domain.com>' or 'Translator Name https://website.example'
+#: src/about.js:38
+msgid "translator-credits"
+msgstr "skøldis <biblioteca@turtle.garden>"
+
+#: src/about.js:48
+msgid "Contributors"
+msgstr "Bidragsgivare"
+
+#: troll/src/widgets/ThemeSelector.blp:22
+#: troll/src/widgets/ThemeSelector.blp:25
+msgid "Follow system style"
+msgstr "Följ systemets stil"
+
+#: troll/src/widgets/ThemeSelector.blp:41
+#: troll/src/widgets/ThemeSelector.blp:44
+msgid "Light style"
+msgstr "Ljus stil"
+
+#: troll/src/widgets/ThemeSelector.blp:60
+#: troll/src/widgets/ThemeSelector.blp:63
+msgid "Dark style"
+msgstr "Mörk stil"
+
+#: src/window.blp:33
+msgid "Search Biblioteca"
+msgstr "Sök i Biblioteca"
+
+#: src/window.blp:39
+msgid "Main Menu"
+msgstr "Huvudmeny"
+
+#: src/window.blp:99
+msgid "No Results Found"
+msgstr "Inga resultat hittades"
+
+#: src/window.blp:100
+msgid "Try a different search term"
+msgstr "Försök med en annan sökning"
+
+#: src/window.blp:126
+msgid "Open Sidebar"
+msgstr "Visa sidopanel"
+
+#: src/window.blp:137
+msgid "Back"
+msgstr "Bakat"
+
+#: src/window.blp:143
+msgid "Forward"
+msgstr "Framåt"
+
+#: src/window.blp:179
+msgid "Bookmarks"
+msgstr "Bokmärken"
+
+#: src/window.blp:182
+#, fuzzy
+msgid "Developer Documentation"
+msgstr "Utvecklarsdokumentation"
+
+#: src/window.blp:188
+msgid "Human Interface Guidelines"
+msgstr "Riktlinjer för användargränssnitt"
+
+#: src/window.blp:194
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: src/window.blp:200
+msgid "Vala"
+msgstr "Vala"
+
+#: src/window.blp:206
+msgid "Rust"
+msgstr "Rust"
+
+#: src/window.blp:212
+msgid "Python"
+msgstr "Python"
+
+#: src/window.blp:218
+msgid "Blueprint"
+msgstr "Blueprint"
+
+#: src/window.blp:224
+msgid "Get Help"
+msgstr "Få hjälp"
+
+#: src/window.blp:234
+msgid "Adwaita Demo"
+msgstr "Adwaita-demo"
+
+#: src/window.blp:240
+msgid "GTK Demo"
+msgstr "GTK-demo"
+
+#: src/window.blp:246
+msgid "GTK Widget Factory"
+msgstr "GTK Widgetfabrik"
+
+#: src/window.blp:255
+msgid "Keyboard Shortcuts"
+msgstr "Tangentbordsgenvägar"
+
+#: src/window.blp:260
+msgid "About Biblioteca"
+msgstr "Om Biblioteca"
+
+#: src/Shortcuts.blp:11
+msgid "Navigation"
+msgstr "Navigering"
+
+#: src/Shortcuts.blp:14 src/Shortcuts.blp:30
+msgid "Go back to the previous page"
+msgstr "Gå bakat till föregående sida"
+
+#: src/Shortcuts.blp:19 src/Shortcuts.blp:35
+msgid "Go forward to the next page"
+msgstr "Gå fråmat till nästa sida"
+
+#: src/Shortcuts.blp:24
+msgid "Focus global search"
+msgstr "Fokusera globalsökning"
+
+#: src/Shortcuts.blp:40
+msgid "Zoom"
+msgstr "Zooma"
+
+#: src/Shortcuts.blp:43
+msgid "Zoom in"
+msgstr "Zooma in"
+
+#: src/Shortcuts.blp:48
+msgid "Zoom out"
+msgstr "Zooma ut"
+
+#: src/Shortcuts.blp:53
+msgid "Reset zoom"
+msgstr "Återställ zoom"
+
+#: src/Shortcuts.blp:59
+msgid "General"
+msgstr "Allmänt"
+
+#: src/Shortcuts.blp:62
+msgid "Close Window"
+msgstr "Stäng fönstret"
+
+#: src/Shortcuts.blp:67
+msgid "Shortcuts"
+msgstr "Tangentbordsgenvägar"
