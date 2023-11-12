@@ -4,7 +4,7 @@
 
 Documentation viewer for GNOME.
 
-<!-- <a href='https://flathub.org/apps/app.drey.Biblioteca'><img width='240' height='80' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.svg'/></a> -->
+<a href='https://flathub.org/apps/app.drey.Biblioteca'><img width='240' height='80' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.svg'/></a>
 
 Biblioteca lets you browse and read GNOME documentation.
 
