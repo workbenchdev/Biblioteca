@@ -7,15 +7,26 @@ import GLib from "gi://GLib";
 import Template from "./WebView.blp" with { type: "uri" };
 
 class WebView extends WebKit.WebView {
-  constructor({ window, ...params } = {}) {
-    super(params);
+  constructor(...args) {
+    super(...args);
 
     this.#disablePageSidebar();
-
-    this.connect("decide-policy", this.#decidePolicy);
+    this.connect("decide-policy", this.#onDecidePolicy);
   }
 
-  #decidePolicy = (_self, decision, decision_type) => {
+  #disablePageSidebar() {
+    const user_content_manager = this.get_user_content_manager();
+    const stylesheet = new WebKit.UserStyleSheet(
+      ".devhelp-hidden { display: none; }", // source
+      WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
+      WebKit.UserStyleLevel.USER, // level
+      null,
+      null,
+    );
+    user_content_manager.add_style_sheet(stylesheet);
+  }
+
+  #onDecidePolicy = (_self, decision, decision_type) => {
     console.debug(
       "decide-policy",
       getEnum(WebKit.PolicyDecisionType, decision_type),
@@ -40,18 +51,6 @@ class WebView extends WebKit.WebView {
 
     return false;
   };
-
-  #disablePageSidebar() {
-    const user_content_manager = this.get_user_content_manager();
-    const stylesheet = new WebKit.UserStyleSheet(
-      ".devhelp-hidden { display: none; }", // source
-      WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
-      WebKit.UserStyleLevel.USER, // level
-      null,
-      null,
-    );
-    user_content_manager.add_style_sheet(stylesheet);
-  }
 }
 
 export function getEnum(enums, idx) {
