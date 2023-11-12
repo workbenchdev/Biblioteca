@@ -29,11 +29,11 @@ msgstr "Lär dig och prototypa med GNOME-teknik"
 #. TRANSLATORS: Don't translate
 #: data/app.desktop:12
 msgid ""
-"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;"
-"Python;PyGObject;Rust;doc;code;"
+"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;Python;PyGObject;"
+"Rust;doc;code;"
 msgstr ""
-"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;"
-"Python;PyGObject;Rust;doc;code;"
+"CSS;JavaScript;GJS;Blueprint;builder;Vala;GTK;libadwaita;Python;PyGObject;"
+"Rust;doc;code;"
 
 #: data/app.metainfo.xml:10
 msgid "Documentation viewer for GNOME"
@@ -41,9 +41,7 @@ msgstr "Dokumentationsvisare för GNOME"
 
 #: data/app.metainfo.xml:13
 msgid "Biblioteca lets you browse and read GNOME documentation."
-msgstr ""
-"Biblioteca tillåter dig att bläddra och läsa GNOME-"
-"dokumentation."
+msgstr "Biblioteca tillåter dig att bläddra och läsa GNOME-dokumentation."
 
 #: data/app.metainfo.xml:14
 msgid "Among other things, Biblioteca comes with"
