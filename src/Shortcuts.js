@@ -3,15 +3,16 @@ import Gio from "gi://Gio";
 import resource from "./Shortcuts.blp";
 
 export default function Shortcuts(
-  application,
   window,
-  onGoForward,
-  onGoBack,
-  onZoomIn,
-  onZoomOut,
-  onResetZoom,
-  onFocusGlobalSearch,
+  goForward,
+  goBack,
+  zoomIn,
+  zoomOut,
+  resetZoom,
+  focusGlobalSearch,
 ) {
+  const { application } = window;
+
   let window_shortcuts;
   const action_shortcuts = new Gio.SimpleAction({
     name: "shortcuts",
@@ -36,12 +37,12 @@ export default function Shortcuts(
   const shortcuts = [
     [["<Primary>question"], open],
     [["<Control>w"], () => window.close()],
-    [["<Alt>Right"], onGoForward],
-    [["<Alt>Left"], onGoBack],
-    [["<Control>plus", "<Control>equal"], onZoomIn],
-    [["<Control>minus", "<Control>underscore"], onZoomOut],
-    [["<Control>0"], onResetZoom],
-    [["<Control>K"], onFocusGlobalSearch],
+    [["<Alt>Right"], goForward],
+    [["<Alt>Left"], goBack],
+    [["<Control>plus", "<Control>equal"], zoomIn],
+    [["<Control>minus", "<Control>underscore"], zoomOut],
+    [["<Control>0"], resetZoom],
+    [["<Control>K"], focusGlobalSearch],
   ];
 
   const shortcutController = new Gtk.ShortcutController();

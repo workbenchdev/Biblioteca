@@ -33,9 +33,9 @@ const QUERY_PATTERN = new RegExp(
 );
 
 class SearchView extends Gtk.ScrolledWindow {
-  constructor() {
-    super();
-    this.#connectSearchTerm();
+  constructor(params = {}) {
+    super(params);
+    this.connect("notify::search-term", this.#onNotifySearchTem);
   }
 
   get search_term() {
@@ -54,13 +54,11 @@ class SearchView extends Gtk.ScrolledWindow {
     this.#createSearchSelectionModel();
   }
 
-  #connectSearchTerm() {
-    this.connect("notify::search-term", () => {
-      this.selection_model.unselect_item(this.selection_model.selected);
-      this._filter_model.filter = this.#createFilter();
-      this._search_list_view.scroll_to(0, Gtk.ListScrollFlags.NONE, null);
-    });
-  }
+  #onNotifySearchTem = () => {
+    this.selection_model.unselect_item(this.selection_model.selected);
+    this._filter_model.filter = this.#createFilter();
+    this._search_list_view.scroll_to(0, Gtk.ListScrollFlags.NONE, null);
+  };
 
   #createFilter() {
     let search_term = this.search_term;
