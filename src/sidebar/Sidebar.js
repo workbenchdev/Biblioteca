@@ -11,7 +11,7 @@ import DocumentationPage from "./DocumentationPage.js";
 import Template from "./Sidebar.blp" with { type: "uri" };
 
 class Sidebar extends Adw.NavigationPage {
-  constructor({ webview, ...params }) {
+  constructor({ webview, ...params } = {}) {
     super(params);
     this._webview = webview;
     this.uri_to_tree_path = {};

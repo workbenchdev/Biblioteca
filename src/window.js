@@ -9,9 +9,8 @@ import Template from "./window.blp" with { type: "uri" };
 import "./icons/sidebar-show-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
-  constructor({ application, params = {} }) {
+  constructor(params = {}) {
     super(params);
-    this.application = application;
 
     if (__DEV__) {
       this.add_css_class("devel");
@@ -19,25 +18,26 @@ class Window extends Adw.ApplicationWindow {
 
     this.#createSidebar();
     this.#setupBreakpoint();
-    this.#connectWebView();
-    this.#connectButtons();
 
-    this._toolbar_breakpoint.connect("apply", () => {
-      this.#moveNavigationDown();
-    });
-    this._toolbar_breakpoint.connect("unapply", () => {
-      this.#moveNavigationUp();
-    });
+    this._button_back.connect("clicked", this.goBack);
+    this._button_forward.connect("clicked", this.goForward);
+
+    this._webview.connect("load-changed", this.#updateButtons);
+    this._webview
+      .get_back_forward_list()
+      .connect("changed", this.#updateButtons);
+
+    this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
+    this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
     Shortcuts(
-      this.application,
       this,
-      this.onGoForward,
-      this.onGoBack,
-      this.onZoomIn,
-      this.onZoomOut,
-      this.onResetZoom,
-      this.onFocusGlobalSearch,
+      this.goForward,
+      this.goBack,
+      this.zoomIn,
+      this.zoomOut,
+      this.resetZoom,
+      this.focusGlobalSearch,
     );
   }
 
@@ -45,45 +45,46 @@ class Window extends Adw.ApplicationWindow {
     // The window is already open
     const mapped = this.get_mapped();
     this.present();
-    this.onFocusGlobalSearch();
+    this.focusGlobalSearch();
     if (!mapped) {
       this._sidebar.resetSidebar();
     }
   }
 
-  onGoForward = () => {
+  goForward = () => {
     this._webview.go_forward();
   };
-  onGoBack = () => {
+
+  goBack = () => {
     this._webview.go_back();
   };
 
-  onZoomIn = () => {
+  zoomIn = () => {
     if (this._webview.zoom_level < 2) this._webview.zoom_level += 0.25;
   };
 
-  onZoomOut = () => {
+  zoomOut = () => {
     if (this._webview.zoom_level > 0.5) this._webview.zoom_level -= 0.25;
   };
 
-  onResetZoom = () => {
+  resetZoom = () => {
     this._webview.zoom_level = 1;
   };
 
-  onFocusGlobalSearch = () => {
+  focusGlobalSearch = () => {
     this._sidebar._search_entry.grab_focus();
     this._sidebar._search_entry.select_region(0, -1);
   };
 
-  #moveNavigationDown() {
+  #moveNavigationDown = () => {
     this._content_header_bar.remove(this._box_navigation);
     this._bottom_toolbar.append(this._box_navigation);
-  }
+  };
 
-  #moveNavigationUp() {
+  #moveNavigationUp = () => {
     this._bottom_toolbar.remove(this._box_navigation);
     this._content_header_bar.pack_start(this._box_navigation);
-  }
+  };
 
   #createSidebar() {
     this._sidebar = new Sidebar({ webview: this._webview });
@@ -98,30 +99,10 @@ class Window extends Adw.ApplicationWindow {
     );
   }
 
-  #connectWebView() {
-    this._webview.connect("load-changed", () => {
-      this.#updateButtons();
-    });
-
-    this._webview.get_back_forward_list().connect("changed", () => {
-      this.#updateButtons();
-    });
-  }
-
-  #updateButtons() {
+  #updateButtons = () => {
     this._button_back.sensitive = this._webview.can_go_back();
     this._button_forward.sensitive = this._webview.can_go_forward();
-  }
-
-  #connectButtons() {
-    this._button_back.connect("clicked", () => {
-      this._webview.go_back();
-    });
-
-    this._button_forward.connect("clicked", () => {
-      this._webview.go_forward();
-    });
-  }
+  };
 }
 
 export default GObject.registerClass(
