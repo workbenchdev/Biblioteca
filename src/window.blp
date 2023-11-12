@@ -8,7 +8,8 @@ template $Window: Adw.ApplicationWindow {
   height-request: 360;
   default-width: 1024;
   default-height: 768;
-  title: bind webview.title;
+  title: "Biblioteca";
+  // title: bind webview.title;
 
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
@@ -61,6 +62,14 @@ template $Window: Adw.ApplicationWindow {
                 styles ["flat"]
               }
             }
+
+            [end]
+            Button new_tab {
+              icon-name: "plus-symbolic";
+              tooltip-text: _("New Tab");
+              clicked => $newTab();
+              styles ["flat"]
+            }
           }
 
           [bottom]
@@ -70,8 +79,17 @@ template $Window: Adw.ApplicationWindow {
             visible: false;
           }
 
-          $WebView webview {}
+          Box {
+            orientation: vertical;
 
+            Adw.TabBar {
+              view: tab_view;
+            }
+
+            Adw.TabView tab_view {
+              vexpand: true;
+            }
+          }
         };
       };
     };

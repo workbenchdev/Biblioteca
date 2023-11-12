@@ -45,9 +45,8 @@ const SUBSECTION_TYPES = {
 const REQUIRED = ["class", "interface", "record", "domain"];
 
 class BrowseView extends Gtk.ScrolledWindow {
-  constructor({ webview, ...params }) {
-    super(params);
-    this._webview = webview;
+  constructor() {
+    super();
     this.root_model = Gio.ListStore.new(DocumentationPage);
     this.#createBrowseSelectionModel();
     this.#loadDocs().catch(console.error);
@@ -57,6 +56,17 @@ class BrowseView extends Gtk.ScrolledWindow {
     this._adj.connect("value-changed", () => {
       this.#adjustScrolling;
     });
+  }
+
+  get webview() {
+    if (this._webview === undefined) this._webview = null;
+    return this._webview;
+  }
+
+  set webview(value) {
+    if (this._webview === value) return;
+    this._webview = value;
+    this.notify("webview");
   }
 
   selectItem(path) {
@@ -132,10 +142,10 @@ class BrowseView extends Gtk.ScrolledWindow {
     this.selection_model.connect("selection-changed", () => {
       // If selection changed to sync the sidebar, dont load_uri again
       const uri = this.selection_model.selected_item.item.uri;
-      if (this._webview.uri === uri) {
+      if (this.webview.uri === uri) {
         return;
       }
-      this._webview.load_uri(uri);
+      this.webview.load_uri(uri);
     });
     this._browse_list_view.model = this.selection_model;
   }
@@ -392,6 +402,15 @@ export default GObject.registerClass(
   {
     GTypeName: "BrowseView",
     Template,
+    Properties: {
+      webview: GObject.ParamSpec.object(
+        "webview",
+        "webview",
+        "Current active webview",
+        GObject.ParamFlags.READWRITE,
+        GObject.Object,
+      ),
+    },
     Signals: {
       "browse-view-loaded": {},
     },

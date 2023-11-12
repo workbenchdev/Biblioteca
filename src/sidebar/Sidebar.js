@@ -16,7 +16,6 @@ class Sidebar extends Adw.NavigationPage {
     this._webview = webview;
     this.uri_to_tree_path = {};
     this.#initializeSidebar();
-    this.#connectWebView();
     this.#connectSearchEntry();
   }
 
@@ -33,10 +32,18 @@ class Sidebar extends Adw.NavigationPage {
   }
 
   #initializeSidebar() {
-    this.browse_view = new BrowseView({
-      webview: this._webview,
-    });
+    this.browse_view = new BrowseView();
     this.search_view = new SearchView();
+
+    this.browse_view.connect("notify::webview", () => {
+      const selected_item = this.browse_view.selection_model.selected_item.item;
+      const webview_uri = this.browse_view.webview.uri;
+      if (webview_uri !== selected_item.uri) {
+        const path = this.uri_to_tree_path[webview_uri];
+        if (!path) return;
+        this.browse_view.selectItem(path);
+      }
+    });
 
     this.search_view.connect("search-view-selection-changed", (_, uri) => {
       const path = this.uri_to_tree_path[uri];
@@ -57,21 +64,6 @@ class Sidebar extends Adw.NavigationPage {
     // Popover menu theme switcher
     const popover = this._button_menu.get_popover();
     popover.add_child(new ThemeSelector(), "themeswitcher");
-  }
-
-  #connectWebView() {
-    this._webview.connect("notify::uri", () => {
-      // Hack
-      this._webview.visible = false;
-      this._webview.visible = true;
-
-      const selected_item = this.browse_view.selection_model.selected_item.item;
-      if (this._webview.uri !== selected_item.uri) {
-        const path = this.uri_to_tree_path[this._webview.uri];
-        if (!path) return;
-        this.browse_view.selectItem(path);
-      }
-    });
   }
 
   #flattenModel(

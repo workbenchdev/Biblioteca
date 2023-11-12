@@ -2,7 +2,7 @@ import Adw from "gi://Adw";
 import GObject from "gi://GObject";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
-import "./WebView.js";
+import WebView from "./WebView.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
@@ -16,10 +16,17 @@ class Window extends Adw.ApplicationWindow {
     if (__DEV__) {
       this.add_css_class("devel");
     }
-
     this.#createSidebar();
+    this.newTab();
+    this.newTab();
+    this._webview = this._tab_view.selected_page.child;
+    this._sidebar.browse_view.webview = this._webview;
+    this._tab_view.connect("notify::selected-page", () => {
+      this._webview = this._tab_view.selected_page.child;
+      this.title = this._webview.title;
+      this._sidebar.browse_view.webview = this._webview;
+    });
     this.#setupBreakpoint();
-    this.#connectWebView();
     this.#connectButtons();
 
     this._toolbar_breakpoint.connect("apply", () => {
@@ -75,6 +82,23 @@ class Window extends Adw.ApplicationWindow {
     this._sidebar._search_entry.select_region(0, -1);
   };
 
+  newTab() {
+    const webview = new WebView({ sidebar: this._sidebar });
+    const tab_page = this._tab_view.append(webview);
+    webview.bind_property(
+      "title",
+      tab_page,
+      "title",
+      GObject.BindingFlags.SYNC_CREATE,
+    );
+    webview.bind_property(
+      "title",
+      this,
+      "title",
+      GObject.BindingFlags.SYNC_CREATE,
+    );
+  }
+
   #moveNavigationDown() {
     this._content_header_bar.remove(this._box_navigation);
     this._bottom_toolbar.append(this._box_navigation);
@@ -98,12 +122,12 @@ class Window extends Adw.ApplicationWindow {
     );
   }
 
-  #connectWebView() {
-    this._webview.connect("load-changed", () => {
+  #connectWebView(webview) {
+    webview.connect("load-changed", () => {
       this.#updateButtons();
     });
 
-    this._webview.get_back_forward_list().connect("changed", () => {
+    webview.get_back_forward_list().connect("changed", () => {
       this.#updateButtons();
     });
   }
@@ -137,7 +161,7 @@ export default GObject.registerClass(
       "button_back",
       "button_forward",
       "bottom_toolbar",
-      "webview",
+      "tab_view",
     ],
   },
   Window,
