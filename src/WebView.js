@@ -1,7 +1,6 @@
 import WebKit from "gi://WebKit";
 import GObject from "gi://GObject";
 import Gtk from "gi://Gtk";
-import Gdk from "gi://Gdk";
 import GLib from "gi://GLib";
 
 import Template from "./WebView.blp" with { type: "uri" };
@@ -34,17 +33,19 @@ class WebView extends WebKit.WebView {
 
     if (decision_type === WebKit.PolicyDecisionType.NAVIGATION_ACTION) {
       const navigation_action = decision.get_navigation_action();
-      const url = navigation_action.get_request().get_uri();
+      const uri = navigation_action.get_request().get_uri();
       console.debug(
         "navigation",
         getEnum(WebKit.NavigationType, navigation_action.get_navigation_type()),
-        url,
+        uri,
       );
 
-      const scheme = GLib.Uri.peek_scheme(url);
+      const scheme = GLib.Uri.peek_scheme(uri);
       if (scheme !== "file") {
         decision.ignore();
-        Gtk.show_uri(this.get_root(), url, Gdk.CURRENT_TIME);
+        new Gtk.UriLauncher({ uri })
+          .launch(this.get_root(), null)
+          .catch(console.error);
         return true;
       }
     }
