@@ -1,6 +1,6 @@
 {
   "id": "app.drey.Biblioteca",
-  "runtime": "org.gnome.Sdk",
+  "runtime": "org.gnome.Platform",
   "runtime-version": "45",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
@@ -15,7 +15,7 @@
     "/include",
     "/lib/pkgconfig",
     "/man",
-    "/share/doc",
+    "#/share/doc",
     "/share/gtk-doc",
     "/share/man",
     "/share/pkgconfig",
