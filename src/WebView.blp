@@ -1,0 +1,11 @@
+using Gtk 4.0;
+using WebKit 6.0;
+
+template $WebView : WebKit.WebView {
+  vexpand: true;
+  settings: WebKit.Settings {
+    enable-back-forward-navigation-gestures: true;
+    enable-developer-extras: true;
+    enable-smooth-scrolling: true;
+  };
+}

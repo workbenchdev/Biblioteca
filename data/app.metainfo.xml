@@ -3,8 +3,8 @@
   <id>@app_id@</id>
   <launchable type="desktop-id">@app_id@.desktop</launchable>
   <name translatable="no">Biblioteca</name>
-  <developer_name translatable="no">Sonny Piers</developer_name>
-  <update_contact>sonnyp@gnome.org</update_contact>
+  <developer_name translatable="no">Akshay Warrier</developer_name>
+  <update_contact>akshaywarrier@gnome.org</update_contact>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <summary>Documentation viewer for GNOME</summary>
@@ -16,22 +16,31 @@
       <li>Offline documentation</li>
       <li>Dark mode support</li>
       <li>Fuzzy search</li>
-      <li>Platform Tools</li>
       <li>Mobile / adaptive</li>
     </ul>
   </description>
-  <url type="homepage">https://github.com/sonnyp/Biblioteca</url>
-  <url type="bugtracker">https://github.com/sonnyp/Biblioteca/issues</url>
-  <!-- <url type="donation">https://github.com/sonnyp/Biblioteca</url> -->
+  <url type="homepage">https://github.com/workbenchdev/Biblioteca</url>
+  <url type="bugtracker">https://github.com/workbenchdev/Biblioteca/issues</url>
+  <!-- <url type="donation">https://github.com/workbenchdev/Biblioteca</url> -->
   <!-- <url type="translate">https://workbench.sonny.re/translate</url> -->
-  <url type="vcs-browser">https://github.com/sonnyp/Biblioteca</url>
+  <url type="vcs-browser">https://github.com/workbenchdev/Biblioteca</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/sonnyp/Biblioteca/main/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/workbenchdev/Biblioteca/main/data/screenshot.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.1" date="2023-11-12">
+      <description translatable="no">
+        Various bug fixes.
+      </description>
+    </release>
+    <release version="1.0" date="2023-11-10">
+      <description translatable="no">
+        This is the first release of Biblioteca with GNOME 45 documentation. We hope you like it.
+      </description>
+    </release>
   </releases>
   <kudos>
     <kudo>HiDpiIcon</kudo>

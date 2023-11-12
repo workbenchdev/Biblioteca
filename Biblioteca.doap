@@ -9,12 +9,32 @@
   <shortdesc>Documentation viewer for GNOME</shortdesc>
   <description>Biblioteca lets you browse and read GNOME documentation.</description>
 
-  <homepage rdf:resource="https://github.com/sonnyp/Biblioteca" />
-  <bug-database rdf:resource="https://github.com/sonnyp/Biblioteca/issues" />
+  <homepage rdf:resource="https://github.com/workbenchdev/Biblioteca" />
+  <bug-database rdf:resource="https://github.com/workbenchdev/Biblioteca/issues" />
   <programming-language>JavaScript</programming-language>
 
   <platform>GTK 4</platform>
   <platform>Libadwaita</platform>
+
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Akshay Warrier</foaf:name>
+      <foaf:mbox rdf:resource="mailto:akshaywarrier@gnome.org" />
+      <gnome:userid>akshaywarrier</gnome:userid>
+      <foaf:account>
+        <foaf:OnlineAccount>
+            <foaf:accountServiceHomepage rdf:resource="https://github.com/" />
+            <foaf:accountName>AkshayWarrier</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+      <foaf:account>
+        <foaf:OnlineAccount>
+          <foaf:accountServiceHomepage rdf:resource="https://gitlab.gnome.org"/>
+          <foaf:accountName>AkshayWarrier</foaf:accountName>
+        </foaf:OnlineAccount>
+      </foaf:account>
+    </foaf:Person>
+  </maintainer>
 
   <maintainer>
     <foaf:Person>
