@@ -1,0 +1,188 @@
+# Turkish translation of Biblioteca.
+# Copyright (C) 2023 Biblioteca COPYRIGHT HOLDER
+# This file is distributed under the same license as the Biblioteca package.
+#
+# Sabri Ünal <libreajans@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-14 02:05+0300\n"
+"PO-Revision-Date: 2023-11-14 02:10+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <takim@gnome.org.tr>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4\n"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:4
+msgid "Biblioteca"
+msgstr "Biblioteca"
+
+#: data/app.desktop:5
+msgid "Learn and prototype with GNOME technologies"
+msgstr "GNOME teknolojilerini öğrenin ve prototip oluşturun"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:12
+msgid "GTK;libadwaita;doc;documentation;api;manual;"
+msgstr "GTK;libadwaita;doc;documentation;api;manual;belgelendirme;el kitabı;kılavuz;"
+
+#: data/app.metainfo.xml:10
+msgid "Documentation viewer for GNOME"
+msgstr "GNOME için belgelendirme görüntüleyici"
+
+#: data/app.metainfo.xml:13
+msgid "Biblioteca lets you browse and read GNOME documentation."
+msgstr "Biblioteca, GNOME belgelendirmelerine göz atmanızı ve okumanızı sağlar."
+
+#: data/app.metainfo.xml:14
+msgid "Among other things, Biblioteca comes with"
+msgstr "Diğer şeylerin yanı sıra, Biblioteca aşağıdakilerle birlikte gelir"
+
+#: data/app.metainfo.xml:16
+msgid "Offline documentation"
+msgstr "Çevrim dışı belgeler"
+
+#: data/app.metainfo.xml:17
+msgid "Dark mode support"
+msgstr "Koyu kip desteği"
+
+#: data/app.metainfo.xml:18
+msgid "Fuzzy search"
+msgstr "Bulanık arama"
+
+#: data/app.metainfo.xml:19
+msgid "Mobile / adaptive"
+msgstr "Mobil / uyarlanabilir"
+
+#. TRANSLATORS: eg. 'Translator Name <your.email@domain.com>' or 'Translator Name https://website.example'
+#: src/about.js:38
+msgid "translator-credits"
+msgstr "Sabri Ünal <libreajans@gmail.com>"
+
+#: src/about.js:48
+msgid "Contributors"
+msgstr "Katkıda Bulunanlar"
+
+#: src/Shortcuts.blp:11
+msgid "Navigation"
+msgstr "Gezinti"
+
+#: src/Shortcuts.blp:14 src/Shortcuts.blp:30
+msgid "Go back to the previous page"
+msgstr "Önceki sayfaya git"
+
+#: src/Shortcuts.blp:19 src/Shortcuts.blp:35
+msgid "Go forward to the next page"
+msgstr "Sonraki sayfaya git"
+
+#: src/Shortcuts.blp:24
+msgid "Focus global search"
+msgstr "Genel aramaya odaklan"
+
+#: src/Shortcuts.blp:40
+msgid "Zoom"
+msgstr "Yaklaştırma"
+
+#: src/Shortcuts.blp:43
+msgid "Zoom in"
+msgstr "Yakınlaştır"
+
+#: src/Shortcuts.blp:48
+msgid "Zoom out"
+msgstr "Uzaklaştır"
+
+#: src/Shortcuts.blp:53
+msgid "Reset zoom"
+msgstr "Yakınlaştırmayı sıfırla"
+
+#: src/Shortcuts.blp:59
+msgid "General"
+msgstr "Genel"
+
+#: src/Shortcuts.blp:62
+msgid "Close Window"
+msgstr "Pencereyi Kapat"
+
+#: src/Shortcuts.blp:67
+msgid "Shortcuts"
+msgstr "Kısayollar"
+
+#: src/sidebar/Sidebar.blp:12
+msgid "Search Biblioteca"
+msgstr "Biblioteca’da Ara"
+
+#: src/sidebar/Sidebar.blp:18
+msgid "Main Menu"
+msgstr "Ana Menü"
+
+#: src/sidebar/Sidebar.blp:27
+msgid "No Results Found"
+msgstr "Sonuç Bulunamadı"
+
+#: src/sidebar/Sidebar.blp:28
+msgid "Try a different search term"
+msgstr "Farklı arama terimi deneyin"
+
+# Menü ögesi olduğu için başlık düzeni tercih edildi
+#: src/sidebar/Sidebar.blp:45
+msgid "Bookmarks"
+msgstr "Yer İmleri"
+
+#: src/sidebar/Sidebar.blp:48
+msgid "Developer Documentation"
+msgstr "Geliştirici belgelendirmeleri"
+
+#: src/sidebar/Sidebar.blp:55
+msgid "Human Interface Guidelines"
+msgstr "İnsan Arayüzü Kılavuzları"
+
+#: src/sidebar/Sidebar.blp:61
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: src/sidebar/Sidebar.blp:67
+msgid "Vala"
+msgstr "Vala"
+
+#: src/sidebar/Sidebar.blp:73
+msgid "Rust"
+msgstr "Rust"
+
+#: src/sidebar/Sidebar.blp:79
+msgid "Python"
+msgstr "Python"
+
+#: src/sidebar/Sidebar.blp:85
+msgid "Blueprint"
+msgstr "Blueprint"
+
+#: src/sidebar/Sidebar.blp:91
+msgid "Discourse"
+msgstr "Discourse"
+
+#: src/sidebar/Sidebar.blp:100
+msgid "Keyboard Shortcuts"
+msgstr "Klavye Kısayolları"
+
+#: src/sidebar/Sidebar.blp:105
+msgid "About Biblioteca"
+msgstr "Biblioteca Hakkında"
+
+#: src/window.blp:43
+msgid "Open Sidebar"
+msgstr "Kenar Çubuğunu Aç"
+
+#: src/window.blp:54
+msgid "Back"
+msgstr "Geri"
+
+#: src/window.blp:60
+msgid "Forward"
+msgstr "İleri"
