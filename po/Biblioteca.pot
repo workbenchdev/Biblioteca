@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-14 02:05+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:4
+msgid "Biblioteca"
+msgstr ""
+
+#: data/app.desktop:5
+msgid "Learn and prototype with GNOME technologies"
+msgstr ""
+
+#. TRANSLATORS: Don't translate
+#: data/app.desktop:12
+msgid "GTK;libadwaita;doc;documentation;api;manual;"
+msgstr ""
+
+#: data/app.metainfo.xml:10
+msgid "Documentation viewer for GNOME"
+msgstr ""
+
+#: data/app.metainfo.xml:13
+msgid "Biblioteca lets you browse and read GNOME documentation."
+msgstr ""
+
+#: data/app.metainfo.xml:14
+msgid "Among other things, Biblioteca comes with"
+msgstr ""
+
+#: data/app.metainfo.xml:16
+msgid "Offline documentation"
+msgstr ""
+
+#: data/app.metainfo.xml:17
+msgid "Dark mode support"
+msgstr ""
+
+#: data/app.metainfo.xml:18
+msgid "Fuzzy search"
+msgstr ""
+
+#: data/app.metainfo.xml:19
+msgid "Mobile / adaptive"
+msgstr ""
+
+#. TRANSLATORS: eg. 'Translator Name <your.email@domain.com>' or 'Translator Name https://website.example'
+#: src/about.js:38
+msgid "translator-credits"
+msgstr ""
+
+#: src/about.js:48
+msgid "Contributors"
+msgstr ""
+
+#: src/Shortcuts.blp:11
+msgid "Navigation"
+msgstr ""
+
+#: src/Shortcuts.blp:14 src/Shortcuts.blp:30
+msgid "Go back to the previous page"
+msgstr ""
+
+#: src/Shortcuts.blp:19 src/Shortcuts.blp:35
+msgid "Go forward to the next page"
+msgstr ""
+
+#: src/Shortcuts.blp:24
+msgid "Focus global search"
+msgstr ""
+
+#: src/Shortcuts.blp:40
+msgid "Zoom"
+msgstr ""
+
+#: src/Shortcuts.blp:43
+msgid "Zoom in"
+msgstr ""
+
+#: src/Shortcuts.blp:48
+msgid "Zoom out"
+msgstr ""
+
+#: src/Shortcuts.blp:53
+msgid "Reset zoom"
+msgstr ""
+
+#: src/Shortcuts.blp:59
+msgid "General"
+msgstr ""
+
+#: src/Shortcuts.blp:62
+msgid "Close Window"
+msgstr ""
+
+#: src/Shortcuts.blp:67
+msgid "Shortcuts"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:12
+msgid "Search Biblioteca"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:18
+msgid "Main Menu"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:27
+msgid "No Results Found"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:28
+msgid "Try a different search term"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:45
+msgid "Bookmarks"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:48
+msgid "Developer Documentation"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:55
+msgid "Human Interface Guidelines"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:61
+msgid "JavaScript"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:67
+msgid "Vala"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:73
+msgid "Rust"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:79
+msgid "Python"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:85
+msgid "Blueprint"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:91
+msgid "Discourse"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:100
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/sidebar/Sidebar.blp:105
+msgid "About Biblioteca"
+msgstr ""
+
+#: src/window.blp:43
+msgid "Open Sidebar"
+msgstr ""
+
+#: src/window.blp:54
+msgid "Back"
+msgstr ""
+
+#: src/window.blp:60
+msgid "Forward"
+msgstr ""

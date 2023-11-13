@@ -1,0 +1,6 @@
+data/app.desktop
+data/app.metainfo.xml
+src/about.js
+src/Shortcuts.blp
+src/sidebar/Sidebar.blp
+src/window.blp
