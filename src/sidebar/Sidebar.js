@@ -10,6 +10,8 @@ import DocumentationPage from "./DocumentationPage.js";
 
 import Template from "./Sidebar.blp" with { type: "uri" };
 
+import "../icons/loupe-symbolic.svg";
+
 class Sidebar extends Adw.NavigationPage {
   constructor({ webview, ...params } = {}) {
     super(params);
@@ -111,7 +113,7 @@ export default GObject.registerClass(
   {
     GTypeName: "Sidebar",
     Template,
-    InternalChildren: ["stack", "search_entry", "button_menu"],
+    InternalChildren: ["stack", "search_entry", "button_menu", "status_page"],
   },
   Sidebar,
 );
