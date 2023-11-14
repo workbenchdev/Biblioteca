@@ -10,7 +10,7 @@ import DocumentationPage from "./DocumentationPage.js";
 
 import Template from "./Sidebar.blp" with { type: "uri" };
 
-import "../icons/loupe-symbolic.svg";
+import "../icons/edit-find-symbolic.svg";
 
 class Sidebar extends Adw.NavigationPage {
   constructor({ webview, ...params } = {}) {
