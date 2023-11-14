@@ -54,7 +54,7 @@ class BrowseView extends Gtk.ScrolledWindow {
     this._scrolled_to = false;
     this._adj = this._browse_list_view.get_vadjustment();
     this._adj.connect("value-changed", () => {
-      this.#adjustScrolling;
+      this.#adjustScrolling();
     });
   }
 

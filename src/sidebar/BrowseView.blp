@@ -12,6 +12,7 @@ template $BrowseView: ScrolledWindow {
           list-row: bind template.item;
           child: Inscription {
             hexpand: true;
+            valign: center;
             nat-chars: 10;
             text-overflow: ellipsize_end;
             text: bind expander.item as <$DocumentationPage>.name;

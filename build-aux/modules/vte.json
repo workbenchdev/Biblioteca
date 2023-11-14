@@ -8,6 +8,12 @@
     "-Dvapi=false",
     "-Dglade=false"
   ],
+  "cleanup": [
+    "/etc",
+    "/bin/vte-2.91-gtk4",
+    "/lib/systemd",
+    "/libexec/vte-urlencode-cwd"
+  ],
   "sources": [
     {
       "type": "archive",
