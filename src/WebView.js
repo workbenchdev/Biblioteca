@@ -6,15 +6,21 @@ import GLib from "gi://GLib";
 import Template from "./WebView.blp" with { type: "uri" };
 
 class WebView extends WebKit.WebView {
-  constructor({ sidebar, ...params = {} }) {
+  constructor({ uri, sidebar, params = {} }) {
     super(params);
+    this.load_uri(uri);
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
     this.#disablePageSidebar();
-    this.#connectWebView();
-
-    this.#disablePageSidebar();
+    this.connect("notify::uri", this.#onNotifyUri);
     this.connect("decide-policy", this.#onDecidePolicy);
+
+    this.connect("load-changed", () => {
+      this.activate_action("win.update-buttons", null);
+    });
+    this.get_back_forward_list().connect("changed", () => {
+      this.activate_action("win.update-buttons", null);
+    });
   }
 
   #disablePageSidebar() {
@@ -29,22 +35,19 @@ class WebView extends WebKit.WebView {
     user_content_manager.add_style_sheet(stylesheet);
   }
 
-  #connectWebView() {
-    this.connect("notify::uri", () => {
-      // Hack
-      this.visible = false;
-      this.visible = true;
+  #onNotifyUri = () => {
+    // Hack
+    this.visible = false;
+    this.visible = true;
 
-      const selected_item =
-        this._browse_view.selection_model.selected_item.item;
-      if (this.uri !== selected_item.uri) {
-        const path = this._sidebar.uri_to_tree_path[this.uri];
-        if (!path) return;
-        this._browse_view.selectItem(path);
-      }
-    });
-  }
-  
+    const selected_item = this._browse_view.selection_model.selected_item.item;
+    if (this.uri !== selected_item.uri) {
+      const path = this._sidebar.uri_to_tree_path[this.uri];
+      if (!path) return;
+      this._browse_view.selectItem(path);
+    }
+  };
+
   #onDecidePolicy = (_self, decision, decision_type) => {
     console.debug(
       "decide-policy",

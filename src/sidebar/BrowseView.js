@@ -1,3 +1,4 @@
+import Gdk from "gi://Gdk";
 import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
@@ -55,6 +56,20 @@ class BrowseView extends Gtk.ScrolledWindow {
     this._adj = this._browse_list_view.get_vadjustment();
     this._adj.connect("value-changed", () => {
       this.#adjustScrolling();
+    });
+
+    const gesture_click = new Gtk.GestureClick({ button: 0 });
+    this._browse_list_view.add_controller(gesture_click);
+
+    gesture_click.connect("pressed", (gesture, n_press, x, y) => {
+      switch (gesture.get_current_button()) {
+        case Gdk.BUTTON_MIDDLE: {
+          const index = Math.floor((this._adj.value + y) / 38);
+          const uri = this._tree_model.get_row(index).item.uri;
+          this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+          break;
+        }
+      }
     });
   }
 

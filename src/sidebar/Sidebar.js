@@ -13,9 +13,8 @@ import Template from "./Sidebar.blp" with { type: "uri" };
 import "../icons/edit-find-symbolic.svg";
 
 class Sidebar extends Adw.NavigationPage {
-  constructor({ webview, ...params } = {}) {
+  constructor(...params) {
     super(params);
-    this._webview = webview;
     this.uri_to_tree_path = {};
     this.#initializeSidebar();
     this.#connectSearchEntry();
@@ -38,13 +37,10 @@ class Sidebar extends Adw.NavigationPage {
     this.search_view = new SearchView();
 
     this.browse_view.connect("notify::webview", () => {
-      const selected_item = this.browse_view.selection_model.selected_item.item;
       const webview_uri = this.browse_view.webview.uri;
-      if (webview_uri !== selected_item.uri) {
-        const path = this.uri_to_tree_path[webview_uri];
-        if (!path) return;
-        this.browse_view.selectItem(path);
-      }
+      const path = this.uri_to_tree_path[webview_uri];
+      if (!path) return;
+      this.browse_view.selectItem(path);
     });
 
     this.search_view.connect("search-view-selection-changed", (_, uri) => {

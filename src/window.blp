@@ -8,8 +8,6 @@ template $Window: Adw.ApplicationWindow {
   height-request: 360;
   default-width: 1024;
   default-height: 768;
-  title: "Biblioteca";
-  // title: bind webview.title;
 
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
@@ -64,10 +62,11 @@ template $Window: Adw.ApplicationWindow {
             }
 
             [end]
-            Button new_tab {
-              icon-name: "plus-symbolic";
+            Button button_new_tab {
+              icon-name: "plus-large-symbolic";
+              action-name: "app.new-tab";
+              action-target: '"file:///app/share/doc/gtk4/index.html"';
               tooltip-text: _("New Tab");
-              clicked => $newTab();
               styles ["flat"]
             }
           }
@@ -88,6 +87,7 @@ template $Window: Adw.ApplicationWindow {
 
             Adw.TabView tab_view {
               vexpand: true;
+              shortcuts: all_shortcuts;
             }
           }
         };
