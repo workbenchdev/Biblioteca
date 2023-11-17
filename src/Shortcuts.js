@@ -37,7 +37,7 @@ export default function Shortcuts(
   application.add_action(action_new_tab);
   application.set_accels_for_action(
     "app.new-tab('file:///app/share/doc/gtk4/index.html')",
-    ["<Control><Shift>T"],
+    ["<Control>T"],
   );
 
   function open() {
@@ -51,8 +51,8 @@ export default function Shortcuts(
   }
 
   const shortcuts = [
-    [["<Control><Shift>W"], closeTab],
-    [["<Control>w"], () => window.close()],
+    [["<Control>W"], closeTab],
+    [["<Control>Q"], () => window.close()],
     [["<Alt>Right"], goForward],
     [["<Alt>Left"], goBack],
     [["<Control>plus", "<Control>equal"], zoomIn],

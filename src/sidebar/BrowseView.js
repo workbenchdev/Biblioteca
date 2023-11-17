@@ -46,8 +46,8 @@ const SUBSECTION_TYPES = {
 const REQUIRED = ["class", "interface", "record", "domain"];
 
 class BrowseView extends Gtk.ScrolledWindow {
-  constructor() {
-    super();
+  constructor(...params) {
+    super(params);
     this.root_model = Gio.ListStore.new(DocumentationPage);
     this.#createBrowseSelectionModel();
     this.#loadDocs().catch(console.error);
@@ -61,16 +61,7 @@ class BrowseView extends Gtk.ScrolledWindow {
     const gesture_click = new Gtk.GestureClick({ button: 0 });
     this._browse_list_view.add_controller(gesture_click);
 
-    gesture_click.connect("pressed", (gesture, n_press, x, y) => {
-      switch (gesture.get_current_button()) {
-        case Gdk.BUTTON_MIDDLE: {
-          const index = Math.floor((this._adj.value + y) / 38);
-          const uri = this._tree_model.get_row(index).item.uri;
-          this.activate_action("app.new-tab", new GLib.Variant("s", uri));
-          break;
-        }
-      }
-    });
+    gesture_click.connect("pressed", this.#onGestureClick);
   }
 
   get webview() {
@@ -104,6 +95,17 @@ class BrowseView extends Gtk.ScrolledWindow {
       row.expanded = false;
     }
   }
+
+  #onGestureClick = (gesture, n_press, x, y) => {
+    switch (gesture.get_current_button()) {
+      case Gdk.BUTTON_MIDDLE: {
+        const index = Math.floor((this._adj.value + y) / 38);
+        const uri = this._tree_model.get_row(index).item.uri;
+        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        break;
+      }
+    }
+  };
 
   #adjustScrolling() {
     if (this._scrolled_to) {

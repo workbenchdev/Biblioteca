@@ -9,6 +9,7 @@ import Template from "./window.blp" with { type: "uri" };
 
 import "./icons/sidebar-show-symbolic.svg";
 import "./icons/plus-large-symbolic.svg";
+import "./icons/tab-new-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
   constructor(params = {}) {
@@ -26,11 +27,27 @@ class Window extends Adw.ApplicationWindow {
     update_buttons_action.connect("activate", () => this.#updateButtons());
     this.add_action(update_buttons_action);
 
+    this._tab_button.connect("clicked", () => {
+      this._tab_overview.open = !this._tab_overview.open;
+    });
+
+    this._tab_overview.connect("create-tab", () => this.newTab());
+
     this._tab_view.connect("notify::selected-page", this.#updateWebView);
     this.#setupBreakpoint();
 
     this._button_back.connect("clicked", this.goBack);
     this._button_forward.connect("clicked", this.goForward);
+
+    this.bind_property_full(
+      "title",
+      this._content_page,
+      "title",
+      GObject.BindingFlags.SYNC_CREATE,
+      (binding, from_value) =>
+        from_value ? [true, from_value] : [false, null],
+      null,
+    );
 
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
@@ -106,6 +123,7 @@ class Window extends Adw.ApplicationWindow {
       "title",
       GObject.BindingFlags.SYNC_CREATE,
     );
+    return tab_page;
   };
 
   closeTab = () => {
@@ -125,7 +143,7 @@ class Window extends Adw.ApplicationWindow {
 
   #moveNavigationDown = () => {
     this._content_header_bar.remove(this._box_navigation);
-    this._bottom_toolbar.append(this._box_navigation);
+    this._bottom_toolbar.pack_start(this._box_navigation);
   };
 
   #moveNavigationUp = () => {
@@ -159,13 +177,16 @@ export default GObject.registerClass(
     InternalChildren: [
       "window_breakpoint",
       "split_view",
+      "content_page",
       "toolbar_breakpoint",
       "content_header_bar",
       "box_navigation",
       "button_back",
       "button_forward",
+      "tab_button",
       "button_new_tab",
       "bottom_toolbar",
+      "tab_overview",
       "tab_view",
     ],
   },
