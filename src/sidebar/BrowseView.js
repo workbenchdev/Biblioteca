@@ -46,9 +46,12 @@ const SUBSECTION_TYPES = {
 
 const REQUIRED = ["class", "interface", "record", "domain"];
 
+const ITEM_HEIGHT = 38;
+
 class BrowseView extends Gtk.ScrolledWindow {
   constructor(...params) {
     super(params);
+
     this.root_model = Gio.ListStore.new(DocumentationPage);
     this.#createBrowseSelectionModel();
     this.#loadDocs().catch(console.error);
@@ -99,7 +102,7 @@ class BrowseView extends Gtk.ScrolledWindow {
   #onGestureClick = (gesture, n_press, x, y) => {
     switch (gesture.get_current_button()) {
       case Gdk.BUTTON_MIDDLE: {
-        const index = Math.floor((this._adj.value + y) / 38);
+        const index = Math.floor((this._adj.value + y) / ITEM_HEIGHT);
         const uri = this._tree_model.get_row(index).item.uri;
         this.activate_action("app.new-tab", new GLib.Variant("s", uri));
         break;
@@ -110,13 +113,13 @@ class BrowseView extends Gtk.ScrolledWindow {
   #adjustScrolling() {
     if (this._scrolled_to) {
       const index = this.selection_model.selected;
-      const bottom_edge = (index + 1) * 38 - this._adj.value;
-      const top_edge = bottom_edge - 38;
+      const bottom_edge = (index + 1) * ITEM_HEIGHT - this._adj.value;
+      const top_edge = bottom_edge - ITEM_HEIGHT;
       // If row is not visible after scroll_to, adjust
       if (bottom_edge === 0) {
-        this._adj.value -= 38;
+        this._adj.value -= ITEM_HEIGHT;
       } else if (top_edge === this._adj.page_size) {
-        this._adj.value += 38;
+        this._adj.value += ITEM_HEIGHT;
       }
       this._scrolled_to = false;
     }

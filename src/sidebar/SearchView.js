@@ -34,6 +34,8 @@ const QUERY_PATTERN = new RegExp(
   "i",
 );
 
+const ITEM_HEIGHT = 38;
+
 class SearchView extends Gtk.ScrolledWindow {
   constructor(params = {}) {
     super(params);
@@ -65,7 +67,8 @@ class SearchView extends Gtk.ScrolledWindow {
   #onGestureClick = (gesture, n_press, x, y) => {
     switch (gesture.get_current_button()) {
       case Gdk.BUTTON_MIDDLE: {
-        const index = Math.floor((this._adj.value + y) / 38);
+        const index = Math.floor((this._adj.value + y) / ITEM_HEIGHT);
+        // Avoid loading the page into current tab when the user middle-clicks
         this.inhibit_emit = true;
         this.selection_model.selected = index;
         if (!this.selection_model.selected_item) return;
