@@ -29,7 +29,6 @@ export default function Shortcuts(
       const builder = Gtk.Builder.new_from_resource(resource);
       window_shortcuts = builder.get_object("window_shortcuts");
       window_shortcuts.set_transient_for(window);
-      window_shortcuts.set_application(application);
     }
     window_shortcuts.present();
   }
