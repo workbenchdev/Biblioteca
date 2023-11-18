@@ -3,6 +3,7 @@ import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 import GObject from "gi://GObject";
+import Webkit from "gi://WebKit";
 
 import DocumentationPage from "./DocumentationPage.js";
 import { decode } from "../util.js";
@@ -60,7 +61,6 @@ class BrowseView extends Gtk.ScrolledWindow {
 
     const gesture_click = new Gtk.GestureClick({ button: 0 });
     this._browse_list_view.add_controller(gesture_click);
-
     gesture_click.connect("pressed", this.#onGestureClick);
   }
 
@@ -425,7 +425,7 @@ export default GObject.registerClass(
         "webview",
         "Current active webview",
         GObject.ParamFlags.READWRITE,
-        GObject.Object,
+        Webkit.WebView,
       ),
     },
     Signals: {

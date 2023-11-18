@@ -8,7 +8,6 @@ import WebView from "./WebView.js";
 import Template from "./window.blp" with { type: "uri" };
 
 import "./icons/sidebar-show-symbolic.svg";
-import "./icons/plus-large-symbolic.svg";
 import "./icons/tab-new-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {

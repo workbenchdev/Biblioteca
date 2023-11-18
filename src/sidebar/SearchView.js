@@ -40,9 +40,9 @@ class SearchView extends Gtk.ScrolledWindow {
     this.connect("notify::search-term", this.#onNotifySearchTem);
 
     this._adj = this._search_list_view.get_vadjustment();
+
     const gesture_click = new Gtk.GestureClick({ button: 0 });
     this._search_list_view.add_controller(gesture_click);
-
     gesture_click.connect("pressed", this.#onGestureClick);
   }
 

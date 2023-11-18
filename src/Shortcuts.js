@@ -52,7 +52,6 @@ export default function Shortcuts(
 
   const shortcuts = [
     [["<Control>W"], closeTab],
-    [["<Control>Q"], () => window.close()],
     [["<Alt>Right"], goForward],
     [["<Alt>Left"], goBack],
     [["<Control>plus", "<Control>equal"], zoomIn],
