@@ -3,4 +3,8 @@
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
 # export G_MESSAGES_DEBUG=@app_id@
 
+# We do not support translations but the AboutWindow is translated by default
+# force app in English see https://github.com/workbenchdev/Biblioteca/pull/40#issuecomment-1811380922
+LANG=en_US.UTF-8
+
 @app_id@
