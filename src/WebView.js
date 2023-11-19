@@ -6,10 +6,16 @@ import GLib from "gi://GLib";
 import Template from "./WebView.blp" with { type: "uri" };
 
 class WebView extends WebKit.WebView {
-  constructor(...args) {
-    super(...args);
-
+  constructor({ uri, sidebar, ...params }) {
+    super(params);
+    this.load_uri(uri);
+    this._sidebar = sidebar;
+    this._browse_view = this._sidebar.browse_view;
     this.#disablePageSidebar();
+    this.connect("notify::uri", this.#onNotifyUri);
+    this.get_back_forward_list().connect("changed", () => {
+      this.activate_action("win.update-buttons", null);
+    });
     this.connect("decide-policy", this.#onDecidePolicy);
   }
 
@@ -25,6 +31,19 @@ class WebView extends WebKit.WebView {
     user_content_manager.add_style_sheet(stylesheet);
   }
 
+  #onNotifyUri = () => {
+    // Hack
+    this.visible = false;
+    this.visible = true;
+
+    const selected_item = this._browse_view.selection_model.selected_item.item;
+    if (this.uri !== selected_item.uri) {
+      const path = this._sidebar.uri_to_tree_path[this.uri];
+      if (!path) return;
+      this._browse_view.selectItem(path);
+    }
+  };
+
   #onDecidePolicy = (_self, decision, decision_type) => {
     console.debug(
       "decide-policy",
@@ -33,6 +52,7 @@ class WebView extends WebKit.WebView {
 
     if (decision_type === WebKit.PolicyDecisionType.NAVIGATION_ACTION) {
       const navigation_action = decision.get_navigation_action();
+      const mouse_button = navigation_action.get_mouse_button();
       const uri = navigation_action.get_request().get_uri();
       console.debug(
         "navigation",
@@ -46,6 +66,9 @@ class WebView extends WebKit.WebView {
         new Gtk.UriLauncher({ uri })
           .launch(this.get_root(), null)
           .catch(console.error);
+        return true;
+      } else if (scheme === "file" && mouse_button === 2) {
+        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
         return true;
       }
     }

@@ -8,7 +8,6 @@ template $Window: Adw.ApplicationWindow {
   height-request: 360;
   default-width: 1024;
   default-height: 768;
-  title: bind webview.title;
 
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
@@ -21,8 +20,7 @@ template $Window: Adw.ApplicationWindow {
   content: Adw.OverlaySplitView split_view {
     show-sidebar: bind button_sidebar.active;
 
-    content: Adw.NavigationPage {
-      title: bind template.title;
+    content: Adw.NavigationPage content_page {
       child: Adw.BreakpointBin {
         width-request: 360;
         height-request: 360;
@@ -30,48 +28,83 @@ template $Window: Adw.ApplicationWindow {
           condition ("max-width: 450sp")
           setters {
             bottom_toolbar.visible: true;
+            button_new_tab.visible: false;
+            tab_bar.visible: false;
+            tab_button.visible: true;
           }
         }
 
-        child: Adw.ToolbarView {
-          [top]
-          Adw.HeaderBar content_header_bar {
-            name: "content-headerbar";
-            [start]
-            ToggleButton button_sidebar {
-              icon-name: "sidebar-show-symbolic";
-              tooltip-text: _("Open Sidebar");
+        child: Adw.TabOverview tab_overview {
+          enable-new-tab: true;
+          view: tab_view;
+
+          Adw.ToolbarView {
+            [top]
+            Adw.HeaderBar content_header_bar {
+              name: "content-headerbar";
+              [start]
+              ToggleButton button_sidebar {
+                icon-name: "sidebar-show-symbolic";
+                tooltip-text: _("Open Sidebar");
+                visible: false;
+                active: bind split_view.show-sidebar;
+                styles ["flat"]
+              }
+              [start]
+              Box box_navigation {
+                spacing: 6;
+                halign: start;
+                Button button_back {
+                  icon-name: "go-previous-symbolic";
+                  tooltip-text: _("Back");
+                  styles ["flat"]
+                }
+
+                Button button_forward {
+                  icon-name: "go-next-symbolic";
+                  tooltip-text: _("Forward");
+                  styles ["flat"]
+                }
+              }
+
+
+
+              [end]
+              Button button_new_tab {
+                icon-name: "tab-new-symbolic";
+                action-name: "app.new-tab";
+                action-target: '"file:///app/share/doc/gtk4/index.html"';
+                tooltip-text: _("New Tab");
+                styles ["flat"]
+              }
+            }
+
+            [bottom]
+            ActionBar bottom_toolbar {
               visible: false;
-              active: bind split_view.show-sidebar;
-              styles ["flat"]
-            }
-            [start]
-            Box box_navigation {
-              spacing: 6;
 
-              Button button_back {
-                icon-name: "go-previous-symbolic";
-                tooltip-text: _("Back");
-                styles ["flat"]
+              [end]
+              Adw.TabButton tab_button {
+                halign: end;
+                view: tab_view;
+                visible: false;
+              }
+            }
+
+            Box {
+              orientation: vertical;
+                styles ["bg-black"]
+
+              Adw.TabBar tab_bar {
+                view: tab_view;
               }
 
-              Button button_forward {
-                icon-name: "go-next-symbolic";
-                tooltip-text: _("Forward");
-                styles ["flat"]
+              Adw.TabView tab_view {
+                vexpand: true;
+                shortcuts: all_shortcuts;
               }
             }
           }
-
-          [bottom]
-          Box bottom_toolbar {
-            styles [ "toolbar" ]
-            orientation: horizontal;
-            visible: false;
-          }
-
-          $WebView webview {}
-
         };
       };
     };

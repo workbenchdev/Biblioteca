@@ -5,7 +5,65 @@ ShortcutsWindow window_shortcuts {
 
   ShortcutsSection {
     section-name: "shortcuts";
-    max-height: 7;
+
+    ShortcutsGroup {
+      title: _("Tabs");
+
+      ShortcutsShortcut {
+        title: _("Open tab");
+        accelerator: "<Control>T";
+      }
+
+        ShortcutsShortcut {
+        title: _("Close tab");
+        accelerator: "<Control>W";
+      }
+
+      ShortcutsShortcut {
+        title: _("Switch to the next tab");
+        accelerator: "<Control>Page_Down <Control>Tab";
+      }
+
+      ShortcutsShortcut {
+        title: _("Switch to the previous tab");
+        accelerator: "<Control>Page_Up <Control><Shift>Tab";
+      }
+
+      ShortcutsShortcut {
+        title: _("Switch to the first tab");
+        accelerator: "<Ctrl>Home";
+      }
+
+      ShortcutsShortcut {
+        title: _("Switch to the last tab");
+        accelerator: "<Control>End";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move current tab backward");
+        accelerator: "<Control><Shift>Page_Up";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move current tab forward");
+        accelerator: "<Control><Shift>Page_Down";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move current tab at the start");
+        accelerator: "<Control><Shift>Home";
+      }
+
+      ShortcutsShortcut {
+        title: _("Move current tab at the end");
+        accelerator: "<Control><Shift>End";
+      }
+
+      ShortcutsShortcut {
+        title: _("Switch to tabs 1⋯10");
+        accelerator: "<Alt>1...0";
+      }
+    }
 
     ShortcutsGroup {
       title: _("Navigation");
@@ -57,11 +115,6 @@ ShortcutsWindow window_shortcuts {
 
     ShortcutsGroup {
       title: _("General");
-
-      ShortcutsShortcut {
-        title: _("Close Window");
-        accelerator: "<Control>W";
-      }
 
       ShortcutsShortcut {
         title: _("Shortcuts");

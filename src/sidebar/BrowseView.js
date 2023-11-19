@@ -1,7 +1,9 @@
+import Gdk from "gi://Gdk";
 import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 import GObject from "gi://GObject";
+import Webkit from "gi://WebKit";
 
 import DocumentationPage from "./DocumentationPage.js";
 import { decode } from "../util.js";
@@ -44,10 +46,12 @@ const SUBSECTION_TYPES = {
 
 const REQUIRED = ["class", "interface", "record", "domain"];
 
+const ITEM_HEIGHT = 38;
+
 class BrowseView extends Gtk.ScrolledWindow {
-  constructor({ webview, ...params }) {
+  constructor(...params) {
     super(params);
-    this._webview = webview;
+
     this.root_model = Gio.ListStore.new(DocumentationPage);
     this.#createBrowseSelectionModel();
     this.#loadDocs().catch(console.error);
@@ -57,6 +61,21 @@ class BrowseView extends Gtk.ScrolledWindow {
     this._adj.connect("value-changed", () => {
       this.#adjustScrolling();
     });
+
+    const gesture_click = new Gtk.GestureClick({ button: 0 });
+    this._browse_list_view.add_controller(gesture_click);
+    gesture_click.connect("pressed", this.#onGestureClick);
+  }
+
+  get webview() {
+    if (this._webview === undefined) this._webview = null;
+    return this._webview;
+  }
+
+  set webview(value) {
+    if (this._webview === value) return;
+    this._webview = value;
+    this.notify("webview");
   }
 
   selectItem(path) {
@@ -80,16 +99,27 @@ class BrowseView extends Gtk.ScrolledWindow {
     }
   }
 
+  #onGestureClick = (gesture, n_press, x, y) => {
+    switch (gesture.get_current_button()) {
+      case Gdk.BUTTON_MIDDLE: {
+        const index = Math.floor((this._adj.value + y) / ITEM_HEIGHT);
+        const uri = this._tree_model.get_row(index).item.uri;
+        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        break;
+      }
+    }
+  };
+
   #adjustScrolling() {
     if (this._scrolled_to) {
       const index = this.selection_model.selected;
-      const bottom_edge = (index + 1) * 38 - this._adj.value;
-      const top_edge = bottom_edge - 38;
+      const bottom_edge = (index + 1) * ITEM_HEIGHT - this._adj.value;
+      const top_edge = bottom_edge - ITEM_HEIGHT;
       // If row is not visible after scroll_to, adjust
       if (bottom_edge === 0) {
-        this._adj.value -= 38;
+        this._adj.value -= ITEM_HEIGHT;
       } else if (top_edge === this._adj.page_size) {
-        this._adj.value += 38;
+        this._adj.value += ITEM_HEIGHT;
       }
       this._scrolled_to = false;
     }
@@ -132,10 +162,10 @@ class BrowseView extends Gtk.ScrolledWindow {
     this.selection_model.connect("selection-changed", () => {
       // If selection changed to sync the sidebar, dont load_uri again
       const uri = this.selection_model.selected_item.item.uri;
-      if (this._webview.uri === uri) {
+      if (this.webview.uri === uri) {
         return;
       }
-      this._webview.load_uri(uri);
+      this.webview.load_uri(uri);
     });
     this._browse_list_view.model = this.selection_model;
   }
@@ -392,6 +422,15 @@ export default GObject.registerClass(
   {
     GTypeName: "BrowseView",
     Template,
+    Properties: {
+      webview: GObject.ParamSpec.object(
+        "webview",
+        "webview",
+        "Current active webview",
+        GObject.ParamFlags.READWRITE,
+        Webkit.WebView,
+      ),
+    },
     Signals: {
       "browse-view-loaded": {},
     },

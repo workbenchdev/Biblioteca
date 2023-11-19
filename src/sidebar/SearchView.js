@@ -1,4 +1,6 @@
 import Gtk from "gi://Gtk";
+import GLib from "gi://GLib";
+import Gdk from "gi://Gdk";
 import GObject from "gi://GObject";
 
 import { hasMatch, score } from "./fzy.js";
@@ -32,10 +34,18 @@ const QUERY_PATTERN = new RegExp(
   "i",
 );
 
+const ITEM_HEIGHT = 38;
+
 class SearchView extends Gtk.ScrolledWindow {
   constructor(params = {}) {
     super(params);
     this.connect("notify::search-term", this.#onNotifySearchTem);
+
+    this._adj = this._search_list_view.get_vadjustment();
+
+    const gesture_click = new Gtk.GestureClick({ button: 0 });
+    this._search_list_view.add_controller(gesture_click);
+    gesture_click.connect("pressed", this.#onGestureClick);
   }
 
   get search_term() {
@@ -53,6 +63,21 @@ class SearchView extends Gtk.ScrolledWindow {
     this._flattened_model = flattened_model;
     this.#createSearchSelectionModel();
   }
+
+  #onGestureClick = (gesture, n_press, x, y) => {
+    switch (gesture.get_current_button()) {
+      case Gdk.BUTTON_MIDDLE: {
+        const index = Math.floor((this._adj.value + y) / ITEM_HEIGHT);
+        // Avoid loading the page into current tab when the user middle-clicks
+        this.inhibit_emit = true;
+        this.selection_model.selected = index;
+        if (!this.selection_model.selected_item) return;
+        const uri = this.selection_model.selected_item.uri;
+        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        break;
+      }
+    }
+  };
 
   #onNotifySearchTem = () => {
     this.selection_model.unselect_item(this.selection_model.selected);
@@ -101,6 +126,10 @@ class SearchView extends Gtk.ScrolledWindow {
     this.selection_model.connect("selection-changed", () => {
       if (!this.selection_model.selected_item) return;
       const uri = this.selection_model.selected_item.uri;
+      if (this.inhibit_emit) {
+        this.inhibit_emit = false;
+        return;
+      }
       this.emit("search-view-selection-changed", uri);
     });
 
