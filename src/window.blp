@@ -9,6 +9,8 @@ template $Window: Adw.ApplicationWindow {
   default-width: 1080;
   default-height: 768;
 
+  styles ["main-window"]
+
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
     setters {
@@ -41,7 +43,7 @@ template $Window: Adw.ApplicationWindow {
           Adw.ToolbarView {
             [top]
             Adw.HeaderBar content_header_bar {
-              name: "content-headerbar";
+              styles ["content-headerbar"]
               [start]
               ToggleButton button_sidebar {
                 icon-name: "sidebar-show-symbolic";

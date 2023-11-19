@@ -1,5 +1,5 @@
-window,
-#content-headerbar,
-tabbox {
+.main-window,
+.main-window .content-headerbar,
+.main-window tabbox {
   background-color: #121212;
 }
