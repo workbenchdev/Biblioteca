@@ -10,6 +10,10 @@ import { decode } from "../util.js";
 
 import Template from "./BrowseView.blp" with { type: "uri" };
 
+// Biblioteca is GTK4 only; these are GTK 3 libraries
+// we only support gi-docgen and gtk3 uses gtk-doc
+const IGNORED_LIBRARIES = ["atk", "libhandy-1"];
+
 const SECTION_TYPES = {
   class: ["Classes", "#classes"],
   content: ["Addition Documentation", "#extra"],
@@ -162,11 +166,7 @@ class BrowseView extends Gtk.ScrolledWindow {
   }
 
   async #loadDocs() {
-    await Promise.all([
-      this.#scanLibraries(Gio.File.new_for_path("/app/share/doc/html")),
-      this.#scanLibraries(Gio.File.new_for_path("/app/share/doc")),
-    ]);
-
+    await this.#scanLibraries(Gio.File.new_for_path("/app/share/doc"));
     this.emit("browse-view-loaded");
   }
 
@@ -190,6 +190,8 @@ class BrowseView extends Gtk.ScrolledWindow {
 
       for (const info of infos) {
         if (info.get_file_type() !== Gio.FileType.DIRECTORY) continue;
+
+        if (IGNORED_LIBRARIES.includes(info.get_name())) continue;
 
         const directory = iter.get_child(info);
         libraries.push(this.#loadLibrary(directory).catch(console.error));
