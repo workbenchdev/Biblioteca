@@ -38,6 +38,7 @@
           <li>Fix an issue where shortcuts window prevents app from closing</li>
           <li>Fix an issue where main window CSS leaks into other windows</li>
           <li>Show status page in sidebar when no results found</li>
+          <li>Slightly increase width of window</li>
         </ul>
       </description>
     </release>
