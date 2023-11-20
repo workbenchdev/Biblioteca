@@ -34,11 +34,12 @@
     <release version="1.2" date="2023-11-20">
       <description translatable="no">
         <ul>
-          <li>Add support for tabs. New tabs can be created by middle-clicking on sidebar items, documentation links, or from the new tab button in the header bar. For small screen devices, tabs can be created through the TabButton and TabOverview.</li>
+          <li>Add support for Tabs</li>
+          <li>Add middle-click support in the sidebar for opening in a new tab</li>
           <li>Fix an issue where shortcuts window prevents app from closing</li>
           <li>Fix an issue where main window CSS leaks into other windows</li>
           <li>Show status page in sidebar when no results found</li>
-          <li>Slightly increase width of window</li>
+          <li>Fix layout with "Large Text" accessibility option</li>
         </ul>
       </description>
     </release>
