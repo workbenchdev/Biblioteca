@@ -31,6 +31,16 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.2" date="2023-11-20">
+      <description translatable="no">
+        <ul>
+          <li>Add support for tabs</li>
+          <li>Fix an issue where shortcuts window prevents app from closing</li>
+          <li>Fix an issue where main window CSS leaks into other windows</li>
+          <li>Show status page in sidebar when no results found</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1" date="2023-11-12">
       <description translatable="no">
         Various bug fixes.
