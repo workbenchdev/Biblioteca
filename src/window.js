@@ -38,16 +38,6 @@ class Window extends Adw.ApplicationWindow {
     this._button_back.connect("clicked", this.goBack);
     this._button_forward.connect("clicked", this.goForward);
 
-    this.bind_property_full(
-      "title",
-      this._content_page,
-      "title",
-      GObject.BindingFlags.SYNC_CREATE,
-      (binding, from_value) =>
-        from_value ? [true, from_value] : [false, null],
-      null,
-    );
-
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
@@ -120,11 +110,24 @@ class Window extends Adw.ApplicationWindow {
       GObject.BindingFlags.SYNC_CREATE,
     );
 
-    this._webview.bind_property(
+    this._webview.bind_property_full(
+      "title",
+      this._content_page,
+      "title",
+      GObject.BindingFlags.SYNC_CREATE,
+      (binding, from_value) =>
+        from_value ? [true, from_value] : [false, null],
+      null,
+    );
+
+    this._webview.bind_property_full(
       "title",
       this,
       "title",
       GObject.BindingFlags.SYNC_CREATE,
+      (binding, from_value) =>
+        from_value ? [true, `${from_value} - Biblioteca`] : [false, null],
+      null,
     );
     return tab_page;
   };
@@ -150,7 +153,10 @@ class Window extends Adw.ApplicationWindow {
   #updateWebView = () => {
     this._webview = this._tab_view.selected_page.child;
     this.#updateButtons();
-    this.title = this._webview.title;
+    if (this._webview.title) {
+      this.title = `${this._webview.title} - Biblioteca`;
+      this._content_page.title = this._webview.title;
+    }
     this._sidebar.browse_view.webview = this._webview;
   };
 
