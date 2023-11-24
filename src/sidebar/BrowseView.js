@@ -60,6 +60,11 @@ class BrowseView extends Gtk.ScrolledWindow {
     const gesture_click = new Gtk.GestureClick({ button: 0 });
     this._browse_list_view.add_controller(gesture_click);
     gesture_click.connect("pressed", this.#onGestureClick);
+
+    this._browse_list_view.connect("activate", (list_view, pos) => {
+      const row = this._tree_model.get_row(pos);
+      row.expanded = !row.expanded;
+    });
   }
 
   get webview() {
