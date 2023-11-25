@@ -53,12 +53,33 @@ class WebView extends WebKit.WebView {
     if (decision_type === WebKit.PolicyDecisionType.NAVIGATION_ACTION) {
       const navigation_action = decision.get_navigation_action();
       const mouse_button = navigation_action.get_mouse_button();
-      const uri = navigation_action.get_request().get_uri();
+      let uri = navigation_action.get_request().get_uri();
       console.debug(
         "navigation",
         getEnum(WebKit.NavigationType, navigation_action.get_navigation_type()),
         uri,
       );
+
+      const guri = GLib.Uri.parse(uri, GLib.UriFlags.NONE);
+      console.log(guri.get_host(), guri.get_path());
+
+      const new_tab = mouse_button === 2;
+
+      // Rewrite http to local url
+      if (
+        guri.get_scheme().startsWith("http") &&
+        guri.get_host() === "docs.gtk.org"
+      ) {
+        let path = guri.get_path().substring(1);
+        if (!path.endsWith(".html")) {
+          path += `index.html`;
+        }
+        uri = `file:///app/share/doc/${path}`;
+        this.openURI(uri, new_tab);
+        return true;
+      }
+
+      console.log(uri);
 
       const scheme = GLib.Uri.peek_scheme(uri);
       if (scheme !== "file") {
@@ -68,13 +89,21 @@ class WebView extends WebKit.WebView {
           .catch(console.error);
         return true;
       } else if (scheme === "file" && mouse_button === 2) {
-        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        this.openURI(uri, new_tab);
         return true;
       }
     }
 
     return false;
   };
+
+  openURI(uri, new_tab = false) {
+    if (new_tab) {
+      this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+    } else {
+      this.load_uri(uri);
+    }
+  }
 }
 
 export function getEnum(enums, idx) {
