@@ -8,6 +8,7 @@ template $SearchView : ScrolledWindow {
     enable-rubberband: false;
     factory: BuilderListItemFactory {
       template ListItem {
+        focusable: true;
         child: Box {
           Inscription {
             valign: center;

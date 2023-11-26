@@ -81,6 +81,11 @@ template $Window: Adw.ApplicationWindow {
               }
             }
 
+            [top]
+            Adw.TabBar tab_bar {
+              view: tab_view;
+            }
+
             [bottom]
             ActionBar bottom_toolbar {
               visible: false;
@@ -93,18 +98,9 @@ template $Window: Adw.ApplicationWindow {
               }
             }
 
-            Box {
-              orientation: vertical;
-                styles ["bg-black"]
-
-              Adw.TabBar tab_bar {
-                view: tab_view;
-              }
-
-              Adw.TabView tab_view {
-                vexpand: true;
-                shortcuts: all_shortcuts;
-              }
+            Adw.TabView tab_view {
+              vexpand: true;
+              shortcuts: all_shortcuts;
             }
           }
         };

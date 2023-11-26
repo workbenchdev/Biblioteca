@@ -8,6 +8,7 @@ template $BrowseView: ScrolledWindow {
     enable-rubberband: false;
     factory: BuilderListItemFactory {
       template ListItem {
+        focusable: true;
         child: TreeExpander expander {
           list-row: bind template.item;
           child: Inscription {
