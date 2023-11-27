@@ -63,7 +63,7 @@ class Window extends Adw.ApplicationWindow {
       this.focusGlobalSearch,
       this.toggleSidebar,
       this.toggleOverview,
-      this.activateDefault
+      this.activateDefault // delete when GTK bug with primary menus fixed
     );
   }
 
@@ -148,6 +148,7 @@ class Window extends Adw.ApplicationWindow {
     this._tab_overview.open = !this._tab_overview.open;
   }
 
+  // delete when GTK bug with primary menus fixed
   activateDefault = () => {
     this._split_view.show_sidebar = true;
     this._sidebar._button_menu.popup();
