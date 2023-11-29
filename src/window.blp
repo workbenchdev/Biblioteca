@@ -9,7 +9,7 @@ template $Window: Adw.ApplicationWindow {
   default-width: 1080;
   default-height: 768;
 
-  styles [ "main-window" ]
+  styles ["main-window"]
 
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
@@ -46,7 +46,7 @@ template $Window: Adw.ApplicationWindow {
           child: Adw.ToolbarView {
             [top]
             Adw.HeaderBar content_header_bar {
-              styles [ "content-headerbar" ]
+              styles ["content-headerbar"]
 
               [start]
               ToggleButton button_sidebar {
@@ -55,7 +55,7 @@ template $Window: Adw.ApplicationWindow {
                 visible: false;
                 active: bind split_view.show-sidebar;
 
-                styles [ "flat" ]
+                styles ["flat"]
               }
 
               [start]
@@ -67,14 +67,14 @@ template $Window: Adw.ApplicationWindow {
                   icon-name: "go-previous-symbolic";
                   tooltip-text: _("Back");
 
-                  styles [ "flat" ]
+                  styles ["flat"]
                 }
 
                 Button button_forward {
                   icon-name: "go-next-symbolic";
                   tooltip-text: _("Forward");
 
-                  styles [ "flat" ]
+                  styles ["flat"]
                 }
               }
 
@@ -85,7 +85,7 @@ template $Window: Adw.ApplicationWindow {
                 action-target: '"file:///app/share/doc/gtk4/index.html"';
                 tooltip-text: _("New Tab");
 
-                styles [ "flat" ]
+                styles ["flat"]
               }
             }
 

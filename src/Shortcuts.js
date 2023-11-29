@@ -15,7 +15,6 @@ export default function Shortcuts(
   focusGlobalSearch,
   toggleSidebar,
   toggleOverview,
-  activateDefault // delete when GTK bug with primary menus fixed
 ) {
   const { application } = window;
 
@@ -61,8 +60,7 @@ export default function Shortcuts(
     [["<Control>0"], resetZoom],
     [["<Control>K"], focusGlobalSearch],
     [["F9"], toggleSidebar],
-    [["<Shift><Control>o"], toggleOverview],
-    [["F10"], activateDefault] // delete when GTK bug with primary menus fixed
+    [["<Shift><Control>o"], toggleOverview]
   ];
 
   const shortcutController = new Gtk.ShortcutController();

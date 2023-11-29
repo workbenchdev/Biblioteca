@@ -62,8 +62,7 @@ class Window extends Adw.ApplicationWindow {
       this.resetZoom,
       this.focusGlobalSearch,
       this.toggleSidebar,
-      this.toggleOverview,
-      this.activateDefault // delete when GTK bug with primary menus fixed
+      this.toggleOverview
     );
   }
 
@@ -146,12 +145,6 @@ class Window extends Adw.ApplicationWindow {
 
   toggleOverview = () => {
     this._tab_overview.open = !this._tab_overview.open;
-  }
-
-  // delete when GTK bug with primary menus fixed
-  activateDefault = () => {
-    this._split_view.show_sidebar = true;
-    this._sidebar._button_menu.popup();
   }
 
   #updateWebView = () => {
