@@ -13,63 +13,70 @@ template $Window: Adw.ApplicationWindow {
 
   Adw.Breakpoint window_breakpoint {
     condition ("max-width: 850sp")
+
     setters {
       split_view.collapsed: true;
       button_sidebar.visible: true;
     }
   }
 
-  content: Adw.OverlaySplitView split_view {
-    show-sidebar: bind button_sidebar.active;
+  content: Adw.TabOverview tab_overview {
+    enable-new-tab: true;
+    view: tab_view;
 
-    content: Adw.NavigationPage content_page {
-      child: Adw.BreakpointBin {
-        width-request: 360;
-        height-request: 360;
-        Adw.Breakpoint toolbar_breakpoint {
-          condition ("max-width: 450sp")
-          setters {
-            bottom_toolbar.visible: true;
-            button_new_tab.visible: false;
-            tab_bar.visible: false;
-            tab_button.visible: true;
+    Adw.OverlaySplitView split_view {
+      show-sidebar: bind button_sidebar.active;
+
+      content: Adw.NavigationPage content_page {
+        child: Adw.BreakpointBin {
+          width-request: 360;
+          height-request: 360;
+
+          Adw.Breakpoint toolbar_breakpoint {
+            condition ("max-width: 450sp")
+
+            setters {
+              bottom_toolbar.visible: true;
+              button_new_tab.visible: false;
+              tab_bar.visible: false;
+              tab_button.visible: true;
+            }
           }
-        }
 
-        child: Adw.TabOverview tab_overview {
-          enable-new-tab: true;
-          view: tab_view;
-
-          Adw.ToolbarView {
+          child: Adw.ToolbarView {
             [top]
             Adw.HeaderBar content_header_bar {
               styles ["content-headerbar"]
+
               [start]
               ToggleButton button_sidebar {
                 icon-name: "sidebar-show-symbolic";
                 tooltip-text: _("Open Sidebar");
                 visible: false;
                 active: bind split_view.show-sidebar;
+
                 styles ["flat"]
               }
+
               [start]
               Box box_navigation {
                 spacing: 6;
                 halign: start;
+
                 Button button_back {
                   icon-name: "go-previous-symbolic";
                   tooltip-text: _("Back");
+
                   styles ["flat"]
                 }
 
                 Button button_forward {
                   icon-name: "go-next-symbolic";
                   tooltip-text: _("Forward");
+
                   styles ["flat"]
                 }
               }
-
-
 
               [end]
               Button button_new_tab {
@@ -77,6 +84,7 @@ template $Window: Adw.ApplicationWindow {
                 action-name: "app.new-tab";
                 action-target: '"file:///app/share/doc/gtk4/index.html"';
                 tooltip-text: _("New Tab");
+
                 styles ["flat"]
               }
             }
@@ -102,9 +110,9 @@ template $Window: Adw.ApplicationWindow {
               vexpand: true;
               shortcuts: all_shortcuts;
             }
-          }
+          };
         };
       };
-    };
+    }
   };
 }

@@ -15,7 +15,7 @@ ShortcutsWindow window_shortcuts {
         accelerator: "<Control>T";
       }
 
-        ShortcutsShortcut {
+      ShortcutsShortcut {
         title: _("Close tab");
         accelerator: "<Control>W";
       }
@@ -38,6 +38,11 @@ ShortcutsWindow window_shortcuts {
       ShortcutsShortcut {
         title: _("Switch to the last tab");
         accelerator: "<Control>End";
+      }
+
+      ShortcutsShortcut {
+        title: _("View all open tabs");
+        accelerator: "<Shift><Control>o";
       }
 
       ShortcutsShortcut {
@@ -116,6 +121,11 @@ ShortcutsWindow window_shortcuts {
 
     ShortcutsGroup {
       title: _("General");
+
+      ShortcutsShortcut {
+        title: _("Show sidebar");
+        accelerator: "F9";
+      }
 
       ShortcutsShortcut {
         title: _("Shortcuts");

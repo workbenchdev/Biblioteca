@@ -61,6 +61,8 @@ class Window extends Adw.ApplicationWindow {
       this.zoomOut,
       this.resetZoom,
       this.focusGlobalSearch,
+      this.toggleSidebar,
+      this.toggleOverview
     );
   }
 
@@ -95,6 +97,8 @@ class Window extends Adw.ApplicationWindow {
   };
 
   focusGlobalSearch = () => {
+    this._tab_overview.open = false;
+    this._split_view.show_sidebar = true;
     this._sidebar._search_entry.grab_focus();
     this._sidebar._search_entry.select_region(0, -1);
   };
@@ -132,6 +136,16 @@ class Window extends Adw.ApplicationWindow {
     }
     this._tab_view.close_page(this._tab_view.selected_page);
   };
+
+  toggleSidebar = () => {
+    if (this._split_view.collapsed && !this._tab_overview.open) {
+      this._split_view.show_sidebar = !this._split_view.show_sidebar;
+    }
+  }
+
+  toggleOverview = () => {
+    this._tab_overview.open = !this._tab_overview.open;
+  }
 
   #updateWebView = () => {
     this._webview = this._tab_view.selected_page.child;
