@@ -130,7 +130,7 @@ class Window extends Adw.ApplicationWindow {
   };
 
   closeTab = () => {
-    if (this._tab_view.n_pages === 1) {
+    if (this._tab_view.n_pages === 1 && !this._tab_overview.open) {
       this.close();
       return;
     }
