@@ -8,6 +8,7 @@ template $Window: Adw.ApplicationWindow {
   height-request: 360;
   default-width: 1080;
   default-height: 768;
+  title: "Biblioteca";
 
   styles ["main-window"]
 
@@ -28,6 +29,7 @@ template $Window: Adw.ApplicationWindow {
       show-sidebar: bind button_sidebar.active;
 
       content: Adw.NavigationPage content_page {
+        title: _("Documentation");
         child: Adw.BreakpointBin {
           width-request: 360;
           height-request: 360;
