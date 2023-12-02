@@ -148,6 +148,7 @@ class Window extends Adw.ApplicationWindow {
   }
 
   #updateWebView = () => {
+    if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
     this.#updateButtons();
     this.title = this._webview.title;
