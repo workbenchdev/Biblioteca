@@ -44,6 +44,9 @@ template $Window: Adw.ApplicationWindow {
           }
 
           child: Adw.ToolbarView {
+            top-bar-style: raised_border;
+            bottom-bar-style: raised_border;
+
             [top]
             Adw.HeaderBar content_header_bar {
               styles ["content-headerbar"]
@@ -87,11 +90,47 @@ template $Window: Adw.ApplicationWindow {
 
                 styles ["flat"]
               }
+
+              [end]
+              ToggleButton {
+                icon-name: "loupe-large-symbolic";
+                tooltip-text: _("Find in Page");
+                active: bind search_bar.search-mode-enabled bidirectional;
+              }
             }
 
             [top]
             Adw.TabBar tab_bar {
               view: tab_view;
+            }
+
+            [top]
+            SearchBar search_bar {
+              Adw.Clamp {
+                maximum-size: 400;
+                tightening-threshold: 300;
+                hexpand: true;
+
+                Gtk.Box {
+                  orientation: horizontal;
+                  spacing: 6;
+
+                  SearchEntry search_entry {
+                    placeholder-text: _("Type to search…");
+                    hexpand: true;
+                  }
+
+                  Button previous_result {
+                    icon-name: "go-up-symbolic";
+                    tooltip-text: _("Show previous result");
+                  }
+
+                  Button next_result {
+                    icon-name: "go-down-symbolic";
+                    tooltip-text: _("Show next result");
+                  }
+                }
+              }
             }
 
             [bottom]

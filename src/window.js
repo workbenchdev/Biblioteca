@@ -10,6 +10,7 @@ import Template from "./window.blp" with { type: "uri" };
 import "./icons/sidebar-show-symbolic.svg";
 import "./icons/tab-new-symbolic.svg";
 import "./icons/view-grid-symbolic.svg";
+import "./icons/loupe-large-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
   constructor(params = {}) {
