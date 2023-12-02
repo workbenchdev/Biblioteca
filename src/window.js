@@ -9,6 +9,7 @@ import Template from "./window.blp" with { type: "uri" };
 
 import "./icons/sidebar-show-symbolic.svg";
 import "./icons/tab-new-symbolic.svg";
+import "./icons/view-grid-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
   constructor(params = {}) {
@@ -130,7 +131,7 @@ class Window extends Adw.ApplicationWindow {
   };
 
   closeTab = () => {
-    if (this._tab_view.n_pages === 1) {
+    if (this._tab_view.n_pages === 1 && !this._tab_overview.open) {
       this.close();
       return;
     }
@@ -148,6 +149,7 @@ class Window extends Adw.ApplicationWindow {
   }
 
   #updateWebView = () => {
+    if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
     this.#updateButtons();
     this.title = this._webview.title;
