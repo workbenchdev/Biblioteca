@@ -1,7 +1,7 @@
 import WebKit from "gi://WebKit";
 import GObject from "gi://GObject";
-import Gtk from "gi://Gtk";
 import GLib from "gi://GLib";
+import URLBar from "./URLBar.js";
 
 import Template from "./WebView.blp" with { type: "uri" };
 
@@ -11,12 +11,25 @@ class WebView extends WebKit.WebView {
     this.load_uri(uri);
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
+    this.url_bar = new URLBar({ webview: this });
+
     this.#disablePageSidebar();
     this.connect("notify::uri", this.#onNotifyUri);
     this.get_back_forward_list().connect("changed", () => {
       this.activate_action("win.update-buttons", null);
     });
     this.connect("decide-policy", this.#onDecidePolicy);
+  }
+
+  get is_online() {
+    if (this._is_online === undefined) this._is_online = false;
+    return this._is_online;
+  }
+
+  set is_online(value) {
+    if (this._is_online === value) return;
+    this._is_online = value;
+    this.notify("is-online");
   }
 
   #disablePageSidebar() {
@@ -36,8 +49,18 @@ class WebView extends WebKit.WebView {
     this.visible = false;
     this.visible = true;
 
-    const selected_item = this._browse_view.selection_model.selected_item.item;
-    if (this.uri !== selected_item.uri) {
+    this.is_online =
+      GLib.Uri.peek_scheme(this.uri) === "http" ||
+      GLib.Uri.peek_scheme(this.uri) === "https";
+
+    const selected_item = this._browse_view.selection_model.selected_item;
+    if (selected_item === null || this.uri !== selected_item.item.uri) {
+      if (this.is_online) {
+        this._browse_view.selection_model.unselect_item(
+          this._browse_view.selection_model.selected,
+        );
+        return;
+      }
       const path = this._sidebar.uri_to_tree_path[this.uri];
       if (!path) return;
       this._browse_view.selectItem(path);
@@ -62,17 +85,12 @@ class WebView extends WebKit.WebView {
 
       const scheme = GLib.Uri.peek_scheme(uri);
       if (scheme !== "file") {
-        decision.ignore();
-        new Gtk.UriLauncher({ uri })
-          .launch(this.get_root(), null)
-          .catch(console.error);
-        return true;
+        return false;
       } else if (scheme === "file" && mouse_button === 2) {
         this.activate_action("app.new-tab", new GLib.Variant("s", uri));
         return true;
       }
     }
-
     return false;
   };
 }
@@ -87,6 +105,15 @@ export default GObject.registerClass(
   {
     GTypeName: "WebView",
     Template,
+    Properties: {
+      "is-online": GObject.ParamSpec.boolean(
+        "is-online",
+        "is-online",
+        "True if the webview is online",
+        GObject.ParamFlags.READWRITE,
+        false,
+      ),
+    },
   },
   WebView,
 );

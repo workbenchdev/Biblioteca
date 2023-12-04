@@ -1,6 +1,7 @@
 import Gio from "gi://Gio";
 import Adw from "gi://Adw";
 import GObject from "gi://GObject";
+import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
@@ -42,6 +43,14 @@ class Window extends Adw.ApplicationWindow {
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
+    this._load_bar.connect("notify::fraction", () => {
+      if (this._load_bar.fraction === 1) {
+        this._revealer_load_bar.reveal_child = false;
+        return;
+      }
+      this._revealer_load_bar.reveal_child = true;
+    });
+
     Shortcuts(
       this,
       this.newTab,
@@ -53,7 +62,7 @@ class Window extends Adw.ApplicationWindow {
       this.resetZoom,
       this.focusGlobalSearch,
       this.toggleSidebar,
-      this.toggleOverview
+      this.toggleOverview,
     );
   }
 
@@ -104,6 +113,24 @@ class Window extends Adw.ApplicationWindow {
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
+    this._webview.connect("notify::is-online", this.#updateHeaderBar);
+
+    this._webview.connect("notify::estimated-load-progress", () => {
+      const progress = this._webview.estimated_load_progress;
+      this._load_bar.fraction = progress;
+    });
+
+    this._webview.connect("load-changed", (self, load_event) => {
+      switch (load_event) {
+        case WebKit.LoadEvent.STARTED:
+          tab_page.loading = true;
+          break;
+        case WebKit.LoadEvent.FINISHED:
+          tab_page.loading = false;
+          break;
+      }
+    });
+
     this._webview.bind_property(
       "title",
       tab_page,
@@ -145,11 +172,11 @@ class Window extends Adw.ApplicationWindow {
     if (this._split_view.collapsed && !this._tab_overview.open) {
       this._split_view.show_sidebar = !this._split_view.show_sidebar;
     }
-  }
+  };
 
   toggleOverview = () => {
     this._tab_overview.open = !this._tab_overview.open;
-  }
+  };
 
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
@@ -159,7 +186,16 @@ class Window extends Adw.ApplicationWindow {
       this.title = `${this._webview.title} - Biblioteca`;
       this._content_page.title = this._webview.title;
     }
+    this.#updateHeaderBar();
     this._sidebar.browse_view.webview = this._webview;
+  };
+
+  #updateHeaderBar = () => {
+    if (this._webview.is_online) {
+      this._content_header_bar.title_widget = this._webview.url_bar;
+      return;
+    }
+    this._content_header_bar.title_widget = null;
   };
 
   #moveNavigationDown = () => {
@@ -206,6 +242,8 @@ export default GObject.registerClass(
       "button_forward",
       "tab_button",
       "button_new_tab",
+      "revealer_load_bar",
+      "load_bar",
       "bottom_toolbar",
       "tab_overview",
       "tab_view",
