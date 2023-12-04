@@ -49,9 +49,8 @@ class WebView extends WebKit.WebView {
     this.visible = false;
     this.visible = true;
 
-    this.is_online =
-      GLib.Uri.peek_scheme(this.uri) === "http" ||
-      GLib.Uri.peek_scheme(this.uri) === "https";
+    const scheme = GLib.Uri.peek_scheme(this.uri);
+    this.is_online = ["http", "https"].includes(scheme);
 
     const selected_item = this._browse_view.selection_model.selected_item;
     if (selected_item === null || this.uri !== selected_item.item.uri) {
