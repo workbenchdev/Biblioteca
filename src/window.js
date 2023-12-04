@@ -43,14 +43,6 @@ class Window extends Adw.ApplicationWindow {
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
-    this._load_bar.connect("notify::fraction", () => {
-      if (this._load_bar.fraction === 1) {
-        this._revealer_load_bar.reveal_child = false;
-        return;
-      }
-      this._revealer_load_bar.reveal_child = true;
-    });
-
     Shortcuts(
       this,
       this.newTab,
@@ -117,6 +109,12 @@ class Window extends Adw.ApplicationWindow {
 
     this._webview.connect("notify::estimated-load-progress", () => {
       this._load_bar.fraction = this._webview.estimated_load_progress;
+      if (this._load_bar.fraction === 1) {
+        // Reset the load bar after a short delay
+        setTimeout(() => {
+          this._load_bar.fraction = 0;
+        }, 500);
+      }
     });
 
     this._webview.connect("load-changed", (self, load_event) => {
@@ -241,7 +239,6 @@ export default GObject.registerClass(
       "button_forward",
       "tab_button",
       "button_new_tab",
-      "revealer_load_bar",
       "load_bar",
       "bottom_toolbar",
       "tab_overview",

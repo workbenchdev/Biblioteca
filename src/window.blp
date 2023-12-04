@@ -97,13 +97,10 @@ template $Window: Adw.ApplicationWindow {
             }
 
             [top]
-            Revealer revealer_load_bar {
-              transition-duration: 300;
-              transition-type: slide_down;
-              ProgressBar load_bar {
-                styles ["osd"]
-              }
+            ProgressBar load_bar {
+              styles ["osd"]
             }
+
 
             [bottom]
             ActionBar bottom_toolbar {
