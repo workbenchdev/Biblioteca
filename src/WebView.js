@@ -87,6 +87,7 @@ class WebView extends WebKit.WebView {
       if (scheme !== "file") {
         return false;
       } else if (scheme === "file" && mouse_button === 2) {
+        decision.ignore();
         this.activate_action("app.new-tab", new GLib.Variant("s", uri));
         return true;
       }
