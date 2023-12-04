@@ -116,8 +116,7 @@ class Window extends Adw.ApplicationWindow {
     this._webview.connect("notify::is-online", this.#updateHeaderBar);
 
     this._webview.connect("notify::estimated-load-progress", () => {
-      const progress = this._webview.estimated_load_progress;
-      this._load_bar.fraction = progress;
+      this._load_bar.fraction = this._webview.estimated_load_progress;
     });
 
     this._webview.connect("load-changed", (self, load_event) => {
