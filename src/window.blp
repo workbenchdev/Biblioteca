@@ -96,6 +96,11 @@ template $Window: Adw.ApplicationWindow {
               view: tab_view;
             }
 
+            [top]
+            ProgressBar load_bar {
+              styles ["osd"]
+            }
+
             [bottom]
             ActionBar bottom_toolbar {
               visible: false;
