@@ -15,6 +15,7 @@ export default function Shortcuts(
   focusGlobalSearch,
   toggleSidebar,
   toggleOverview,
+  openFind
 ) {
   const { application } = window;
 
@@ -60,7 +61,8 @@ export default function Shortcuts(
     [["<Control>0"], resetZoom],
     [["<Control>K"], focusGlobalSearch],
     [["F9"], toggleSidebar],
-    [["<Shift><Control>o"], toggleOverview]
+    [["<Shift><Control>o"], toggleOverview],
+    [["<Control>f"], openFind]
   ];
 
   const shortcutController = new Gtk.ShortcutController();

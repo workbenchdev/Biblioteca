@@ -53,6 +53,15 @@ class Window extends Adw.ApplicationWindow {
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
+    this._search_bar.connect_entry(this._search_entry);
+    this._search_bar.connect("notify::search-mode-enabled", () => {
+      if (!this._search_bar.search_mode_enabled) this.#closeFind();
+    });
+
+    this._close_find_button.connect("clicked", () => {
+      this.#closeFind();
+    });
+
     Shortcuts(
       this,
       this.newTab,
@@ -64,7 +73,8 @@ class Window extends Adw.ApplicationWindow {
       this.resetZoom,
       this.focusGlobalSearch,
       this.toggleSidebar,
-      this.toggleOverview
+      this.toggleOverview,
+      this.showFind
     );
   }
 
@@ -149,6 +159,19 @@ class Window extends Adw.ApplicationWindow {
     this._tab_overview.open = !this._tab_overview.open;
   }
 
+  showFind = () => {
+    this._search_bar.search_mode_enabled = true;
+    this._search_bar.add_css_class("card");
+  }
+
+  #closeFind = () => {
+    this._search_bar.search_mode_enabled = false;
+    setTimeout(() => {
+      this._search_bar.remove_css_class("card");
+    }, 200);
+    // this.#searchHandler.closeSearch();
+  }
+
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
@@ -204,6 +227,9 @@ export default GObject.registerClass(
       "bottom_toolbar",
       "tab_overview",
       "tab_view",
+      "search_bar",
+      "search_entry",
+      "close_find_button"
     ],
   },
   Window,
