@@ -1,6 +1,4 @@
-import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
-import GLib from "gi://GLib";
 
 import About from "./about.js";
 import { settings } from "./util.js";
@@ -24,17 +22,6 @@ export default function Actions({ application }) {
     About({ application });
   });
   application.add_action(showAboutDialog);
-
-  const action_open_uri = new Gio.SimpleAction({
-    name: "open_uri",
-    parameter_type: new GLib.VariantType("s"),
-  });
-  action_open_uri.connect("activate", (_self, target) => {
-    new Gtk.UriLauncher({ uri: target.unpack() })
-      .launch(application.get_active_window(), null)
-      .catch(console.error);
-  });
-  application.add_action(action_open_uri);
 
   application.add_action(settings.create_action("color-scheme"));
 }
