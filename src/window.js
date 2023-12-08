@@ -1,10 +1,12 @@
-import Gio from "gi://Gio";
 import Adw from "gi://Adw";
+import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GObject from "gi://GObject";
 import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
+import URLBar from "./URLBar.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
@@ -20,6 +22,7 @@ class Window extends Adw.ApplicationWindow {
       this.add_css_class("devel");
     }
     this.#createSidebar();
+    this.#createURLBar();
     this.newTab();
 
     const update_buttons_action = new Gio.SimpleAction({
@@ -98,6 +101,7 @@ class Window extends Adw.ApplicationWindow {
   newTab = (uri = "file:///app/share/doc/gtk4/index.html") => {
     this._webview = new WebView({
       uri: uri,
+      url_bar: this._url_bar,
       sidebar: this._sidebar,
     });
 
@@ -189,7 +193,8 @@ class Window extends Adw.ApplicationWindow {
 
   #updateHeaderBar = () => {
     if (this._webview.is_online) {
-      this._content_header_bar.title_widget = this._webview.url_bar;
+      this._url_bar.buffer.text = this._webview.uri;
+      this._content_header_bar.title_widget = this._title_widget;
       return;
     }
     this._content_header_bar.title_widget = null;
@@ -204,6 +209,19 @@ class Window extends Adw.ApplicationWindow {
     this._bottom_toolbar.remove(this._box_navigation);
     this._content_header_bar.pack_start(this._box_navigation);
   };
+
+  #createURLBar() {
+    this._url_bar = new URLBar();
+    this._url_bar.connect("activate", () => {
+      let url = this._url_bar.buffer.text;
+      const scheme = GLib.Uri.peek_scheme(url);
+      if (!scheme) {
+        url = `http://${url}`;
+      }
+      this._webview.load_uri(url);
+    });
+    this._title_widget = new Adw.Clamp({ child: this._url_bar });
+  }
 
   #createSidebar() {
     this._sidebar = new Sidebar();
