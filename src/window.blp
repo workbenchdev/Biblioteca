@@ -48,6 +48,24 @@ template $Window: Adw.ApplicationWindow {
           child: Adw.ToolbarView {
             [top]
             Adw.HeaderBar content_header_bar {
+              title-widget: Stack header_bar_stack {
+                StackPage {
+                  name: "title";
+                  child: Adw.WindowTitle header_bar_title {
+                  title: bind content_page.title;
+                  };
+                }
+
+                StackPage {
+                  name: "url_bar";
+                  child: Adw.Clamp {
+                    Gtk.Entry url_bar {
+                      hexpand: true;
+                      input-purpose: url;
+                    }
+                  };
+                }
+              };
               styles ["content-headerbar"]
 
               [start]

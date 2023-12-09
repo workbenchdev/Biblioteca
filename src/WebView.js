@@ -5,9 +5,8 @@ import GLib from "gi://GLib";
 import Template from "./WebView.blp" with { type: "uri" };
 
 class WebView extends WebKit.WebView {
-  constructor({ uri, url_bar, sidebar, ...params }) {
+  constructor({ uri, sidebar, ...params }) {
     super(params);
-    this._url_bar = url_bar;
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
     this.connect("notify::uri", this.#onNotifyUri);
@@ -52,8 +51,6 @@ class WebView extends WebKit.WebView {
 
     const scheme = GLib.Uri.peek_scheme(this.uri);
     this.is_online = ["http", "https"].includes(scheme);
-
-    this._url_bar.buffer.text = this.uri;
 
     const selected_item = this._browse_view.selection_model.selected_item;
     if (selected_item === null || this.uri !== selected_item.item.uri) {
