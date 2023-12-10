@@ -1,20 +1,18 @@
 import WebKit from "gi://WebKit";
 import GObject from "gi://GObject";
 import GLib from "gi://GLib";
-import URLBar from "./URLBar.js";
 
 import Template from "./WebView.blp" with { type: "uri" };
 
 class WebView extends WebKit.WebView {
   constructor({ uri, sidebar, ...params }) {
     super(params);
-    this.load_uri(uri);
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
-    this.url_bar = new URLBar({ webview: this });
+    this.connect("notify::uri", this.#onNotifyUri);
+    this.load_uri(uri);
 
     this.#disablePageSidebar();
-    this.connect("notify::uri", this.#onNotifyUri);
     this.get_back_forward_list().connect("changed", () => {
       this.activate_action("win.update-buttons", null);
     });
@@ -49,17 +47,13 @@ class WebView extends WebKit.WebView {
     this.visible = false;
     this.visible = true;
 
+    if (!this.uri) return;
+
     const scheme = GLib.Uri.peek_scheme(this.uri);
     this.is_online = ["http", "https"].includes(scheme);
 
     const selected_item = this._browse_view.selection_model.selected_item;
     if (selected_item === null || this.uri !== selected_item.item.uri) {
-      if (this.is_online) {
-        this._browse_view.selection_model.unselect_item(
-          this._browse_view.selection_model.selected,
-        );
-        return;
-      }
       const path = this._sidebar.uri_to_tree_path[this.uri];
       if (!path) return;
       this._browse_view.selectItem(path);
@@ -82,10 +76,7 @@ class WebView extends WebKit.WebView {
         uri,
       );
 
-      const scheme = GLib.Uri.peek_scheme(uri);
-      if (scheme !== "file") {
-        return false;
-      } else if (scheme === "file" && mouse_button === 2) {
+      if (mouse_button === 2) {
         decision.ignore();
         this.activate_action("app.new-tab", new GLib.Variant("s", uri));
         return true;

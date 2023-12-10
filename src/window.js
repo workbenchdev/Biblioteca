@@ -1,5 +1,5 @@
-import Gio from "gi://Gio";
 import Adw from "gi://Adw";
+import Gio from "gi://Gio";
 import GObject from "gi://GObject";
 import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
@@ -105,7 +105,7 @@ class Window extends Adw.ApplicationWindow {
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
-    this._webview.connect("notify::is-online", this.#updateHeaderBar);
+    this._webview.connect("notify::is-online", this.#onWebViewOnline);
 
     this._webview.connect("notify::estimated-load-progress", () => {
       this._load_bar.fraction = this._webview.estimated_load_progress;
@@ -183,16 +183,25 @@ class Window extends Adw.ApplicationWindow {
       this.title = `${this._webview.title} - Biblioteca`;
       this._content_page.title = this._webview.title;
     }
-    this.#updateHeaderBar();
+    this.#onWebViewOnline();
     this._sidebar.browse_view.webview = this._webview;
   };
 
-  #updateHeaderBar = () => {
+  #onWebViewOnline = () => {
     if (this._webview.is_online) {
-      this._content_header_bar.title_widget = this._webview.url_bar;
+      this._sidebar.browse_view.unselectSelection();
+
+      this._binding_uri = this._webview.bind_property(
+        "uri",
+        this._url_bar.buffer,
+        "text",
+        GObject.BindingFlags.SYNC_CREATE,
+      );
+      this._header_bar_stack.set_visible_child_name("url_bar");
       return;
     }
-    this._content_header_bar.title_widget = null;
+    if (this._binding_uri) this._binding_uri.unbind();
+    this._header_bar_stack.set_visible_child_name("title");
   };
 
   #moveNavigationDown = () => {
@@ -234,6 +243,8 @@ export default GObject.registerClass(
       "content_page",
       "toolbar_breakpoint",
       "content_header_bar",
+      "header_bar_stack",
+      "url_bar",
       "box_navigation",
       "button_back",
       "button_forward",
