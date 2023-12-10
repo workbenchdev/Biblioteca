@@ -54,12 +54,6 @@ class WebView extends WebKit.WebView {
 
     const selected_item = this._browse_view.selection_model.selected_item;
     if (selected_item === null || this.uri !== selected_item.item.uri) {
-      if (this.is_online) {
-        this._browse_view.selection_model.unselect_item(
-          this._browse_view.selection_model.selected,
-        );
-        return;
-      }
       const path = this._sidebar.uri_to_tree_path[this.uri];
       if (!path) return;
       this._browse_view.selectItem(path);

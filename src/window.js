@@ -105,7 +105,7 @@ class Window extends Adw.ApplicationWindow {
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
-    this._webview.connect("notify::is-online", this.#updateHeaderBar);
+    this._webview.connect("notify::is-online", this.#onWebViewOnline);
 
     this._webview.connect("notify::estimated-load-progress", () => {
       this._load_bar.fraction = this._webview.estimated_load_progress;
@@ -183,14 +183,15 @@ class Window extends Adw.ApplicationWindow {
       this.title = `${this._webview.title} - Biblioteca`;
       this._content_page.title = this._webview.title;
     }
-    this.#updateHeaderBar();
+    this.#onWebViewOnline();
     this._sidebar.browse_view.webview = this._webview;
   };
 
-  #updateHeaderBar = () => {
-    let binding;
+  #onWebViewOnline = () => {
     if (this._webview.is_online) {
-      binding = this._webview.bind_property(
+      this._sidebar.browse_view.unselectSelection();
+
+      this._binding_uri = this._webview.bind_property(
         "uri",
         this._url_bar.buffer,
         "text",
@@ -199,7 +200,7 @@ class Window extends Adw.ApplicationWindow {
       this._header_bar_stack.set_visible_child_name("url_bar");
       return;
     }
-    if (binding) binding.unbind();
+    if (this._binding_uri) this._binding_uri.unbind();
     this._header_bar_stack.set_visible_child_name("title");
   };
 

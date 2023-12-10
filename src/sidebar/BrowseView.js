@@ -92,6 +92,10 @@ class BrowseView extends Gtk.ScrolledWindow {
     this._scrolled_to = true;
   }
 
+  unselectSelection() {
+    this.selection_model.unselect_item(this.selection_model.selected);
+  }
+
   collapseAllRows() {
     for (let i = 0; i < this._tree_model.n_items; i++) {
       const row = this._tree_model.get_row(i);
