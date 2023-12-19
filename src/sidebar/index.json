@@ -1,0 +1,4213 @@
+{
+  "entries": [
+    { "name": "Addition", "path": "operators/addition", "type": "Operators" },
+    {
+      "name": "Addition assignment",
+      "path": "operators/addition_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "AggregateError",
+      "path": "global_objects/aggregateerror",
+      "type": "Errors"
+    },
+    {
+      "name": "AggregateError.aggregateError",
+      "path": "global_objects/aggregateerror/aggregateerror",
+      "type": "Errors"
+    },
+    {
+      "name": "AggregateError.errors",
+      "path": "global_objects/aggregateerror/errors",
+      "type": "Errors"
+    },
+    { "name": "arguments", "path": "functions/arguments", "type": "Function" },
+    {
+      "name": "arguments.@@iterator",
+      "path": "functions/arguments/@@iterator",
+      "type": "Function"
+    },
+    {
+      "name": "arguments.callee",
+      "path": "functions/arguments/callee",
+      "type": "Function"
+    },
+    {
+      "name": "arguments.length",
+      "path": "functions/arguments/length",
+      "type": "Function"
+    },
+    { "name": "Array", "path": "global_objects/array", "type": "Array" },
+    {
+      "name": "Array.@@iterator",
+      "path": "global_objects/array/@@iterator",
+      "type": "Array"
+    },
+    {
+      "name": "Array.@@species",
+      "path": "global_objects/array/@@species",
+      "type": "Array"
+    },
+    {
+      "name": "array.@@unscopables",
+      "path": "global_objects/array/@@unscopables",
+      "type": "Array"
+    },
+    {
+      "name": "Array.array",
+      "path": "global_objects/array/array",
+      "type": "Array"
+    },
+    { "name": "array.at", "path": "global_objects/array/at", "type": "Array" },
+    {
+      "name": "array.concat",
+      "path": "global_objects/array/concat",
+      "type": "Array"
+    },
+    {
+      "name": "Array.copyWithin",
+      "path": "global_objects/array/copywithin",
+      "type": "Array"
+    },
+    {
+      "name": "array.entries",
+      "path": "global_objects/array/entries",
+      "type": "Array"
+    },
+    {
+      "name": "array.every",
+      "path": "global_objects/array/every",
+      "type": "Array"
+    },
+    {
+      "name": "array.fill",
+      "path": "global_objects/array/fill",
+      "type": "Array"
+    },
+    {
+      "name": "array.filter",
+      "path": "global_objects/array/filter",
+      "type": "Array"
+    },
+    {
+      "name": "array.find",
+      "path": "global_objects/array/find",
+      "type": "Array"
+    },
+    {
+      "name": "Array.findIndex",
+      "path": "global_objects/array/findindex",
+      "type": "Array"
+    },
+    {
+      "name": "Array.findLast",
+      "path": "global_objects/array/findlast",
+      "type": "Array"
+    },
+    {
+      "name": "Array.findLastIndex",
+      "path": "global_objects/array/findlastindex",
+      "type": "Array"
+    },
+    {
+      "name": "array.flat",
+      "path": "global_objects/array/flat",
+      "type": "Array"
+    },
+    {
+      "name": "Array.flatMap",
+      "path": "global_objects/array/flatmap",
+      "type": "Array"
+    },
+    {
+      "name": "Array.forEach",
+      "path": "global_objects/array/foreach",
+      "type": "Array"
+    },
+    {
+      "name": "Array.from",
+      "path": "global_objects/array/from",
+      "type": "Array"
+    },
+    {
+      "name": "Array.fromAsync",
+      "path": "global_objects/array/fromasync",
+      "type": "Array"
+    },
+    {
+      "name": "array.includes",
+      "path": "global_objects/array/includes",
+      "type": "Array"
+    },
+    {
+      "name": "Array.indexOf",
+      "path": "global_objects/array/indexof",
+      "type": "Array"
+    },
+    {
+      "name": "Array.isArray",
+      "path": "global_objects/array/isarray",
+      "type": "Array"
+    },
+    {
+      "name": "array.join",
+      "path": "global_objects/array/join",
+      "type": "Array"
+    },
+    {
+      "name": "array.keys",
+      "path": "global_objects/array/keys",
+      "type": "Array"
+    },
+    {
+      "name": "Array.lastIndexOf",
+      "path": "global_objects/array/lastindexof",
+      "type": "Array"
+    },
+    {
+      "name": "Array.length",
+      "path": "global_objects/array/length",
+      "type": "Array"
+    },
+    {
+      "name": "array.map",
+      "path": "global_objects/array/map",
+      "type": "Array"
+    },
+    { "name": "Array.of", "path": "global_objects/array/of", "type": "Array" },
+    {
+      "name": "array.pop",
+      "path": "global_objects/array/pop",
+      "type": "Array"
+    },
+    {
+      "name": "array.push",
+      "path": "global_objects/array/push",
+      "type": "Array"
+    },
+    {
+      "name": "array.reduce",
+      "path": "global_objects/array/reduce",
+      "type": "Array"
+    },
+    {
+      "name": "Array.reduceRight",
+      "path": "global_objects/array/reduceright",
+      "type": "Array"
+    },
+    {
+      "name": "array.reverse",
+      "path": "global_objects/array/reverse",
+      "type": "Array"
+    },
+    {
+      "name": "array.shift",
+      "path": "global_objects/array/shift",
+      "type": "Array"
+    },
+    {
+      "name": "array.slice",
+      "path": "global_objects/array/slice",
+      "type": "Array"
+    },
+    {
+      "name": "array.some",
+      "path": "global_objects/array/some",
+      "type": "Array"
+    },
+    {
+      "name": "array.sort",
+      "path": "global_objects/array/sort",
+      "type": "Array"
+    },
+    {
+      "name": "array.splice",
+      "path": "global_objects/array/splice",
+      "type": "Array"
+    },
+    {
+      "name": "Array.toLocaleString",
+      "path": "global_objects/array/tolocalestring",
+      "type": "Array"
+    },
+    {
+      "name": "Array.toReversed",
+      "path": "global_objects/array/toreversed",
+      "type": "Array"
+    },
+    {
+      "name": "Array.toSorted",
+      "path": "global_objects/array/tosorted",
+      "type": "Array"
+    },
+    {
+      "name": "Array.toSpliced",
+      "path": "global_objects/array/tospliced",
+      "type": "Array"
+    },
+    {
+      "name": "Array.toString",
+      "path": "global_objects/array/tostring",
+      "type": "Array"
+    },
+    {
+      "name": "array.unshift",
+      "path": "global_objects/array/unshift",
+      "type": "Array"
+    },
+    {
+      "name": "array.values",
+      "path": "global_objects/array/values",
+      "type": "Array"
+    },
+    {
+      "name": "array.with",
+      "path": "global_objects/array/with",
+      "type": "Array"
+    },
+    {
+      "name": "ArrayBuffer",
+      "path": "global_objects/arraybuffer",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.@@species",
+      "path": "global_objects/arraybuffer/@@species",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.arrayBuffer",
+      "path": "global_objects/arraybuffer/arraybuffer",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.byteLength",
+      "path": "global_objects/arraybuffer/bytelength",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "arrayBuffer.detached",
+      "path": "global_objects/arraybuffer/detached",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.isView",
+      "path": "global_objects/arraybuffer/isview",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.maxByteLength",
+      "path": "global_objects/arraybuffer/maxbytelength",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "arrayBuffer.resizable",
+      "path": "global_objects/arraybuffer/resizable",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "arrayBuffer.resize",
+      "path": "global_objects/arraybuffer/resize",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "arrayBuffer.slice",
+      "path": "global_objects/arraybuffer/slice",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "arrayBuffer.transfer",
+      "path": "global_objects/arraybuffer/transfer",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "ArrayBuffer.transferToFixedLength",
+      "path": "global_objects/arraybuffer/transfertofixedlength",
+      "type": "ArrayBuffer"
+    },
+    {
+      "name": "Arrow functions",
+      "path": "functions/arrow_functions",
+      "type": "Function"
+    },
+    {
+      "name": "Assignment",
+      "path": "operators/assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "async function",
+      "path": "statements/async_function",
+      "type": "Statements"
+    },
+    {
+      "name": "async function",
+      "path": "operators/async_function",
+      "type": "Operators"
+    },
+    {
+      "name": "async function*",
+      "path": "statements/async_function*",
+      "type": "Statements"
+    },
+    {
+      "name": "async function*",
+      "path": "operators/async_function*",
+      "type": "Operators"
+    },
+    {
+      "name": "AsyncFunction",
+      "path": "global_objects/asyncfunction",
+      "type": "Function"
+    },
+    {
+      "name": "AsyncFunction.asyncFunction",
+      "path": "global_objects/asyncfunction/asyncfunction",
+      "type": "Function"
+    },
+    {
+      "name": "AsyncGenerator",
+      "path": "global_objects/asyncgenerator",
+      "type": "Global Objects"
+    },
+    {
+      "name": "AsyncGenerator.next",
+      "path": "global_objects/asyncgenerator/next",
+      "type": "AsyncGenerator"
+    },
+    {
+      "name": "AsyncGenerator.return",
+      "path": "global_objects/asyncgenerator/return",
+      "type": "AsyncGenerator"
+    },
+    {
+      "name": "AsyncGenerator.throw",
+      "path": "global_objects/asyncgenerator/throw",
+      "type": "AsyncGenerator"
+    },
+    {
+      "name": "AsyncGeneratorFunction",
+      "path": "global_objects/asyncgeneratorfunction",
+      "type": "Function"
+    },
+    {
+      "name": "AsyncGeneratorFunction.asyncGeneratorFunction",
+      "path": "global_objects/asyncgeneratorfunction/asyncgeneratorfunction",
+      "type": "Function"
+    },
+    {
+      "name": "AsyncIterator",
+      "path": "global_objects/asynciterator",
+      "type": "Global Objects"
+    },
+    {
+      "name": "AsyncIterator.@@asyncIterator",
+      "path": "global_objects/asynciterator/@@asynciterator",
+      "type": "AsyncIterator"
+    },
+    { "name": "Atomics", "path": "global_objects/atomics", "type": "Atomics" },
+    {
+      "name": "Atomics.add",
+      "path": "global_objects/atomics/add",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.and",
+      "path": "global_objects/atomics/and",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.compareExchange",
+      "path": "global_objects/atomics/compareexchange",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.exchange",
+      "path": "global_objects/atomics/exchange",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.isLockFree",
+      "path": "global_objects/atomics/islockfree",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.load",
+      "path": "global_objects/atomics/load",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.notify",
+      "path": "global_objects/atomics/notify",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.or",
+      "path": "global_objects/atomics/or",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.store",
+      "path": "global_objects/atomics/store",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.sub",
+      "path": "global_objects/atomics/sub",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.wait",
+      "path": "global_objects/atomics/wait",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.waitAsync",
+      "path": "global_objects/atomics/waitasync",
+      "type": "Atomics"
+    },
+    {
+      "name": "Atomics.xor",
+      "path": "global_objects/atomics/xor",
+      "type": "Atomics"
+    },
+    { "name": "await", "path": "operators/await", "type": "Operators" },
+    {
+      "name": "BigInt",
+      "path": "global_objects/bigint",
+      "type": "Global Objects"
+    },
+    {
+      "name": "BigInt.asIntN",
+      "path": "global_objects/bigint/asintn",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt.asUintN",
+      "path": "global_objects/bigint/asuintn",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt.bigInt",
+      "path": "global_objects/bigint/bigint",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt.toLocaleString",
+      "path": "global_objects/bigint/tolocalestring",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt.toString",
+      "path": "global_objects/bigint/tostring",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt.valueOf",
+      "path": "global_objects/bigint/valueof",
+      "type": "BigInt"
+    },
+    {
+      "name": "BigInt64Array",
+      "path": "global_objects/bigint64array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "BigInt64Array.bigInt64Array",
+      "path": "global_objects/bigint64array/bigint64array",
+      "type": "BigInt64Array"
+    },
+    {
+      "name": "BigUint64Array",
+      "path": "global_objects/biguint64array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "BigUint64Array.bigUint64Array",
+      "path": "global_objects/biguint64array/biguint64array",
+      "type": "BigUint64Array"
+    },
+    {
+      "name": "Bitwise AND",
+      "path": "operators/bitwise_and",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise AND assignment",
+      "path": "operators/bitwise_and_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise NOT",
+      "path": "operators/bitwise_not",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise OR",
+      "path": "operators/bitwise_or",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise OR assignment",
+      "path": "operators/bitwise_or_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise XOR",
+      "path": "operators/bitwise_xor",
+      "type": "Operators"
+    },
+    {
+      "name": "Bitwise XOR assignment",
+      "path": "operators/bitwise_xor_assignment",
+      "type": "Operators"
+    },
+    { "name": "block", "path": "statements/block", "type": "Statements" },
+    { "name": "Boolean", "path": "global_objects/boolean", "type": "Boolean" },
+    {
+      "name": "Boolean.boolean",
+      "path": "global_objects/boolean/boolean",
+      "type": "Boolean"
+    },
+    {
+      "name": "Boolean.toString",
+      "path": "global_objects/boolean/tostring",
+      "type": "Boolean"
+    },
+    {
+      "name": "Boolean.valueOf",
+      "path": "global_objects/boolean/valueof",
+      "type": "Boolean"
+    },
+    { "name": "break", "path": "statements/break", "type": "Statements" },
+    { "name": "class", "path": "operators/class", "type": "Operators" },
+    { "name": "class", "path": "statements/class", "type": "Statements" },
+    { "name": "Classes", "path": "classes", "type": "Classes" },
+    {
+      "name": "Comma operator",
+      "path": "operators/comma_operator",
+      "type": "Operators"
+    },
+    {
+      "name": "Conditional operator",
+      "path": "operators/conditional_operator",
+      "type": "Operators"
+    },
+    { "name": "const", "path": "statements/const", "type": "Statements" },
+    { "name": "constructor", "path": "classes/constructor", "type": "Classes" },
+    { "name": "continue", "path": "statements/continue", "type": "Statements" },
+    {
+      "name": "DataView",
+      "path": "global_objects/dataview",
+      "type": "DataView"
+    },
+    {
+      "name": "dataView.buffer",
+      "path": "global_objects/dataview/buffer",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.byteLength",
+      "path": "global_objects/dataview/bytelength",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.byteOffset",
+      "path": "global_objects/dataview/byteoffset",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.dataView",
+      "path": "global_objects/dataview/dataview",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getBigInt64",
+      "path": "global_objects/dataview/getbigint64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getBigUint64",
+      "path": "global_objects/dataview/getbiguint64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getFloat32",
+      "path": "global_objects/dataview/getfloat32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getFloat64",
+      "path": "global_objects/dataview/getfloat64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getInt16",
+      "path": "global_objects/dataview/getint16",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getInt32",
+      "path": "global_objects/dataview/getint32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getInt8",
+      "path": "global_objects/dataview/getint8",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getUint16",
+      "path": "global_objects/dataview/getuint16",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getUint32",
+      "path": "global_objects/dataview/getuint32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.getUint8",
+      "path": "global_objects/dataview/getuint8",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setBigInt64",
+      "path": "global_objects/dataview/setbigint64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setBigUint64",
+      "path": "global_objects/dataview/setbiguint64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setFloat32",
+      "path": "global_objects/dataview/setfloat32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setFloat64",
+      "path": "global_objects/dataview/setfloat64",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setInt16",
+      "path": "global_objects/dataview/setint16",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setInt32",
+      "path": "global_objects/dataview/setint32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setInt8",
+      "path": "global_objects/dataview/setint8",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setUint16",
+      "path": "global_objects/dataview/setuint16",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setUint32",
+      "path": "global_objects/dataview/setuint32",
+      "type": "DataView"
+    },
+    {
+      "name": "DataView.setUint8",
+      "path": "global_objects/dataview/setuint8",
+      "type": "DataView"
+    },
+    { "name": "Date", "path": "global_objects/date", "type": "Date" },
+    {
+      "name": "Date.@@toPrimitive",
+      "path": "global_objects/date/@@toprimitive",
+      "type": "Date"
+    },
+    { "name": "Date.date", "path": "global_objects/date/date", "type": "Date" },
+    {
+      "name": "Date.getDate",
+      "path": "global_objects/date/getdate",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getDay",
+      "path": "global_objects/date/getday",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getFullYear",
+      "path": "global_objects/date/getfullyear",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getHours",
+      "path": "global_objects/date/gethours",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getMilliseconds",
+      "path": "global_objects/date/getmilliseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getMinutes",
+      "path": "global_objects/date/getminutes",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getMonth",
+      "path": "global_objects/date/getmonth",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getSeconds",
+      "path": "global_objects/date/getseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getTime",
+      "path": "global_objects/date/gettime",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getTimezoneOffset",
+      "path": "global_objects/date/gettimezoneoffset",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCDate",
+      "path": "global_objects/date/getutcdate",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCDay",
+      "path": "global_objects/date/getutcday",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCFullYear",
+      "path": "global_objects/date/getutcfullyear",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCHours",
+      "path": "global_objects/date/getutchours",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCMilliseconds",
+      "path": "global_objects/date/getutcmilliseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCMinutes",
+      "path": "global_objects/date/getutcminutes",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCMonth",
+      "path": "global_objects/date/getutcmonth",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getUTCSeconds",
+      "path": "global_objects/date/getutcseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.getYear",
+      "path": "global_objects/date/getyear",
+      "type": "Date"
+    },
+    { "name": "Date.now", "path": "global_objects/date/now", "type": "Date" },
+    {
+      "name": "Date.parse",
+      "path": "global_objects/date/parse",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setDate",
+      "path": "global_objects/date/setdate",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setFullYear",
+      "path": "global_objects/date/setfullyear",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setHours",
+      "path": "global_objects/date/sethours",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setMilliseconds",
+      "path": "global_objects/date/setmilliseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setMinutes",
+      "path": "global_objects/date/setminutes",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setMonth",
+      "path": "global_objects/date/setmonth",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setSeconds",
+      "path": "global_objects/date/setseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setTime",
+      "path": "global_objects/date/settime",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCDate",
+      "path": "global_objects/date/setutcdate",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCFullYear",
+      "path": "global_objects/date/setutcfullyear",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCHours",
+      "path": "global_objects/date/setutchours",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCMilliseconds",
+      "path": "global_objects/date/setutcmilliseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCMinutes",
+      "path": "global_objects/date/setutcminutes",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCMonth",
+      "path": "global_objects/date/setutcmonth",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setUTCSeconds",
+      "path": "global_objects/date/setutcseconds",
+      "type": "Date"
+    },
+    {
+      "name": "Date.setYear",
+      "path": "global_objects/date/setyear",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toDateString",
+      "path": "global_objects/date/todatestring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toISOString",
+      "path": "global_objects/date/toisostring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toJSON",
+      "path": "global_objects/date/tojson",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toLocaleDateString",
+      "path": "global_objects/date/tolocaledatestring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toLocaleString",
+      "path": "global_objects/date/tolocalestring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toLocaleTimeString",
+      "path": "global_objects/date/tolocaletimestring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toString",
+      "path": "global_objects/date/tostring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toTimeString",
+      "path": "global_objects/date/totimestring",
+      "type": "Date"
+    },
+    {
+      "name": "Date.toUTCString",
+      "path": "global_objects/date/toutcstring",
+      "type": "Date"
+    },
+    { "name": "Date.UTC", "path": "global_objects/date/utc", "type": "Date" },
+    {
+      "name": "Date.valueOf",
+      "path": "global_objects/date/valueof",
+      "type": "Date"
+    },
+    { "name": "debugger", "path": "statements/debugger", "type": "Statements" },
+    {
+      "name": "decodeURI",
+      "path": "global_objects/decodeuri",
+      "type": "Global Objects"
+    },
+    {
+      "name": "decodeURIComponent",
+      "path": "global_objects/decodeuricomponent",
+      "type": "Global Objects"
+    },
+    { "name": "Decrement", "path": "operators/decrement", "type": "Operators" },
+    {
+      "name": "Default parameters",
+      "path": "functions/default_parameters",
+      "type": "Function"
+    },
+    { "name": "delete", "path": "operators/delete", "type": "Operators" },
+    {
+      "name": "Destructuring assignment",
+      "path": "operators/destructuring_assignment",
+      "type": "Operators"
+    },
+    { "name": "Division", "path": "operators/division", "type": "Operators" },
+    {
+      "name": "Division assignment",
+      "path": "operators/division_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "do...while",
+      "path": "statements/do...while",
+      "type": "Statements"
+    },
+    { "name": "Empty", "path": "statements/empty", "type": "Statements" },
+    {
+      "name": "encodeURI",
+      "path": "global_objects/encodeuri",
+      "type": "Global Objects"
+    },
+    {
+      "name": "encodeURIComponent",
+      "path": "global_objects/encodeuricomponent",
+      "type": "Global Objects"
+    },
+    { "name": "Equality", "path": "operators/equality", "type": "Operators" },
+    { "name": "Error", "path": "global_objects/error", "type": "Errors" },
+    {
+      "name": "Error.cause",
+      "path": "global_objects/error/cause",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.columnNumber",
+      "path": "global_objects/error/columnnumber",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.error",
+      "path": "global_objects/error/error",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.fileName",
+      "path": "global_objects/error/filename",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.lineNumber",
+      "path": "global_objects/error/linenumber",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.message",
+      "path": "global_objects/error/message",
+      "type": "Errors"
+    },
+    {
+      "name": "error.name",
+      "path": "global_objects/error/name",
+      "type": "Errors"
+    },
+    {
+      "name": "error.stack",
+      "path": "global_objects/error/stack",
+      "type": "Errors"
+    },
+    {
+      "name": "Error.toString",
+      "path": "global_objects/error/tostring",
+      "type": "Errors"
+    },
+    { "name": "Errors", "path": "errors", "type": "Errors" },
+    {
+      "name": "Errors: Already has pragma",
+      "path": "errors/already_has_pragma",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Array sort argument",
+      "path": "errors/array_sort_argument",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad await",
+      "path": "errors/bad_await",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad break",
+      "path": "errors/bad_break",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad continue",
+      "path": "errors/bad_continue",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad radix",
+      "path": "errors/bad_radix",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad regexp flag",
+      "path": "errors/bad_regexp_flag",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Bad return",
+      "path": "errors/bad_return",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: BigInt division by zero",
+      "path": "errors/bigint_division_by_zero",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: BigInt negative exponent",
+      "path": "errors/bigint_negative_exponent",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Called on incompatible type",
+      "path": "errors/called_on_incompatible_type",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant access lexical declaration before init",
+      "path": "errors/cant_access_lexical_declaration_before_init",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant assign to property",
+      "path": "errors/cant_assign_to_property",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant be converted to BigInt because it isnt an integer",
+      "path": "errors/cant_be_converted_to_bigint_because_it_isnt_an_integer",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant convert BigInt to number",
+      "path": "errors/cant_convert_bigint_to_number",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant convert x to BigInt",
+      "path": "errors/cant_convert_x_to_bigint",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant define property object not extensible",
+      "path": "errors/cant_define_property_object_not_extensible",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant delete",
+      "path": "errors/cant_delete",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant redefine property",
+      "path": "errors/cant_redefine_property",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cant use nullish coalescing unparenthesized",
+      "path": "errors/cant_use_nullish_coalescing_unparenthesized",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Cyclic object value",
+      "path": "errors/cyclic_object_value",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Delete in strict mode",
+      "path": "errors/delete_in_strict_mode",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Deprecated caller or arguments usage",
+      "path": "errors/deprecated_caller_or_arguments_usage",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Deprecated octal",
+      "path": "errors/deprecated_octal",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Deprecated source map pragma",
+      "path": "errors/deprecated_source_map_pragma",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Either be both static or non-static",
+      "path": "errors/either_be_both_static_or_non-static",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Equal as assign",
+      "path": "errors/equal_as_assign",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Getter only",
+      "path": "errors/getter_only",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Hash outside class",
+      "path": "errors/hash_outside_class",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Identifier after number",
+      "path": "errors/identifier_after_number",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Illegal character",
+      "path": "errors/illegal_character",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: in operator no object",
+      "path": "errors/in_operator_no_object",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid array length",
+      "path": "errors/invalid_array_length",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid assignment left-hand side",
+      "path": "errors/invalid_assignment_left-hand_side",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid BigInt syntax",
+      "path": "errors/invalid_bigint_syntax",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid const assignment",
+      "path": "errors/invalid_const_assignment",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid date",
+      "path": "errors/invalid_date",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid for-in initializer",
+      "path": "errors/invalid_for-in_initializer",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Invalid for-of initializer",
+      "path": "errors/invalid_for-of_initializer",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: invalid right hand side instanceof operand",
+      "path": "errors/invalid_right_hand_side_instanceof_operand",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: is not iterable",
+      "path": "errors/is_not_iterable",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: JSON bad parse",
+      "path": "errors/json_bad_parse",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Label not found",
+      "path": "errors/label_not_found",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Malformed URI",
+      "path": "errors/malformed_uri",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing bracket after list",
+      "path": "errors/missing_bracket_after_list",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing colon after property id",
+      "path": "errors/missing_colon_after_property_id",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing curly after function body",
+      "path": "errors/missing_curly_after_function_body",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing curly after property list",
+      "path": "errors/missing_curly_after_property_list",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing formal parameter",
+      "path": "errors/missing_formal_parameter",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing initializer in const",
+      "path": "errors/missing_initializer_in_const",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing name after dot operator",
+      "path": "errors/missing_name_after_dot_operator",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing parenthesis after argument list",
+      "path": "errors/missing_parenthesis_after_argument_list",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing parenthesis after condition",
+      "path": "errors/missing_parenthesis_after_condition",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Missing semicolon before statement",
+      "path": "errors/missing_semicolon_before_statement",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: More arguments needed",
+      "path": "errors/more_arguments_needed",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Negative repetition count",
+      "path": "errors/negative_repetition_count",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: No non-null object",
+      "path": "errors/no_non-null_object",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: No properties",
+      "path": "errors/no_properties",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: No variable name",
+      "path": "errors/no_variable_name",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Non configurable array element",
+      "path": "errors/non_configurable_array_element",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Not a constructor",
+      "path": "errors/not_a_constructor",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Not a function",
+      "path": "errors/not_a_function",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Not a valid code point",
+      "path": "errors/not_a_valid_code_point",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Not defined",
+      "path": "errors/not_defined",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Precision range",
+      "path": "errors/precision_range",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Property access denied",
+      "path": "errors/property_access_denied",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Read-only",
+      "path": "errors/read-only",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Redeclared parameter",
+      "path": "errors/redeclared_parameter",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Reduce of empty array with no initial value",
+      "path": "errors/reduce_of_empty_array_with_no_initial_value",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Reserved identifier",
+      "path": "errors/reserved_identifier",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Resulting string too large",
+      "path": "errors/resulting_string_too_large",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Stmt after return",
+      "path": "errors/stmt_after_return",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Strict non simple params",
+      "path": "errors/strict_non_simple_params",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Too much recursion",
+      "path": "errors/too_much_recursion",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Undeclared var",
+      "path": "errors/undeclared_var",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Undefined prop",
+      "path": "errors/undefined_prop",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Unexpected token",
+      "path": "errors/unexpected_token",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Unexpected type",
+      "path": "errors/unexpected_type",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Unnamed function statement",
+      "path": "errors/unnamed_function_statement",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Unparenthesized unary expr lhs exponentiation",
+      "path": "errors/unparenthesized_unary_expr_lhs_exponentiation",
+      "type": "Errors"
+    },
+    {
+      "name": "Errors: Unterminated string literal",
+      "path": "errors/unterminated_string_literal",
+      "type": "Errors"
+    },
+    {
+      "name": "escape",
+      "path": "global_objects/escape",
+      "type": "Global Objects"
+    },
+    { "name": "eval", "path": "global_objects/eval", "type": "Global Objects" },
+    {
+      "name": "EvalError",
+      "path": "global_objects/evalerror",
+      "type": "Errors"
+    },
+    {
+      "name": "EvalError.evalError",
+      "path": "global_objects/evalerror/evalerror",
+      "type": "Errors"
+    },
+    {
+      "name": "Exponentiation",
+      "path": "operators/exponentiation",
+      "type": "Operators"
+    },
+    {
+      "name": "Exponentiation assignment",
+      "path": "operators/exponentiation_assignment",
+      "type": "Operators"
+    },
+    { "name": "export", "path": "statements/export", "type": "Statements" },
+    {
+      "name": "Expression statement",
+      "path": "statements/expression_statement",
+      "type": "Statements"
+    },
+    { "name": "extends", "path": "classes/extends", "type": "Classes" },
+    {
+      "name": "FinalizationRegistry",
+      "path": "global_objects/finalizationregistry",
+      "type": "Global Objects"
+    },
+    {
+      "name": "FinalizationRegistry.finalizationRegistry",
+      "path": "global_objects/finalizationregistry/finalizationregistry",
+      "type": "FinalizationRegistry"
+    },
+    {
+      "name": "finalizationRegistry.register",
+      "path": "global_objects/finalizationregistry/register",
+      "type": "FinalizationRegistry"
+    },
+    {
+      "name": "finalizationRegistry.unregister",
+      "path": "global_objects/finalizationregistry/unregister",
+      "type": "FinalizationRegistry"
+    },
+    {
+      "name": "Float32Array",
+      "path": "global_objects/float32array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Float32Array.float32Array",
+      "path": "global_objects/float32array/float32array",
+      "type": "Float32Array"
+    },
+    {
+      "name": "Float64Array",
+      "path": "global_objects/float64array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Float64Array.float64Array",
+      "path": "global_objects/float64array/float64array",
+      "type": "Float64Array"
+    },
+    { "name": "for", "path": "statements/for", "type": "Statements" },
+    {
+      "name": "for-await...of",
+      "path": "statements/for-await...of",
+      "type": "Statements"
+    },
+    { "name": "for...in", "path": "statements/for...in", "type": "Statements" },
+    { "name": "for...of", "path": "statements/for...of", "type": "Statements" },
+    {
+      "name": "Function",
+      "path": "global_objects/function",
+      "type": "Function"
+    },
+    { "name": "function", "path": "statements/function", "type": "Statements" },
+    { "name": "function", "path": "operators/function", "type": "Operators" },
+    { "name": "function*", "path": "operators/function*", "type": "Operators" },
+    {
+      "name": "function*",
+      "path": "statements/function*",
+      "type": "Statements"
+    },
+    {
+      "name": "Function.@@hasInstance",
+      "path": "global_objects/function/@@hasinstance",
+      "type": "Function"
+    },
+    {
+      "name": "function.apply",
+      "path": "global_objects/function/apply",
+      "type": "Function"
+    },
+    {
+      "name": "Function.arguments",
+      "path": "global_objects/function/arguments",
+      "type": "Function"
+    },
+    {
+      "name": "function.bind",
+      "path": "global_objects/function/bind",
+      "type": "Function"
+    },
+    {
+      "name": "function.call",
+      "path": "global_objects/function/call",
+      "type": "Function"
+    },
+    {
+      "name": "Function.caller",
+      "path": "global_objects/function/caller",
+      "type": "Function"
+    },
+    {
+      "name": "Function.displayName",
+      "path": "global_objects/function/displayname",
+      "type": "Function"
+    },
+    {
+      "name": "Function.function",
+      "path": "global_objects/function/function",
+      "type": "Function"
+    },
+    {
+      "name": "Function.length",
+      "path": "global_objects/function/length",
+      "type": "Function"
+    },
+    {
+      "name": "Function.name",
+      "path": "global_objects/function/name",
+      "type": "Function"
+    },
+    {
+      "name": "Function.prototype",
+      "path": "global_objects/function/prototype",
+      "type": "Function"
+    },
+    {
+      "name": "Function.toString",
+      "path": "global_objects/function/tostring",
+      "type": "Function"
+    },
+    { "name": "Functions", "path": "functions", "type": "Function" },
+    {
+      "name": "Generator",
+      "path": "global_objects/generator",
+      "type": "Generator"
+    },
+    {
+      "name": "generator.next",
+      "path": "global_objects/generator/next",
+      "type": "Generator"
+    },
+    {
+      "name": "generator.return",
+      "path": "global_objects/generator/return",
+      "type": "Generator"
+    },
+    {
+      "name": "generator.throw",
+      "path": "global_objects/generator/throw",
+      "type": "Generator"
+    },
+    {
+      "name": "GeneratorFunction",
+      "path": "global_objects/generatorfunction",
+      "type": "Function"
+    },
+    {
+      "name": "GeneratorFunction.generatorFunction",
+      "path": "global_objects/generatorfunction/generatorfunction",
+      "type": "Function"
+    },
+    { "name": "get", "path": "functions/get", "type": "Function" },
+    {
+      "name": "globalThis",
+      "path": "global_objects/globalthis",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Greater than",
+      "path": "operators/greater_than",
+      "type": "Operators"
+    },
+    {
+      "name": "Greater than or equal",
+      "path": "operators/greater_than_or_equal",
+      "type": "Operators"
+    },
+    { "name": "Grouping", "path": "operators/grouping", "type": "Operators" },
+    {
+      "name": "if...else",
+      "path": "statements/if...else",
+      "type": "Statements"
+    },
+    { "name": "import", "path": "operators/import", "type": "Operators" },
+    { "name": "import", "path": "statements/import", "type": "Statements" },
+    {
+      "name": "import.meta",
+      "path": "operators/import.meta",
+      "type": "Operators"
+    },
+    {
+      "name": "import.meta.resolve",
+      "path": "operators/import.meta/resolve",
+      "type": "Operators"
+    },
+    { "name": "in", "path": "operators/in", "type": "Operators" },
+    { "name": "Increment", "path": "operators/increment", "type": "Operators" },
+    {
+      "name": "Inequality",
+      "path": "operators/inequality",
+      "type": "Operators"
+    },
+    {
+      "name": "Infinity",
+      "path": "global_objects/infinity",
+      "type": "Global Objects"
+    },
+    {
+      "name": "instanceof",
+      "path": "operators/instanceof",
+      "type": "Operators"
+    },
+    {
+      "name": "Int16Array",
+      "path": "global_objects/int16array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Int16Array.int16Array",
+      "path": "global_objects/int16array/int16array",
+      "type": "Int16Array"
+    },
+    {
+      "name": "Int32Array",
+      "path": "global_objects/int32array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Int32Array.int32Array",
+      "path": "global_objects/int32array/int32array",
+      "type": "Int32Array"
+    },
+    {
+      "name": "Int8Array",
+      "path": "global_objects/int8array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Int8Array.int8Array",
+      "path": "global_objects/int8array/int8array",
+      "type": "Int8Array"
+    },
+    {
+      "name": "InternalError",
+      "path": "global_objects/internalerror",
+      "type": "Errors"
+    },
+    {
+      "name": "InternalError.internalError",
+      "path": "global_objects/internalerror/internalerror",
+      "type": "Errors"
+    },
+    { "name": "Intl", "path": "global_objects/intl", "type": "Intl" },
+    {
+      "name": "Intl.collator",
+      "path": "global_objects/intl/collator",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.collator.Collator",
+      "path": "global_objects/intl/collator/collator",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.collator.compare",
+      "path": "global_objects/intl/collator/compare",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.collator.resolvedOptions",
+      "path": "global_objects/intl/collator/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.collator.supportedLocalesOf",
+      "path": "global_objects/intl/collator/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat",
+      "path": "global_objects/intl/datetimeformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.DateTimeFormat",
+      "path": "global_objects/intl/datetimeformat/datetimeformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.format",
+      "path": "global_objects/intl/datetimeformat/format",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.formatRange",
+      "path": "global_objects/intl/datetimeformat/formatrange",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.formatRangeToParts",
+      "path": "global_objects/intl/datetimeformat/formatrangetoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.formatToParts",
+      "path": "global_objects/intl/datetimeformat/formattoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.resolvedOptions",
+      "path": "global_objects/intl/datetimeformat/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.dateTimeFormat.supportedLocalesOf",
+      "path": "global_objects/intl/datetimeformat/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.displayNames",
+      "path": "global_objects/intl/displaynames",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.displayNames.DisplayNames",
+      "path": "global_objects/intl/displaynames/displaynames",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.displayNames.of",
+      "path": "global_objects/intl/displaynames/of",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.displayNames.resolvedOptions",
+      "path": "global_objects/intl/displaynames/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.displayNames.supportedLocalesOf",
+      "path": "global_objects/intl/displaynames/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat",
+      "path": "global_objects/intl/durationformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat.DurationFormat",
+      "path": "global_objects/intl/durationformat/durationformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat.format",
+      "path": "global_objects/intl/durationformat/format",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat.formatToParts",
+      "path": "global_objects/intl/durationformat/formattoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat.resolvedOptions",
+      "path": "global_objects/intl/durationformat/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.durationFormat.supportedLocalesOf",
+      "path": "global_objects/intl/durationformat/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.getCanonicalLocales",
+      "path": "global_objects/intl/getcanonicallocales",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat",
+      "path": "global_objects/intl/listformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat.format",
+      "path": "global_objects/intl/listformat/format",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat.formatToParts",
+      "path": "global_objects/intl/listformat/formattoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat.ListFormat",
+      "path": "global_objects/intl/listformat/listformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat.resolvedOptions",
+      "path": "global_objects/intl/listformat/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.listFormat.supportedLocalesOf",
+      "path": "global_objects/intl/listformat/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale",
+      "path": "global_objects/intl/locale",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.baseName",
+      "path": "global_objects/intl/locale/basename",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.calendar",
+      "path": "global_objects/intl/locale/calendar",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.caseFirst",
+      "path": "global_objects/intl/locale/casefirst",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.collation",
+      "path": "global_objects/intl/locale/collation",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getCalendars",
+      "path": "global_objects/intl/locale/getcalendars",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getCollations",
+      "path": "global_objects/intl/locale/getcollations",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getHourCycles",
+      "path": "global_objects/intl/locale/gethourcycles",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getNumberingSystems",
+      "path": "global_objects/intl/locale/getnumberingsystems",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getTextInfo",
+      "path": "global_objects/intl/locale/gettextinfo",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getTimeZones",
+      "path": "global_objects/intl/locale/gettimezones",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.getWeekInfo",
+      "path": "global_objects/intl/locale/getweekinfo",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.hourCycle",
+      "path": "global_objects/intl/locale/hourcycle",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.language",
+      "path": "global_objects/intl/locale/language",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.Locale",
+      "path": "global_objects/intl/locale/locale",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.maximize",
+      "path": "global_objects/intl/locale/maximize",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.minimize",
+      "path": "global_objects/intl/locale/minimize",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.numberingSystem",
+      "path": "global_objects/intl/locale/numberingsystem",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.numeric",
+      "path": "global_objects/intl/locale/numeric",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.region",
+      "path": "global_objects/intl/locale/region",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.script",
+      "path": "global_objects/intl/locale/script",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.locale.toString",
+      "path": "global_objects/intl/locale/tostring",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat",
+      "path": "global_objects/intl/numberformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.format",
+      "path": "global_objects/intl/numberformat/format",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.formatRange",
+      "path": "global_objects/intl/numberformat/formatrange",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.formatRangeToParts",
+      "path": "global_objects/intl/numberformat/formatrangetoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.formatToParts",
+      "path": "global_objects/intl/numberformat/formattoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.NumberFormat",
+      "path": "global_objects/intl/numberformat/numberformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.resolvedOptions",
+      "path": "global_objects/intl/numberformat/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.numberFormat.supportedLocalesOf",
+      "path": "global_objects/intl/numberformat/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules",
+      "path": "global_objects/intl/pluralrules",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules.PluralRules",
+      "path": "global_objects/intl/pluralrules/pluralrules",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules.resolvedOptions",
+      "path": "global_objects/intl/pluralrules/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules.select",
+      "path": "global_objects/intl/pluralrules/select",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules.selectRange",
+      "path": "global_objects/intl/pluralrules/selectrange",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.pluralRules.supportedLocalesOf",
+      "path": "global_objects/intl/pluralrules/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat",
+      "path": "global_objects/intl/relativetimeformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat.format",
+      "path": "global_objects/intl/relativetimeformat/format",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat.formatToParts",
+      "path": "global_objects/intl/relativetimeformat/formattoparts",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat.RelativeTimeFormat",
+      "path": "global_objects/intl/relativetimeformat/relativetimeformat",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat.resolvedOptions",
+      "path": "global_objects/intl/relativetimeformat/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.relativeTimeFormat.supportedLocalesOf",
+      "path": "global_objects/intl/relativetimeformat/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter",
+      "path": "global_objects/intl/segmenter",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.resolvedOptions",
+      "path": "global_objects/intl/segmenter/resolvedoptions",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.segment",
+      "path": "global_objects/intl/segmenter/segment",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.segment.Segments",
+      "path": "global_objects/intl/segmenter/segment/segments",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.segment.Segments.@@iterator",
+      "path": "global_objects/intl/segmenter/segment/segments/@@iterator",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.segment.Segments.containing",
+      "path": "global_objects/intl/segmenter/segment/segments/containing",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.Segmenter",
+      "path": "global_objects/intl/segmenter/segmenter",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.segmenter.supportedLocalesOf",
+      "path": "global_objects/intl/segmenter/supportedlocalesof",
+      "type": "Intl"
+    },
+    {
+      "name": "Intl.supportedValuesOf",
+      "path": "global_objects/intl/supportedvaluesof",
+      "type": "Intl"
+    },
+    {
+      "name": "isFinite",
+      "path": "global_objects/isfinite",
+      "type": "Global Objects"
+    },
+    {
+      "name": "isNaN",
+      "path": "global_objects/isnan",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Iteration protocols",
+      "path": "iteration_protocols",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Iterator",
+      "path": "global_objects/iterator",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Iterator.@@iterator",
+      "path": "global_objects/iterator/@@iterator",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.drop",
+      "path": "global_objects/iterator/drop",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.every",
+      "path": "global_objects/iterator/every",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.filter",
+      "path": "global_objects/iterator/filter",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.find",
+      "path": "global_objects/iterator/find",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.flatMap",
+      "path": "global_objects/iterator/flatmap",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.forEach",
+      "path": "global_objects/iterator/foreach",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.from",
+      "path": "global_objects/iterator/from",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.iterator",
+      "path": "global_objects/iterator/iterator",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.map",
+      "path": "global_objects/iterator/map",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.reduce",
+      "path": "global_objects/iterator/reduce",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.some",
+      "path": "global_objects/iterator/some",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.take",
+      "path": "global_objects/iterator/take",
+      "type": "Iterator"
+    },
+    {
+      "name": "Iterator.toArray",
+      "path": "global_objects/iterator/toarray",
+      "type": "Iterator"
+    },
+    { "name": "JSON", "path": "global_objects/json", "type": "JSON" },
+    {
+      "name": "JSON.parse",
+      "path": "global_objects/json/parse",
+      "type": "JSON"
+    },
+    {
+      "name": "JSON.stringify",
+      "path": "global_objects/json/stringify",
+      "type": "JSON"
+    },
+    { "name": "label", "path": "statements/label", "type": "Statements" },
+    {
+      "name": "Left shift",
+      "path": "operators/left_shift",
+      "type": "Operators"
+    },
+    {
+      "name": "Left shift assignment",
+      "path": "operators/left_shift_assignment",
+      "type": "Operators"
+    },
+    { "name": "Less than", "path": "operators/less_than", "type": "Operators" },
+    {
+      "name": "Less than or equal",
+      "path": "operators/less_than_or_equal",
+      "type": "Operators"
+    },
+    { "name": "let", "path": "statements/let", "type": "Statements" },
+    {
+      "name": "Lexical grammar",
+      "path": "lexical_grammar",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Logical AND",
+      "path": "operators/logical_and",
+      "type": "Operators"
+    },
+    {
+      "name": "Logical AND assignment",
+      "path": "operators/logical_and_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "Logical NOT",
+      "path": "operators/logical_not",
+      "type": "Operators"
+    },
+    {
+      "name": "Logical OR",
+      "path": "operators/logical_or",
+      "type": "Operators"
+    },
+    {
+      "name": "Logical OR assignment",
+      "path": "operators/logical_or_assignment",
+      "type": "Operators"
+    },
+    { "name": "Map", "path": "global_objects/map", "type": "Map" },
+    {
+      "name": "Map.@@iterator",
+      "path": "global_objects/map/@@iterator",
+      "type": "Map"
+    },
+    {
+      "name": "Map.@@species",
+      "path": "global_objects/map/@@species",
+      "type": "Map"
+    },
+    { "name": "map.clear", "path": "global_objects/map/clear", "type": "Map" },
+    {
+      "name": "map.delete",
+      "path": "global_objects/map/delete",
+      "type": "Map"
+    },
+    {
+      "name": "map.entries",
+      "path": "global_objects/map/entries",
+      "type": "Map"
+    },
+    {
+      "name": "Map.forEach",
+      "path": "global_objects/map/foreach",
+      "type": "Map"
+    },
+    { "name": "map.get", "path": "global_objects/map/get", "type": "Map" },
+    {
+      "name": "Map.groupBy",
+      "path": "global_objects/map/groupby",
+      "type": "Map"
+    },
+    { "name": "map.has", "path": "global_objects/map/has", "type": "Map" },
+    { "name": "map.keys", "path": "global_objects/map/keys", "type": "Map" },
+    { "name": "Map.map", "path": "global_objects/map/map", "type": "Map" },
+    { "name": "map.set", "path": "global_objects/map/set", "type": "Map" },
+    { "name": "map.size", "path": "global_objects/map/size", "type": "Map" },
+    {
+      "name": "map.values",
+      "path": "global_objects/map/values",
+      "type": "Map"
+    },
+    { "name": "Math", "path": "global_objects/math", "type": "Math" },
+    { "name": "Math.abs", "path": "global_objects/math/abs", "type": "Math" },
+    { "name": "Math.acos", "path": "global_objects/math/acos", "type": "Math" },
+    {
+      "name": "Math.acosh",
+      "path": "global_objects/math/acosh",
+      "type": "Math"
+    },
+    { "name": "Math.asin", "path": "global_objects/math/asin", "type": "Math" },
+    {
+      "name": "Math.asinh",
+      "path": "global_objects/math/asinh",
+      "type": "Math"
+    },
+    { "name": "Math.atan", "path": "global_objects/math/atan", "type": "Math" },
+    {
+      "name": "Math.atan2",
+      "path": "global_objects/math/atan2",
+      "type": "Math"
+    },
+    {
+      "name": "Math.atanh",
+      "path": "global_objects/math/atanh",
+      "type": "Math"
+    },
+    { "name": "Math.cbrt", "path": "global_objects/math/cbrt", "type": "Math" },
+    { "name": "Math.ceil", "path": "global_objects/math/ceil", "type": "Math" },
+    {
+      "name": "Math.clz32",
+      "path": "global_objects/math/clz32",
+      "type": "Math"
+    },
+    { "name": "Math.cos", "path": "global_objects/math/cos", "type": "Math" },
+    { "name": "Math.cosh", "path": "global_objects/math/cosh", "type": "Math" },
+    { "name": "Math.E", "path": "global_objects/math/e", "type": "Math" },
+    { "name": "Math.exp", "path": "global_objects/math/exp", "type": "Math" },
+    {
+      "name": "Math.expm1",
+      "path": "global_objects/math/expm1",
+      "type": "Math"
+    },
+    {
+      "name": "Math.floor",
+      "path": "global_objects/math/floor",
+      "type": "Math"
+    },
+    {
+      "name": "Math.fround",
+      "path": "global_objects/math/fround",
+      "type": "Math"
+    },
+    {
+      "name": "Math.hypot",
+      "path": "global_objects/math/hypot",
+      "type": "Math"
+    },
+    { "name": "Math.imul", "path": "global_objects/math/imul", "type": "Math" },
+    { "name": "Math.LN10", "path": "global_objects/math/ln10", "type": "Math" },
+    { "name": "Math.LN2", "path": "global_objects/math/ln2", "type": "Math" },
+    { "name": "Math.log", "path": "global_objects/math/log", "type": "Math" },
+    {
+      "name": "Math.log10",
+      "path": "global_objects/math/log10",
+      "type": "Math"
+    },
+    {
+      "name": "Math.LOG10E",
+      "path": "global_objects/math/log10e",
+      "type": "Math"
+    },
+    {
+      "name": "Math.log1p",
+      "path": "global_objects/math/log1p",
+      "type": "Math"
+    },
+    { "name": "Math.log2", "path": "global_objects/math/log2", "type": "Math" },
+    {
+      "name": "Math.LOG2E",
+      "path": "global_objects/math/log2e",
+      "type": "Math"
+    },
+    { "name": "Math.max", "path": "global_objects/math/max", "type": "Math" },
+    { "name": "Math.min", "path": "global_objects/math/min", "type": "Math" },
+    { "name": "Math.PI", "path": "global_objects/math/pi", "type": "Math" },
+    { "name": "Math.pow", "path": "global_objects/math/pow", "type": "Math" },
+    {
+      "name": "Math.random",
+      "path": "global_objects/math/random",
+      "type": "Math"
+    },
+    {
+      "name": "Math.round",
+      "path": "global_objects/math/round",
+      "type": "Math"
+    },
+    { "name": "Math.sign", "path": "global_objects/math/sign", "type": "Math" },
+    { "name": "Math.sin", "path": "global_objects/math/sin", "type": "Math" },
+    { "name": "Math.sinh", "path": "global_objects/math/sinh", "type": "Math" },
+    { "name": "Math.sqrt", "path": "global_objects/math/sqrt", "type": "Math" },
+    {
+      "name": "Math.SQRT1_2",
+      "path": "global_objects/math/sqrt1_2",
+      "type": "Math"
+    },
+    {
+      "name": "Math.SQRT2",
+      "path": "global_objects/math/sqrt2",
+      "type": "Math"
+    },
+    { "name": "Math.tan", "path": "global_objects/math/tan", "type": "Math" },
+    { "name": "Math.tanh", "path": "global_objects/math/tanh", "type": "Math" },
+    {
+      "name": "Math.trunc",
+      "path": "global_objects/math/trunc",
+      "type": "Math"
+    },
+    {
+      "name": "Method definitions",
+      "path": "functions/method_definitions",
+      "type": "Function"
+    },
+    {
+      "name": "Multiplication",
+      "path": "operators/multiplication",
+      "type": "Operators"
+    },
+    {
+      "name": "Multiplication assignment",
+      "path": "operators/multiplication_assignment",
+      "type": "Operators"
+    },
+    { "name": "NaN", "path": "global_objects/nan", "type": "Global Objects" },
+    { "name": "new", "path": "operators/new", "type": "Operators" },
+    {
+      "name": "new.target",
+      "path": "operators/new.target",
+      "type": "Operators"
+    },
+    { "name": "null", "path": "operators/null", "type": "Operators" },
+    {
+      "name": "Nullish coalescing",
+      "path": "operators/nullish_coalescing",
+      "type": "Operators"
+    },
+    {
+      "name": "Nullish coalescing assignment",
+      "path": "operators/nullish_coalescing_assignment",
+      "type": "Operators"
+    },
+    { "name": "Number", "path": "global_objects/number", "type": "Number" },
+    {
+      "name": "Number.EPSILON",
+      "path": "global_objects/number/epsilon",
+      "type": "Number"
+    },
+    {
+      "name": "Number.isFinite",
+      "path": "global_objects/number/isfinite",
+      "type": "Number"
+    },
+    {
+      "name": "Number.isInteger",
+      "path": "global_objects/number/isinteger",
+      "type": "Number"
+    },
+    {
+      "name": "Number.isNaN",
+      "path": "global_objects/number/isnan",
+      "type": "Number"
+    },
+    {
+      "name": "Number.isSafeInteger",
+      "path": "global_objects/number/issafeinteger",
+      "type": "Number"
+    },
+    {
+      "name": "Number.MAX_SAFE_INTEGER",
+      "path": "global_objects/number/max_safe_integer",
+      "type": "Number"
+    },
+    {
+      "name": "Number.MAX_VALUE",
+      "path": "global_objects/number/max_value",
+      "type": "Number"
+    },
+    {
+      "name": "Number.MIN_SAFE_INTEGER",
+      "path": "global_objects/number/min_safe_integer",
+      "type": "Number"
+    },
+    {
+      "name": "Number.MIN_VALUE",
+      "path": "global_objects/number/min_value",
+      "type": "Number"
+    },
+    {
+      "name": "Number.NaN",
+      "path": "global_objects/number/nan",
+      "type": "Number"
+    },
+    {
+      "name": "Number.NEGATIVE_INFINITY",
+      "path": "global_objects/number/negative_infinity",
+      "type": "Number"
+    },
+    {
+      "name": "Number.number",
+      "path": "global_objects/number/number",
+      "type": "Number"
+    },
+    {
+      "name": "Number.parseFloat",
+      "path": "global_objects/number/parsefloat",
+      "type": "Number"
+    },
+    {
+      "name": "Number.parseInt",
+      "path": "global_objects/number/parseint",
+      "type": "Number"
+    },
+    {
+      "name": "Number.POSITIVE_INFINITY",
+      "path": "global_objects/number/positive_infinity",
+      "type": "Number"
+    },
+    {
+      "name": "Number.toExponential",
+      "path": "global_objects/number/toexponential",
+      "type": "Number"
+    },
+    {
+      "name": "Number.toFixed",
+      "path": "global_objects/number/tofixed",
+      "type": "Number"
+    },
+    {
+      "name": "Number.toLocaleString",
+      "path": "global_objects/number/tolocalestring",
+      "type": "Number"
+    },
+    {
+      "name": "Number.toPrecision",
+      "path": "global_objects/number/toprecision",
+      "type": "Number"
+    },
+    {
+      "name": "Number.toString",
+      "path": "global_objects/number/tostring",
+      "type": "Number"
+    },
+    {
+      "name": "Number.valueOf",
+      "path": "global_objects/number/valueof",
+      "type": "Number"
+    },
+    { "name": "Object", "path": "global_objects/object", "type": "Object" },
+    {
+      "name": "Object initializer",
+      "path": "operators/object_initializer",
+      "type": "Operators"
+    },
+    {
+      "name": "object.__defineGetter__",
+      "path": "global_objects/object/__definegetter__",
+      "type": "Object"
+    },
+    {
+      "name": "object.__defineSetter__",
+      "path": "global_objects/object/__definesetter__",
+      "type": "Object"
+    },
+    {
+      "name": "object.__lookupGetter__",
+      "path": "global_objects/object/__lookupgetter__",
+      "type": "Object"
+    },
+    {
+      "name": "object.__lookupSetter__",
+      "path": "global_objects/object/__lookupsetter__",
+      "type": "Object"
+    },
+    {
+      "name": "Object.assign",
+      "path": "global_objects/object/assign",
+      "type": "Object"
+    },
+    {
+      "name": "object.constructor",
+      "path": "global_objects/object/constructor",
+      "type": "Object"
+    },
+    {
+      "name": "Object.create",
+      "path": "global_objects/object/create",
+      "type": "Object"
+    },
+    {
+      "name": "Object.defineProperties",
+      "path": "global_objects/object/defineproperties",
+      "type": "Object"
+    },
+    {
+      "name": "Object.defineProperty",
+      "path": "global_objects/object/defineproperty",
+      "type": "Object"
+    },
+    {
+      "name": "Object.entries",
+      "path": "global_objects/object/entries",
+      "type": "Object"
+    },
+    {
+      "name": "Object.freeze",
+      "path": "global_objects/object/freeze",
+      "type": "Object"
+    },
+    {
+      "name": "Object.fromEntries",
+      "path": "global_objects/object/fromentries",
+      "type": "Object"
+    },
+    {
+      "name": "Object.getOwnPropertyDescriptor",
+      "path": "global_objects/object/getownpropertydescriptor",
+      "type": "Object"
+    },
+    {
+      "name": "Object.getOwnPropertyDescriptors",
+      "path": "global_objects/object/getownpropertydescriptors",
+      "type": "Object"
+    },
+    {
+      "name": "Object.getOwnPropertyNames",
+      "path": "global_objects/object/getownpropertynames",
+      "type": "Object"
+    },
+    {
+      "name": "Object.getOwnPropertySymbols",
+      "path": "global_objects/object/getownpropertysymbols",
+      "type": "Object"
+    },
+    {
+      "name": "Object.getPrototypeOf",
+      "path": "global_objects/object/getprototypeof",
+      "type": "Object"
+    },
+    {
+      "name": "Object.groupBy",
+      "path": "global_objects/object/groupby",
+      "type": "Object"
+    },
+    {
+      "name": "Object.hasOwn",
+      "path": "global_objects/object/hasown",
+      "type": "Object"
+    },
+    {
+      "name": "Object.hasOwnProperty",
+      "path": "global_objects/object/hasownproperty",
+      "type": "Object"
+    },
+    {
+      "name": "Object.is",
+      "path": "global_objects/object/is",
+      "type": "Object"
+    },
+    {
+      "name": "Object.isExtensible",
+      "path": "global_objects/object/isextensible",
+      "type": "Object"
+    },
+    {
+      "name": "Object.isFrozen",
+      "path": "global_objects/object/isfrozen",
+      "type": "Object"
+    },
+    {
+      "name": "Object.isPrototypeOf",
+      "path": "global_objects/object/isprototypeof",
+      "type": "Object"
+    },
+    {
+      "name": "Object.isSealed",
+      "path": "global_objects/object/issealed",
+      "type": "Object"
+    },
+    {
+      "name": "Object.keys",
+      "path": "global_objects/object/keys",
+      "type": "Object"
+    },
+    {
+      "name": "Object.object",
+      "path": "global_objects/object/object",
+      "type": "Object"
+    },
+    {
+      "name": "Object.preventExtensions",
+      "path": "global_objects/object/preventextensions",
+      "type": "Object"
+    },
+    {
+      "name": "Object.propertyIsEnumerable",
+      "path": "global_objects/object/propertyisenumerable",
+      "type": "Object"
+    },
+    {
+      "name": "Object.proto",
+      "path": "global_objects/object/proto",
+      "type": "Object"
+    },
+    {
+      "name": "Object.seal",
+      "path": "global_objects/object/seal",
+      "type": "Object"
+    },
+    {
+      "name": "Object.setPrototypeOf",
+      "path": "global_objects/object/setprototypeof",
+      "type": "Object"
+    },
+    {
+      "name": "Object.toLocaleString",
+      "path": "global_objects/object/tolocalestring",
+      "type": "Object"
+    },
+    {
+      "name": "Object.toString",
+      "path": "global_objects/object/tostring",
+      "type": "Object"
+    },
+    {
+      "name": "Object.valueOf",
+      "path": "global_objects/object/valueof",
+      "type": "Object"
+    },
+    {
+      "name": "Object.values",
+      "path": "global_objects/object/values",
+      "type": "Object"
+    },
+    {
+      "name": "Operator precedence",
+      "path": "operators/operator_precedence",
+      "type": "Operators"
+    },
+    {
+      "name": "Optional chaining",
+      "path": "operators/optional_chaining",
+      "type": "Operators"
+    },
+    {
+      "name": "parseFloat",
+      "path": "global_objects/parsefloat",
+      "type": "Global Objects"
+    },
+    {
+      "name": "parseInt",
+      "path": "global_objects/parseint",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Private class fields",
+      "path": "classes/private_class_fields",
+      "type": "Classes"
+    },
+    { "name": "Promise", "path": "global_objects/promise", "type": "Promise" },
+    {
+      "name": "Promise.@@species",
+      "path": "global_objects/promise/@@species",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.all",
+      "path": "global_objects/promise/all",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.allSettled",
+      "path": "global_objects/promise/allsettled",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.any",
+      "path": "global_objects/promise/any",
+      "type": "Promise"
+    },
+    {
+      "name": "promise.catch",
+      "path": "global_objects/promise/catch",
+      "type": "Promise"
+    },
+    {
+      "name": "promise.finally",
+      "path": "global_objects/promise/finally",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.promise",
+      "path": "global_objects/promise/promise",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.race",
+      "path": "global_objects/promise/race",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.reject",
+      "path": "global_objects/promise/reject",
+      "type": "Promise"
+    },
+    {
+      "name": "Promise.resolve",
+      "path": "global_objects/promise/resolve",
+      "type": "Promise"
+    },
+    {
+      "name": "promise.then",
+      "path": "global_objects/promise/then",
+      "type": "Promise"
+    },
+    {
+      "name": "Property accessors",
+      "path": "operators/property_accessors",
+      "type": "Operators"
+    },
+    {
+      "name": "Proxy",
+      "path": "global_objects/proxy",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Proxy.proxy",
+      "path": "global_objects/proxy/proxy",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.apply",
+      "path": "global_objects/proxy/proxy/apply",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.construct",
+      "path": "global_objects/proxy/proxy/construct",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.defineProperty",
+      "path": "global_objects/proxy/proxy/defineproperty",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.deleteProperty",
+      "path": "global_objects/proxy/proxy/deleteproperty",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.get",
+      "path": "global_objects/proxy/proxy/get",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.getOwnPropertyDescriptor",
+      "path": "global_objects/proxy/proxy/getownpropertydescriptor",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.getPrototypeOf",
+      "path": "global_objects/proxy/proxy/getprototypeof",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.has",
+      "path": "global_objects/proxy/proxy/has",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.isExtensible",
+      "path": "global_objects/proxy/proxy/isextensible",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.ownKeys",
+      "path": "global_objects/proxy/proxy/ownkeys",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.preventExtensions",
+      "path": "global_objects/proxy/proxy/preventextensions",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.set",
+      "path": "global_objects/proxy/proxy/set",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.proxy.setPrototypeOf",
+      "path": "global_objects/proxy/proxy/setprototypeof",
+      "type": "Proxy"
+    },
+    {
+      "name": "Proxy.revocable",
+      "path": "global_objects/proxy/revocable",
+      "type": "Proxy"
+    },
+    {
+      "name": "Public class fields",
+      "path": "classes/public_class_fields",
+      "type": "Classes"
+    },
+    {
+      "name": "RangeError",
+      "path": "global_objects/rangeerror",
+      "type": "Errors"
+    },
+    {
+      "name": "RangeError.rangeError",
+      "path": "global_objects/rangeerror/rangeerror",
+      "type": "Errors"
+    },
+    {
+      "name": "ReferenceError",
+      "path": "global_objects/referenceerror",
+      "type": "Errors"
+    },
+    {
+      "name": "ReferenceError.referenceError",
+      "path": "global_objects/referenceerror/referenceerror",
+      "type": "Errors"
+    },
+    { "name": "Reflect", "path": "global_objects/reflect", "type": "Reflect" },
+    {
+      "name": "Reflect.apply",
+      "path": "global_objects/reflect/apply",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.construct",
+      "path": "global_objects/reflect/construct",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.defineProperty",
+      "path": "global_objects/reflect/defineproperty",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.deleteProperty",
+      "path": "global_objects/reflect/deleteproperty",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.get",
+      "path": "global_objects/reflect/get",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.getOwnPropertyDescriptor",
+      "path": "global_objects/reflect/getownpropertydescriptor",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.getPrototypeOf",
+      "path": "global_objects/reflect/getprototypeof",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.has",
+      "path": "global_objects/reflect/has",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.isExtensible",
+      "path": "global_objects/reflect/isextensible",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.ownKeys",
+      "path": "global_objects/reflect/ownkeys",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.preventExtensions",
+      "path": "global_objects/reflect/preventextensions",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.set",
+      "path": "global_objects/reflect/set",
+      "type": "Reflect"
+    },
+    {
+      "name": "Reflect.setPrototypeOf",
+      "path": "global_objects/reflect/setprototypeof",
+      "type": "Reflect"
+    },
+    { "name": "RegExp", "path": "global_objects/regexp", "type": "RegExp" },
+    {
+      "name": "RegExp.@@match",
+      "path": "global_objects/regexp/@@match",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.@@matchAll",
+      "path": "global_objects/regexp/@@matchall",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.@@replace",
+      "path": "global_objects/regexp/@@replace",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.@@search",
+      "path": "global_objects/regexp/@@search",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.@@species",
+      "path": "global_objects/regexp/@@species",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.@@split",
+      "path": "global_objects/regexp/@@split",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.compile",
+      "path": "global_objects/regexp/compile",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.dotAll",
+      "path": "global_objects/regexp/dotall",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.exec",
+      "path": "global_objects/regexp/exec",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.flags",
+      "path": "global_objects/regexp/flags",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.global",
+      "path": "global_objects/regexp/global",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.hasIndices",
+      "path": "global_objects/regexp/hasindices",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.ignoreCase",
+      "path": "global_objects/regexp/ignorecase",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.input",
+      "path": "global_objects/regexp/input",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.lastIndex",
+      "path": "global_objects/regexp/lastindex",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.lastMatch",
+      "path": "global_objects/regexp/lastmatch",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.lastParen",
+      "path": "global_objects/regexp/lastparen",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.leftContext",
+      "path": "global_objects/regexp/leftcontext",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.multiline",
+      "path": "global_objects/regexp/multiline",
+      "type": "RegExp"
+    },
+    { "name": "RegExp.n", "path": "global_objects/regexp/n", "type": "RegExp" },
+    {
+      "name": "RegExp.regExp",
+      "path": "global_objects/regexp/regexp",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.rightContext",
+      "path": "global_objects/regexp/rightcontext",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.source",
+      "path": "global_objects/regexp/source",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.sticky",
+      "path": "global_objects/regexp/sticky",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.test",
+      "path": "global_objects/regexp/test",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.toString",
+      "path": "global_objects/regexp/tostring",
+      "type": "RegExp"
+    },
+    {
+      "name": "regExp.unicode",
+      "path": "global_objects/regexp/unicode",
+      "type": "RegExp"
+    },
+    {
+      "name": "RegExp.unicodeSets",
+      "path": "global_objects/regexp/unicodesets",
+      "type": "RegExp"
+    },
+    {
+      "name": "Regular expressions",
+      "path": "regular_expressions",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Backreference",
+      "path": "regular_expressions/backreference",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Capturing group",
+      "path": "regular_expressions/capturing_group",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Character class",
+      "path": "regular_expressions/character_class",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Character class escape",
+      "path": "regular_expressions/character_class_escape",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Character escape",
+      "path": "regular_expressions/character_escape",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Disjunction",
+      "path": "regular_expressions/disjunction",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Input boundary assertion",
+      "path": "regular_expressions/input_boundary_assertion",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Literal character",
+      "path": "regular_expressions/literal_character",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Lookahead assertion",
+      "path": "regular_expressions/lookahead_assertion",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Lookbehind assertion",
+      "path": "regular_expressions/lookbehind_assertion",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Named backreference",
+      "path": "regular_expressions/named_backreference",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Named capturing group",
+      "path": "regular_expressions/named_capturing_group",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Non-capturing group",
+      "path": "regular_expressions/non-capturing_group",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Quantifier",
+      "path": "regular_expressions/quantifier",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Unicode character class escape",
+      "path": "regular_expressions/unicode_character_class_escape",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Wildcard",
+      "path": "regular_expressions/wildcard",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "Regular expressions.Word boundary assertion",
+      "path": "regular_expressions/word_boundary_assertion",
+      "type": "Miscellaneous"
+    },
+    { "name": "Remainder", "path": "operators/remainder", "type": "Operators" },
+    {
+      "name": "Remainder assignment",
+      "path": "operators/remainder_assignment",
+      "type": "Operators"
+    },
+    {
+      "name": "rest parameters",
+      "path": "functions/rest_parameters",
+      "type": "Function"
+    },
+    { "name": "return", "path": "statements/return", "type": "Statements" },
+    {
+      "name": "Right shift",
+      "path": "operators/right_shift",
+      "type": "Operators"
+    },
+    {
+      "name": "Right shift assignment",
+      "path": "operators/right_shift_assignment",
+      "type": "Operators"
+    },
+    { "name": "set", "path": "functions/set", "type": "Function" },
+    { "name": "Set", "path": "global_objects/set", "type": "Set" },
+    {
+      "name": "Set.@@iterator",
+      "path": "global_objects/set/@@iterator",
+      "type": "Set"
+    },
+    {
+      "name": "Set.@@species",
+      "path": "global_objects/set/@@species",
+      "type": "Set"
+    },
+    { "name": "set.add", "path": "global_objects/set/add", "type": "Set" },
+    { "name": "set.clear", "path": "global_objects/set/clear", "type": "Set" },
+    {
+      "name": "set.delete",
+      "path": "global_objects/set/delete",
+      "type": "Set"
+    },
+    {
+      "name": "set.entries",
+      "path": "global_objects/set/entries",
+      "type": "Set"
+    },
+    {
+      "name": "Set.forEach",
+      "path": "global_objects/set/foreach",
+      "type": "Set"
+    },
+    { "name": "set.has", "path": "global_objects/set/has", "type": "Set" },
+    { "name": "set.keys", "path": "global_objects/set/keys", "type": "Set" },
+    { "name": "Set.set", "path": "global_objects/set/set", "type": "Set" },
+    { "name": "set.size", "path": "global_objects/set/size", "type": "Set" },
+    {
+      "name": "set.values",
+      "path": "global_objects/set/values",
+      "type": "Set"
+    },
+    {
+      "name": "SharedArrayBuffer",
+      "path": "global_objects/sharedarraybuffer",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "SharedArrayBuffer.@@species",
+      "path": "global_objects/sharedarraybuffer/@@species",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "SharedArrayBuffer.byteLength",
+      "path": "global_objects/sharedarraybuffer/bytelength",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "sharedArrayBuffer.grow",
+      "path": "global_objects/sharedarraybuffer/grow",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "sharedArrayBuffer.growable",
+      "path": "global_objects/sharedarraybuffer/growable",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "SharedArrayBuffer.maxByteLength",
+      "path": "global_objects/sharedarraybuffer/maxbytelength",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "SharedArrayBuffer.sharedArrayBuffer",
+      "path": "global_objects/sharedarraybuffer/sharedarraybuffer",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "sharedArrayBuffer.slice",
+      "path": "global_objects/sharedarraybuffer/slice",
+      "type": "SharedArrayBuffer"
+    },
+    {
+      "name": "Spread syntax",
+      "path": "operators/spread_syntax",
+      "type": "Operators"
+    },
+    { "name": "static", "path": "classes/static", "type": "Classes" },
+    {
+      "name": "Static initialization blocks",
+      "path": "classes/static_initialization_blocks",
+      "type": "Classes"
+    },
+    {
+      "name": "Strict equality",
+      "path": "operators/strict_equality",
+      "type": "Operators"
+    },
+    {
+      "name": "Strict inequality",
+      "path": "operators/strict_inequality",
+      "type": "Operators"
+    },
+    { "name": "Strict mode", "path": "strict_mode", "type": "Miscellaneous" },
+    { "name": "String", "path": "global_objects/string", "type": "String" },
+    {
+      "name": "String.@@iterator",
+      "path": "global_objects/string/@@iterator",
+      "type": "String"
+    },
+    {
+      "name": "string.anchor",
+      "path": "global_objects/string/anchor",
+      "type": "String"
+    },
+    {
+      "name": "string.at",
+      "path": "global_objects/string/at",
+      "type": "String"
+    },
+    {
+      "name": "string.big",
+      "path": "global_objects/string/big",
+      "type": "String"
+    },
+    {
+      "name": "string.blink",
+      "path": "global_objects/string/blink",
+      "type": "String"
+    },
+    {
+      "name": "string.bold",
+      "path": "global_objects/string/bold",
+      "type": "String"
+    },
+    {
+      "name": "String.charAt",
+      "path": "global_objects/string/charat",
+      "type": "String"
+    },
+    {
+      "name": "String.charCodeAt",
+      "path": "global_objects/string/charcodeat",
+      "type": "String"
+    },
+    {
+      "name": "String.codePointAt",
+      "path": "global_objects/string/codepointat",
+      "type": "String"
+    },
+    {
+      "name": "string.concat",
+      "path": "global_objects/string/concat",
+      "type": "String"
+    },
+    {
+      "name": "String.endsWith",
+      "path": "global_objects/string/endswith",
+      "type": "String"
+    },
+    {
+      "name": "string.fixed",
+      "path": "global_objects/string/fixed",
+      "type": "String"
+    },
+    {
+      "name": "string.fontcolor",
+      "path": "global_objects/string/fontcolor",
+      "type": "String"
+    },
+    {
+      "name": "string.fontsize",
+      "path": "global_objects/string/fontsize",
+      "type": "String"
+    },
+    {
+      "name": "String.fromCharCode",
+      "path": "global_objects/string/fromcharcode",
+      "type": "String"
+    },
+    {
+      "name": "String.fromCodePoint",
+      "path": "global_objects/string/fromcodepoint",
+      "type": "String"
+    },
+    {
+      "name": "string.includes",
+      "path": "global_objects/string/includes",
+      "type": "String"
+    },
+    {
+      "name": "String.indexOf",
+      "path": "global_objects/string/indexof",
+      "type": "String"
+    },
+    {
+      "name": "String.isWellFormed",
+      "path": "global_objects/string/iswellformed",
+      "type": "String"
+    },
+    {
+      "name": "string.italics",
+      "path": "global_objects/string/italics",
+      "type": "String"
+    },
+    {
+      "name": "String.lastIndexOf",
+      "path": "global_objects/string/lastindexof",
+      "type": "String"
+    },
+    {
+      "name": "String.length",
+      "path": "global_objects/string/length",
+      "type": "String"
+    },
+    {
+      "name": "string.link",
+      "path": "global_objects/string/link",
+      "type": "String"
+    },
+    {
+      "name": "string.localeCompare",
+      "path": "global_objects/string/localecompare",
+      "type": "String"
+    },
+    {
+      "name": "string.match",
+      "path": "global_objects/string/match",
+      "type": "String"
+    },
+    {
+      "name": "String.matchAll",
+      "path": "global_objects/string/matchall",
+      "type": "String"
+    },
+    {
+      "name": "string.normalize",
+      "path": "global_objects/string/normalize",
+      "type": "String"
+    },
+    {
+      "name": "String.padEnd",
+      "path": "global_objects/string/padend",
+      "type": "String"
+    },
+    {
+      "name": "String.padStart",
+      "path": "global_objects/string/padstart",
+      "type": "String"
+    },
+    {
+      "name": "String.raw",
+      "path": "global_objects/string/raw",
+      "type": "String"
+    },
+    {
+      "name": "string.repeat",
+      "path": "global_objects/string/repeat",
+      "type": "String"
+    },
+    {
+      "name": "string.replace",
+      "path": "global_objects/string/replace",
+      "type": "String"
+    },
+    {
+      "name": "String.replaceAll",
+      "path": "global_objects/string/replaceall",
+      "type": "String"
+    },
+    {
+      "name": "string.search",
+      "path": "global_objects/string/search",
+      "type": "String"
+    },
+    {
+      "name": "string.slice",
+      "path": "global_objects/string/slice",
+      "type": "String"
+    },
+    {
+      "name": "string.small",
+      "path": "global_objects/string/small",
+      "type": "String"
+    },
+    {
+      "name": "string.split",
+      "path": "global_objects/string/split",
+      "type": "String"
+    },
+    {
+      "name": "String.startsWith",
+      "path": "global_objects/string/startswith",
+      "type": "String"
+    },
+    {
+      "name": "string.strike",
+      "path": "global_objects/string/strike",
+      "type": "String"
+    },
+    {
+      "name": "String.string",
+      "path": "global_objects/string/string",
+      "type": "String"
+    },
+    {
+      "name": "string.sub",
+      "path": "global_objects/string/sub",
+      "type": "String"
+    },
+    {
+      "name": "string.substr",
+      "path": "global_objects/string/substr",
+      "type": "String"
+    },
+    {
+      "name": "string.substring",
+      "path": "global_objects/string/substring",
+      "type": "String"
+    },
+    {
+      "name": "string.sup",
+      "path": "global_objects/string/sup",
+      "type": "String"
+    },
+    {
+      "name": "String.toLocaleLowerCase",
+      "path": "global_objects/string/tolocalelowercase",
+      "type": "String"
+    },
+    {
+      "name": "String.toLocaleUpperCase",
+      "path": "global_objects/string/tolocaleuppercase",
+      "type": "String"
+    },
+    {
+      "name": "String.toLowerCase",
+      "path": "global_objects/string/tolowercase",
+      "type": "String"
+    },
+    {
+      "name": "String.toString",
+      "path": "global_objects/string/tostring",
+      "type": "String"
+    },
+    {
+      "name": "String.toUpperCase",
+      "path": "global_objects/string/touppercase",
+      "type": "String"
+    },
+    {
+      "name": "String.toWellFormed",
+      "path": "global_objects/string/towellformed",
+      "type": "String"
+    },
+    {
+      "name": "string.trim",
+      "path": "global_objects/string/trim",
+      "type": "String"
+    },
+    {
+      "name": "String.trimEnd",
+      "path": "global_objects/string/trimend",
+      "type": "String"
+    },
+    {
+      "name": "String.trimStart",
+      "path": "global_objects/string/trimstart",
+      "type": "String"
+    },
+    {
+      "name": "String.valueOf",
+      "path": "global_objects/string/valueof",
+      "type": "String"
+    },
+    {
+      "name": "Subtraction",
+      "path": "operators/subtraction",
+      "type": "Operators"
+    },
+    {
+      "name": "Subtraction assignment",
+      "path": "operators/subtraction_assignment",
+      "type": "Operators"
+    },
+    { "name": "super", "path": "operators/super", "type": "Operators" },
+    { "name": "switch", "path": "statements/switch", "type": "Statements" },
+    { "name": "Symbol", "path": "global_objects/symbol", "type": "Symbol" },
+    {
+      "name": "Symbol.@@toPrimitive",
+      "path": "global_objects/symbol/@@toprimitive",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.asyncIterator",
+      "path": "global_objects/symbol/asynciterator",
+      "type": "Symbol"
+    },
+    {
+      "name": "symbol.description",
+      "path": "global_objects/symbol/description",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.for",
+      "path": "global_objects/symbol/for",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.hasInstance",
+      "path": "global_objects/symbol/hasinstance",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.isConcatSpreadable",
+      "path": "global_objects/symbol/isconcatspreadable",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.iterator",
+      "path": "global_objects/symbol/iterator",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.keyFor",
+      "path": "global_objects/symbol/keyfor",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.match",
+      "path": "global_objects/symbol/match",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.matchAll",
+      "path": "global_objects/symbol/matchall",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.replace",
+      "path": "global_objects/symbol/replace",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.search",
+      "path": "global_objects/symbol/search",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.species",
+      "path": "global_objects/symbol/species",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.split",
+      "path": "global_objects/symbol/split",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.symbol",
+      "path": "global_objects/symbol/symbol",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.toPrimitive",
+      "path": "global_objects/symbol/toprimitive",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.toString",
+      "path": "global_objects/symbol/tostring",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.toStringTag",
+      "path": "global_objects/symbol/tostringtag",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.unscopables",
+      "path": "global_objects/symbol/unscopables",
+      "type": "Symbol"
+    },
+    {
+      "name": "Symbol.valueOf",
+      "path": "global_objects/symbol/valueof",
+      "type": "Symbol"
+    },
+    {
+      "name": "SyntaxError",
+      "path": "global_objects/syntaxerror",
+      "type": "Errors"
+    },
+    {
+      "name": "SyntaxError.syntaxError",
+      "path": "global_objects/syntaxerror/syntaxerror",
+      "type": "Errors"
+    },
+    {
+      "name": "Template literals",
+      "path": "template_literals",
+      "type": "Miscellaneous"
+    },
+    { "name": "this", "path": "operators/this", "type": "Operators" },
+    { "name": "throw", "path": "statements/throw", "type": "Statements" },
+    {
+      "name": "Trailing commas",
+      "path": "trailing_commas",
+      "type": "Miscellaneous"
+    },
+    {
+      "name": "try...catch",
+      "path": "statements/try...catch",
+      "type": "Statements"
+    },
+    {
+      "name": "TypedArray",
+      "path": "global_objects/typedarray",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.@@iterator",
+      "path": "global_objects/typedarray/@@iterator",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.@@species",
+      "path": "global_objects/typedarray/@@species",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.at",
+      "path": "global_objects/typedarray/at",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.buffer",
+      "path": "global_objects/typedarray/buffer",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.byteLength",
+      "path": "global_objects/typedarray/bytelength",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.byteOffset",
+      "path": "global_objects/typedarray/byteoffset",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.BYTES_PER_ELEMENT",
+      "path": "global_objects/typedarray/bytes_per_element",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.copyWithin",
+      "path": "global_objects/typedarray/copywithin",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.entries",
+      "path": "global_objects/typedarray/entries",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.every",
+      "path": "global_objects/typedarray/every",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.fill",
+      "path": "global_objects/typedarray/fill",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.filter",
+      "path": "global_objects/typedarray/filter",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.find",
+      "path": "global_objects/typedarray/find",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.findIndex",
+      "path": "global_objects/typedarray/findindex",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.findLast",
+      "path": "global_objects/typedarray/findlast",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.findLastIndex",
+      "path": "global_objects/typedarray/findlastindex",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.forEach",
+      "path": "global_objects/typedarray/foreach",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.from",
+      "path": "global_objects/typedarray/from",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.includes",
+      "path": "global_objects/typedarray/includes",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.indexOf",
+      "path": "global_objects/typedarray/indexof",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.join",
+      "path": "global_objects/typedarray/join",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.keys",
+      "path": "global_objects/typedarray/keys",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.lastIndexOf",
+      "path": "global_objects/typedarray/lastindexof",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.length",
+      "path": "global_objects/typedarray/length",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.map",
+      "path": "global_objects/typedarray/map",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.of",
+      "path": "global_objects/typedarray/of",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.reduce",
+      "path": "global_objects/typedarray/reduce",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.reduceRight",
+      "path": "global_objects/typedarray/reduceright",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.reverse",
+      "path": "global_objects/typedarray/reverse",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.set",
+      "path": "global_objects/typedarray/set",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.slice",
+      "path": "global_objects/typedarray/slice",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.some",
+      "path": "global_objects/typedarray/some",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.sort",
+      "path": "global_objects/typedarray/sort",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.subarray",
+      "path": "global_objects/typedarray/subarray",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.toLocaleString",
+      "path": "global_objects/typedarray/tolocalestring",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.toReversed",
+      "path": "global_objects/typedarray/toreversed",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.toSorted",
+      "path": "global_objects/typedarray/tosorted",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypedArray.toString",
+      "path": "global_objects/typedarray/tostring",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.values",
+      "path": "global_objects/typedarray/values",
+      "type": "TypedArray"
+    },
+    {
+      "name": "typedArray.with",
+      "path": "global_objects/typedarray/with",
+      "type": "TypedArray"
+    },
+    {
+      "name": "TypeError",
+      "path": "global_objects/typeerror",
+      "type": "Errors"
+    },
+    {
+      "name": "TypeError.typeError",
+      "path": "global_objects/typeerror/typeerror",
+      "type": "Errors"
+    },
+    { "name": "typeof", "path": "operators/typeof", "type": "Operators" },
+    {
+      "name": "Uint16Array",
+      "path": "global_objects/uint16array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Uint16Array.uint16Array",
+      "path": "global_objects/uint16array/uint16array",
+      "type": "Uint16Array"
+    },
+    {
+      "name": "Uint32Array",
+      "path": "global_objects/uint32array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Uint32Array.uint32Array",
+      "path": "global_objects/uint32array/uint32array",
+      "type": "Uint32Array"
+    },
+    {
+      "name": "Uint8Array",
+      "path": "global_objects/uint8array",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Uint8Array.uint8Array",
+      "path": "global_objects/uint8array/uint8array",
+      "type": "Uint8Array"
+    },
+    {
+      "name": "Uint8ClampedArray",
+      "path": "global_objects/uint8clampedarray",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Uint8ClampedArray.uint8ClampedArray",
+      "path": "global_objects/uint8clampedarray/uint8clampedarray",
+      "type": "Uint8ClampedArray"
+    },
+    {
+      "name": "Unary negation",
+      "path": "operators/unary_negation",
+      "type": "Operators"
+    },
+    {
+      "name": "Unary plus",
+      "path": "operators/unary_plus",
+      "type": "Operators"
+    },
+    {
+      "name": "undefined",
+      "path": "global_objects/undefined",
+      "type": "Global Objects"
+    },
+    {
+      "name": "unescape",
+      "path": "global_objects/unescape",
+      "type": "Global Objects"
+    },
+    {
+      "name": "Unsigned right shift",
+      "path": "operators/unsigned_right_shift",
+      "type": "Operators"
+    },
+    {
+      "name": "Unsigned right shift assignment",
+      "path": "operators/unsigned_right_shift_assignment",
+      "type": "Operators"
+    },
+    { "name": "URIError", "path": "global_objects/urierror", "type": "Errors" },
+    {
+      "name": "URIError.uRIError",
+      "path": "global_objects/urierror/urierror",
+      "type": "Errors"
+    },
+    { "name": "var", "path": "statements/var", "type": "Statements" },
+    { "name": "void", "path": "operators/void", "type": "Operators" },
+    { "name": "WeakMap", "path": "global_objects/weakmap", "type": "WeakMap" },
+    {
+      "name": "weakMap.delete",
+      "path": "global_objects/weakmap/delete",
+      "type": "WeakMap"
+    },
+    {
+      "name": "weakMap.get",
+      "path": "global_objects/weakmap/get",
+      "type": "WeakMap"
+    },
+    {
+      "name": "weakMap.has",
+      "path": "global_objects/weakmap/has",
+      "type": "WeakMap"
+    },
+    {
+      "name": "weakMap.set",
+      "path": "global_objects/weakmap/set",
+      "type": "WeakMap"
+    },
+    {
+      "name": "WeakMap.weakMap",
+      "path": "global_objects/weakmap/weakmap",
+      "type": "WeakMap"
+    },
+    {
+      "name": "WeakRef",
+      "path": "global_objects/weakref",
+      "type": "Global Objects"
+    },
+    {
+      "name": "weakRef.deref",
+      "path": "global_objects/weakref/deref",
+      "type": "WeakRef"
+    },
+    {
+      "name": "WeakRef.weakRef",
+      "path": "global_objects/weakref/weakref",
+      "type": "WeakRef"
+    },
+    { "name": "WeakSet", "path": "global_objects/weakset", "type": "WeakSet" },
+    {
+      "name": "weakSet.add",
+      "path": "global_objects/weakset/add",
+      "type": "WeakSet"
+    },
+    {
+      "name": "weakSet.delete",
+      "path": "global_objects/weakset/delete",
+      "type": "WeakSet"
+    },
+    {
+      "name": "weakSet.has",
+      "path": "global_objects/weakset/has",
+      "type": "WeakSet"
+    },
+    {
+      "name": "WeakSet.weakSet",
+      "path": "global_objects/weakset/weakset",
+      "type": "WeakSet"
+    },
+    { "name": "while", "path": "statements/while", "type": "Statements" },
+    { "name": "with", "path": "statements/with", "type": "Statements" },
+    { "name": "yield", "path": "operators/yield", "type": "Operators" },
+    { "name": "yield*", "path": "operators/yield*", "type": "Operators" }
+  ],
+  "types": [
+    { "name": "Array", "count": 48, "slug": "array" },
+    { "name": "ArrayBuffer", "count": 12, "slug": "arraybuffer" },
+    { "name": "AsyncGenerator", "count": 3, "slug": "asyncgenerator" },
+    { "name": "AsyncIterator", "count": 1, "slug": "asynciterator" },
+    { "name": "Atomics", "count": 14, "slug": "atomics" },
+    { "name": "BigInt", "count": 6, "slug": "bigint" },
+    { "name": "BigInt64Array", "count": 1, "slug": "bigint64array" },
+    { "name": "BigUint64Array", "count": 1, "slug": "biguint64array" },
+    { "name": "Boolean", "count": 4, "slug": "boolean" },
+    { "name": "Classes", "count": 7, "slug": "classes" },
+    { "name": "DataView", "count": 25, "slug": "dataview" },
+    { "name": "Date", "count": 51, "slug": "date" },
+    { "name": "Errors", "count": 109, "slug": "errors" },
+    {
+      "name": "FinalizationRegistry",
+      "count": 3,
+      "slug": "finalizationregistry"
+    },
+    { "name": "Float32Array", "count": 1, "slug": "float32array" },
+    { "name": "Float64Array", "count": 1, "slug": "float64array" },
+    { "name": "Function", "count": 30, "slug": "function" },
+    { "name": "Generator", "count": 4, "slug": "generator" },
+    { "name": "Global Objects", "count": 33, "slug": "global-objects" },
+    { "name": "Int16Array", "count": 1, "slug": "int16array" },
+    { "name": "Int32Array", "count": 1, "slug": "int32array" },
+    { "name": "Int8Array", "count": 1, "slug": "int8array" },
+    { "name": "Intl", "count": 83, "slug": "intl" },
+    { "name": "Iterator", "count": 14, "slug": "iterator" },
+    { "name": "JSON", "count": 3, "slug": "json" },
+    { "name": "Map", "count": 15, "slug": "map" },
+    { "name": "Math", "count": 44, "slug": "math" },
+    { "name": "Miscellaneous", "count": 23, "slug": "miscellaneous" },
+    { "name": "Number", "count": 22, "slug": "number" },
+    { "name": "Object", "count": 37, "slug": "object" },
+    { "name": "Operators", "count": 75, "slug": "operators" },
+    { "name": "Promise", "count": 12, "slug": "promise" },
+    { "name": "Proxy", "count": 15, "slug": "proxy" },
+    { "name": "Reflect", "count": 14, "slug": "reflect" },
+    { "name": "RegExp", "count": 29, "slug": "regexp" },
+    { "name": "Set", "count": 13, "slug": "set" },
+    { "name": "SharedArrayBuffer", "count": 8, "slug": "sharedarraybuffer" },
+    { "name": "Statements", "count": 29, "slug": "statements" },
+    { "name": "String", "count": 55, "slug": "string" },
+    { "name": "Symbol", "count": 21, "slug": "symbol" },
+    { "name": "TypedArray", "count": 41, "slug": "typedarray" },
+    { "name": "Uint16Array", "count": 1, "slug": "uint16array" },
+    { "name": "Uint32Array", "count": 1, "slug": "uint32array" },
+    { "name": "Uint8Array", "count": 1, "slug": "uint8array" },
+    { "name": "Uint8ClampedArray", "count": 1, "slug": "uint8clampedarray" },
+    { "name": "WeakMap", "count": 6, "slug": "weakmap" },
+    { "name": "WeakRef", "count": 2, "slug": "weakref" },
+    { "name": "WeakSet", "count": 5, "slug": "weakset" }
+  ]
+}

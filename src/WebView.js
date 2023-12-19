@@ -1,6 +1,8 @@
 import WebKit from "gi://WebKit";
 import GObject from "gi://GObject";
 import GLib from "gi://GLib";
+import Gio from "gi://Gio";
+import { decode } from "./util.js";
 
 import Template from "./WebView.blp" with { type: "uri" };
 
@@ -32,7 +34,19 @@ class WebView extends WebKit.WebView {
 
   #disablePageSidebar() {
     const user_content_manager = this.get_user_content_manager();
-    const stylesheet = new WebKit.UserStyleSheet(
+    const data = Gio.File.new_for_path("src/devdoc_styles.css").load_contents(
+      null,
+    )[1];
+    const css = decode(data);
+    let stylesheet = new WebKit.UserStyleSheet(
+      css, // source
+      WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
+      WebKit.UserStyleLevel.USER, // level
+      null,
+      null,
+    );
+    user_content_manager.add_style_sheet(stylesheet);
+    stylesheet = new WebKit.UserStyleSheet(
       ".devhelp-hidden { display: none; }", // source
       WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
       WebKit.UserStyleLevel.USER, // level
