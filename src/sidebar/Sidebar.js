@@ -4,7 +4,7 @@ import GObject from "gi://GObject";
 
 import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
 
-import BrowseView from "./BrowseView.js";
+import BrowseView from "./DevdocBrowseView.js";
 import SearchView from "./SearchView.js";
 import DocumentationPage from "./DocumentationPage.js";
 

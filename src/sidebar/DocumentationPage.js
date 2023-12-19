@@ -44,6 +44,13 @@ export default GObject.registerClass(
         GObject.ParamFlags.READWRITE,
         "",
       ),
+      html: GObject.ParamSpec.string(
+        "html",
+        "html",
+        "HTML documentation",
+        GObject.ParamFlags.READWRITE,
+        "",
+      ),
       children: GObject.ParamSpec.object(
         "children",
         "children",
