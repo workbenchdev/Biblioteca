@@ -43,6 +43,8 @@ class Window extends Adw.ApplicationWindow {
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
+    this._sidebar._searchbar.key_capture_widget = this;
+
     Shortcuts(
       this,
       this.newTab,
@@ -62,7 +64,6 @@ class Window extends Adw.ApplicationWindow {
     // The window is already open
     const mapped = this.get_mapped();
     this.present();
-    this.focusGlobalSearch();
     if (!mapped) {
       this._sidebar.resetSidebar();
     }
@@ -91,6 +92,7 @@ class Window extends Adw.ApplicationWindow {
   focusGlobalSearch = () => {
     this._tab_overview.open = false;
     this._split_view.show_sidebar = true;
+    this._sidebar._searchbar.search_mode_enabled = true;
     this._sidebar._search_entry.grab_focus();
     this._sidebar._search_entry.select_region(0, -1);
   };

@@ -2,22 +2,34 @@ using Gtk 4.0;
 using Adw 1;
 
 template $Sidebar : Adw.NavigationPage {
-  title: "Biblioteca";
   child: Adw.ToolbarView {
     [top]
-    Box {
-      styles ["toolbar"]
+    Adw.HeaderBar {
+      title-widget: Adw.WindowTitle {
+        title: _("Biblioteca");
+      };
 
-      SearchEntry search_entry {
-        hexpand: true;
-        placeholder-text: _("Search Biblioteca");
+      [start]
+      ToggleButton button_search {
+        icon-name: "loupe-symbolic";
+        tooltip-text: _("Search");
       }
 
+      [end]
       MenuButton button_menu {
         menu-model: menu_app;
         icon-name: "open-menu-symbolic";
         tooltip-text: _("Main Menu");
         primary: true;
+      }
+    }
+
+    [top]
+    SearchBar searchbar {
+      search-mode-enabled: bind button_search.active;
+      SearchEntry search_entry {
+        hexpand: true;
+        placeholder-text: _("Search Biblioteca");
       }
     }
 
