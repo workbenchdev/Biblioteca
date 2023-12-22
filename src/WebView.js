@@ -13,6 +13,8 @@ class WebView extends WebKit.WebView {
     this.load_uri(uri);
 
     this.#disablePageSidebar();
+    this.#injectOverlayScript();
+
     this.get_back_forward_list().connect("changed", () => {
       this.activate_action("win.update-buttons", null);
     });
@@ -31,7 +33,6 @@ class WebView extends WebKit.WebView {
   }
 
   #disablePageSidebar() {
-    const user_content_manager = this.get_user_content_manager();
     const stylesheet = new WebKit.UserStyleSheet(
       ".devhelp-hidden { display: none; }", // source
       WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
@@ -39,7 +40,65 @@ class WebView extends WebKit.WebView {
       null,
       null,
     );
-    user_content_manager.add_style_sheet(stylesheet);
+    this.user_content_manager.add_style_sheet(stylesheet);
+  }
+
+  #injectOverlayScript() {
+    const source = `
+    var body = document.body;
+    var div = document.createElement('div');
+    body.insertBefore(div, body.firstChild);
+    window.addEventListener('scroll', on_scroll);
+
+    function on_scroll() {
+        if (window.scrollY > 0) {
+            div.classList.add("overshoot-overlay");
+        } else {
+            div.classList.remove("overshoot-overlay");
+        }
+    }
+    `;
+    const script = new WebKit.UserScript(
+      source,
+      WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
+      WebKit.UserScriptInjectionTime.END, // level
+      null,
+      null,
+    );
+    this.user_content_manager.add_script(script);
+    this.#injectOverlayStyles();
+  }
+
+  #injectOverlayStyles() {
+    const styles = `
+    .overshoot-overlay {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      box-shadow: inset 0 1px rgba(0, 0, 0, 0.07);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.07), transparent 4px);
+      overflow-x: hidden;
+      pointer-events: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .overshoot-overlay {
+          box-shadow: inset 0 1px rgba(0, 0, 0, 0.36);
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.36), transparent 4px);
+      }
+    }
+  `;
+    const stylesheet = new WebKit.UserStyleSheet(
+      styles, // source
+      WebKit.UserContentInjectedFrames.ALL_FRAMES, // injected_frames
+      WebKit.UserStyleLevel.USER, // level
+      null,
+      null,
+    );
+    this.user_content_manager.add_style_sheet(stylesheet);
   }
 
   #onNotifyUri = () => {
