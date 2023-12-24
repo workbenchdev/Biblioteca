@@ -18,6 +18,7 @@ template $SearchView : ScrolledWindow {
             text: bind template.item as <$DocumentationPage>.search_name;
           }
           Button {
+            sensitive: false;
             valign: center;
             label: bind template.item as <$DocumentationPage>.tag;
             styles ["pill", "small", "doc-tag"]
