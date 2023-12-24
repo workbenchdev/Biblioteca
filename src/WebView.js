@@ -44,6 +44,7 @@ class WebView extends WebKit.WebView {
   }
 
   #injectOverlayScript() {
+    // https://gitlab.com/news-flash/news_flash_gtk/-/blob/master/data/resources/article_view/overshoot_overlay.js
     const source = `
     var body = document.body;
     var div = document.createElement('div');
@@ -70,6 +71,8 @@ class WebView extends WebKit.WebView {
   }
 
   #injectOverlayStyles() {
+    // https://gitlab.com/news-flash/news_flash_gtk/-/blob/master/data/resources/article_view/style.css#L22-33
+    // https://gitlab.com/news-flash/news_flash_gtk/-/blob/master/data/resources/article_view/style.css#L424-428
     const styles = `
     .overshoot-overlay {
       height: 100%;
