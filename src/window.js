@@ -1,5 +1,6 @@
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GObject from "gi://GObject";
 import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
@@ -42,6 +43,8 @@ class Window extends Adw.ApplicationWindow {
 
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
+
+    this._url_bar.connect("activate", this.#onActivateURLBar);
 
     Shortcuts(
       this,
@@ -212,6 +215,15 @@ class Window extends Adw.ApplicationWindow {
   #moveNavigationUp = () => {
     this._bottom_toolbar.remove(this._box_navigation);
     this._content_header_bar.pack_start(this._box_navigation);
+  };
+
+  #onActivateURLBar = () => {
+    let url = this._url_bar.buffer.text;
+    const scheme = GLib.Uri.peek_scheme(url);
+    if (!scheme) {
+      url = `http://${url}`;
+    }
+    this._webview.load_uri(url);
   };
 
   #createSidebar() {
