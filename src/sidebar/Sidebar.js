@@ -3,6 +3,7 @@ import Adw from "gi://Adw";
 import GObject from "gi://GObject";
 
 import ThemeSelector from "../../troll/src/widgets/ThemeSelector.js";
+import ZoomButtons from "./ZoomButtons.js";
 
 import BrowseView from "./BrowseView.js";
 import SearchView from "./SearchView.js";
@@ -62,6 +63,8 @@ class Sidebar extends Adw.NavigationPage {
     // Popover menu theme switcher
     const popover = this._button_menu.get_popover();
     popover.add_child(new ThemeSelector(), "themeswitcher");
+    this.zoom_buttons = new ZoomButtons();
+    popover.add_child(this.zoom_buttons, "zoom_buttons");
   }
 
   #flattenModel(

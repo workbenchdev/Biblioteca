@@ -1,5 +1,6 @@
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GObject from "gi://GObject";
 import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
@@ -42,6 +43,8 @@ class Window extends Adw.ApplicationWindow {
 
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
+
+    this._url_bar.connect("activate", this.#onActivateURLBar);
 
     Shortcuts(
       this,
@@ -154,6 +157,13 @@ class Window extends Adw.ApplicationWindow {
         from_value ? [true, `${from_value} - Biblioteca`] : [false, null],
       null,
     );
+
+    this._webview.bind_property(
+      "zoom-level",
+      this._sidebar.zoom_buttons,
+      "zoom-level",
+      GObject.BindingFlags.SYNC_CREATE,
+    );
     return tab_page;
   };
 
@@ -178,6 +188,7 @@ class Window extends Adw.ApplicationWindow {
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
+    this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
     this.#updateButtons();
     if (this._webview.title) {
       this.title = `${this._webview.title} - Biblioteca`;
@@ -212,6 +223,15 @@ class Window extends Adw.ApplicationWindow {
   #moveNavigationUp = () => {
     this._bottom_toolbar.remove(this._box_navigation);
     this._content_header_bar.pack_start(this._box_navigation);
+  };
+
+  #onActivateURLBar = () => {
+    let url = this._url_bar.buffer.text;
+    const scheme = GLib.Uri.peek_scheme(url);
+    if (!scheme) {
+      url = `http://${url}`;
+    }
+    this._webview.load_uri(url);
   };
 
   #createSidebar() {
