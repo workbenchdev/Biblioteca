@@ -6,7 +6,7 @@
   xmlns:gnome="http://api.gnome.org/doap-extensions#"
   xmlns="http://usefulinc.com/ns/doap#">
   <name>Biblioteca</name>
-  <shortdesc>Documentation viewer for GNOME</shortdesc>
+  <shortdesc>Read documentation</shortdesc>
   <description>Biblioteca lets you browse and read GNOME documentation.</description>
 
   <homepage rdf:resource="https://github.com/workbenchdev/Biblioteca" />
