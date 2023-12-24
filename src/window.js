@@ -157,6 +157,13 @@ class Window extends Adw.ApplicationWindow {
         from_value ? [true, `${from_value} - Biblioteca`] : [false, null],
       null,
     );
+
+    this._webview.bind_property(
+      "zoom-level",
+      this._sidebar.zoom_buttons,
+      "zoom-level",
+      GObject.BindingFlags.SYNC_CREATE,
+    );
     return tab_page;
   };
 
@@ -181,6 +188,7 @@ class Window extends Adw.ApplicationWindow {
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
+    this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
     this.#updateButtons();
     if (this._webview.title) {
       this.title = `${this._webview.title} - Biblioteca`;

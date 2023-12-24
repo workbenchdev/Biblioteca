@@ -36,7 +36,21 @@ export default function Shortcuts(
   action_new_tab.connect("activate", (action, parameter) =>
     newTab(parameter.unpack()),
   );
+
+  const action_zoom_in = new Gio.SimpleAction({
+    name: "zoom-in",
+    parameter_type: null,
+  });
+  action_zoom_in.connect("activate", () => zoomIn());
+
+  const action_zoom_out = new Gio.SimpleAction({
+    name: "zoom-out",
+    parameter_type: null,
+  });
+  action_zoom_out.connect("activate", () => zoomOut());
   application.add_action(action_new_tab);
+  application.add_action(action_zoom_in);
+  application.add_action(action_zoom_out);
   application.set_accels_for_action(
     "app.new-tab('file:///app/share/doc/gtk4/index.html')",
     ["<Control>T"],
@@ -60,7 +74,7 @@ export default function Shortcuts(
     [["<Control>0"], resetZoom],
     [["<Control>K"], focusGlobalSearch],
     [["F9"], toggleSidebar],
-    [["<Shift><Control>o"], toggleOverview]
+    [["<Shift><Control>o"], toggleOverview],
   ];
 
   const shortcutController = new Gtk.ShortcutController();
