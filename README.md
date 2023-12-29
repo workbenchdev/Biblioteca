@@ -2,7 +2,7 @@
 
 # Biblioteca
 
-Documentation viewer for GNOME.
+Read documentation
 
 <a href='https://flathub.org/apps/app.drey.Biblioteca'><img width='240' height='80' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.svg'/></a>
 
