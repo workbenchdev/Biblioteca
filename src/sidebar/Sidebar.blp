@@ -5,20 +5,21 @@ template $Sidebar : Adw.NavigationPage {
   title: "Biblioteca";
   child: Adw.ToolbarView {
     [top]
-    Box {
-      styles ["toolbar"]
+    Adw.HeaderBar {
 
-      SearchEntry search_entry {
-        hexpand: true;
-        placeholder-text: _("Search Biblioteca");
-      }
-
+      [end]
       MenuButton button_menu {
         menu-model: menu_app;
         icon-name: "open-menu-symbolic";
-        tooltip-text: _("Main Menu");
-        primary: true;
       }
+    }
+
+    [top]
+    SearchEntry search_entry {
+      margin-start: 12;
+      margin-end: 12;
+      hexpand: true;
+      placeholder-text: _("Search Biblioteca");
     }
 
     content: Stack stack {
