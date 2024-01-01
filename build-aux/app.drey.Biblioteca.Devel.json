@@ -41,12 +41,7 @@
           "path": ".."
         }
       ],
-      "post-install": [
-        "cp -a /usr/share/runtime/docs/doc/. /app/share/doc/",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/webkitgtk-6.0 /app/share/doc",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/javascriptcoregtk-6.0 /app/share/doc",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/webkitgtk-web-process-extension-6.0 /app/share/doc"
-      ]
+      "post-install": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
     }
   ]
 }
