@@ -14,11 +14,12 @@ template $Sidebar : Adw.NavigationPage {
     }
 
     [top]
-    SearchEntry search_entry {
-      margin-start: 12;
-      margin-end: 12;
-      hexpand: true;
-      placeholder-text: _("Search Biblioteca");
+    Box {
+      SearchEntry search_entry {
+        hexpand: true;
+        placeholder-text: _("Search Biblioteca");
+      }
+      styles ["toolbar"]
     }
 
     content: Stack stack {
