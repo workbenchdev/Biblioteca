@@ -1,7 +1,7 @@
 {
   "id": "app.drey.Biblioteca.Devel",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "45",
+  "runtime-version": "master",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
   "command": "biblioteca",
@@ -41,12 +41,7 @@
           "path": ".."
         }
       ],
-      "post-install": [
-        "cp -a /usr/share/runtime/docs/doc/. /app/share/doc/",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/webkitgtk-6.0 /app/share/doc",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/javascriptcoregtk-6.0 /app/share/doc",
-        "cp -a /usr/share/runtime/docs/gtk-doc/html/webkitgtk-web-process-extension-6.0 /app/share/doc"
-      ]
+      "post-install": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
     }
   ]
 }
