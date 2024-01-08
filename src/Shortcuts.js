@@ -13,6 +13,7 @@ export default function Shortcuts(
   zoomOut,
   resetZoom,
   focusGlobalSearch,
+  focusURLBar,
   toggleSidebar,
   toggleOverview,
 ) {
@@ -73,6 +74,7 @@ export default function Shortcuts(
     [["<Control>minus", "<Control>underscore"], zoomOut],
     [["<Control>0"], resetZoom],
     [["<Control>K"], focusGlobalSearch],
+    [["<Control>L"], focusURLBar],
     [["F9"], toggleSidebar],
     [["<Shift><Control>o"], toggleOverview],
   ];

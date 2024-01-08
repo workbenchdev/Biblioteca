@@ -56,6 +56,7 @@ class Window extends Adw.ApplicationWindow {
       this.zoomOut,
       this.resetZoom,
       this.focusGlobalSearch,
+      this.focusURLBar,
       this.toggleSidebar,
       this.toggleOverview,
     );
@@ -96,6 +97,10 @@ class Window extends Adw.ApplicationWindow {
     this._split_view.show_sidebar = true;
     this._sidebar._search_entry.grab_focus();
     this._sidebar._search_entry.select_region(0, -1);
+  };
+
+  focusURLBar = () => {
+    if (this._webview.is_online) this._url_bar.grab_focus();
   };
 
   newTab = (uri = "file:///app/share/doc/gtk4/index.html") => {
