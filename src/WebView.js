@@ -10,6 +10,7 @@ class WebView extends WebKit.WebView {
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
     this.connect("notify::uri", this.#onNotifyUri);
+    this.initial_load = true;
     this.load_uri(uri);
 
     this.#disablePageSidebar();
@@ -113,6 +114,13 @@ class WebView extends WebKit.WebView {
 
     const scheme = GLib.Uri.peek_scheme(this.uri);
     this.is_online = ["http", "https"].includes(scheme);
+
+    // When the WebView is created, BrowseView has not been updated with the new WebView yet
+    // Therefore dont sync the sidebar
+    if (this.initial_load) {
+      this.initial_load = false;
+      return;
+    }
 
     const selected_item = this._browse_view.selection_model.selected_item;
     if (selected_item === null || this.uri !== selected_item.item.uri) {
