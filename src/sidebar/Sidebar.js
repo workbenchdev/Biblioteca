@@ -34,7 +34,7 @@ class Sidebar extends Adw.NavigationPage {
   }
 
   #initializeSidebar() {
-    this.browse_view = new BrowseView();
+    this.browse_view = new BrowseView(this);
     this.search_view = new SearchView();
 
     this.browse_view.connect("notify::webview", () => {
