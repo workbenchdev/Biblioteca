@@ -44,9 +44,9 @@ const REQUIRED = ["class", "interface", "record", "domain"];
 const ITEM_HEIGHT = 38;
 
 class BrowseView extends Gtk.ScrolledWindow {
-  constructor(...params) {
+  constructor(sidebar, ...params) {
     super(params);
-
+    this._sidebar = sidebar;
     this.root_model = Gio.ListStore.new(DocumentationPage);
     this.#createBrowseSelectionModel();
     this.#loadDocs().catch(console.error);
@@ -74,7 +74,9 @@ class BrowseView extends Gtk.ScrolledWindow {
 
   set webview(value) {
     if (this._webview === value) return;
+    if (this._handler) this._webview.disconnect(this._handler);
     this._webview = value;
+    this._handler = this._webview.connect("notify::uri", this.#syncSelection);
     this.notify("webview");
   }
 
@@ -102,6 +104,15 @@ class BrowseView extends Gtk.ScrolledWindow {
       row.expanded = false;
     }
   }
+
+  #syncSelection = (webview) => {
+    const selected_item = this.selection_model.selected_item;
+    if (selected_item === null || webview.uri !== selected_item.item.uri) {
+      const path = this._sidebar.uri_to_tree_path[webview.uri];
+      if (!path) return;
+      this.selectItem(path);
+    }
+  };
 
   #onGestureClick = (gesture, n_press, x, y) => {
     switch (gesture.get_current_button()) {
