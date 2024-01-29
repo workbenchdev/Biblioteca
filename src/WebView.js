@@ -47,16 +47,33 @@ class WebView extends WebKit.WebView {
     // https://gitlab.com/news-flash/news_flash_gtk/-/blob/6c080e2b0cf6def97fc877f3cb817ba1e277f2f5/data/resources/article_view/overshoot_overlay.js
     const source = `
     var body = document.body;
-    var div = document.createElement('div');
-    body.insertBefore(div, body.firstChild);
+    var divTop = document.createElement('div');
+    body.insertBefore(divTop, body.firstChild);
+    var divBottom = document.createElement('div');
+    body.insertAdjacentElement('beforeend', divBottom);
+
     window.addEventListener('scroll', on_scroll);
 
     function on_scroll() {
-        if (window.scrollY > 0) {
-            div.classList.add("overshoot-overlay");
-        } else {
-            div.classList.remove("overshoot-overlay");
-        }
+      if (window.scrollY > 0) {
+          divTop.classList.add("overshoot-overlay-top");
+      } else {
+          divTop.classList.remove("overshoot-overlay-top");
+      }
+
+      var limit = Math.max(
+          document.body.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.clientHeight,
+          document.documentElement.scrollHeight,
+          document.documentElement.offsetHeight);
+      var max_scroll = limit - window.innerHeight;
+
+      if (window.scrollY >= max_scroll) {
+          divBottom.classList.remove("overshoot-overlay-bottom");
+      } else {
+          divBottom.classList.add("overshoot-overlay-bottom");
+      }
     }
     `;
     const script = new WebKit.UserScript(
@@ -74,7 +91,7 @@ class WebView extends WebKit.WebView {
     // https://gitlab.com/news-flash/news_flash_gtk/-/blob/6c080e2b0cf6def97fc877f3cb817ba1e277f2f5/data/resources/article_view/style.css#L22-33
     // https://gitlab.com/news-flash/news_flash_gtk/-/blob/6c080e2b0cf6def97fc877f3cb817ba1e277f2f5/data/resources/article_view/style.css#L424-428
     const styles = `
-    .overshoot-overlay {
+    .overshoot-overlay-top {
       height: 100%;
       width: 100%;
       position: fixed;
@@ -86,11 +103,27 @@ class WebView extends WebKit.WebView {
       overflow-x: hidden;
       pointer-events: none;
     }
+    .overshoot-overlay-bottom {
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.07), transparent 4px);
+      overflow-x: hidden;
+      pointer-events: none;
+    }
+
 
     @media (prefers-color-scheme: dark) {
-      .overshoot-overlay {
+      .overshoot-overlay-top {
           box-shadow: inset 0 1px rgba(0, 0, 0, 0.36);
           background: linear-gradient(to bottom, rgba(0, 0, 0, 0.36), transparent 4px);
+      }
+      .overshoot-overlay-bottom {
+        box-shadow: inset 0 -1px rgba(0, 0, 0, 0.36);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.36), transparent 4px);
       }
     }
   `;
