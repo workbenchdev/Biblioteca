@@ -13,6 +13,8 @@ import Template from "./Sidebar.blp" with { type: "uri" };
 
 import "../icons/edit-find-symbolic.svg";
 
+const gtk_index = 16;
+
 class Sidebar extends Adw.NavigationPage {
   constructor(...params) {
     super(params);
@@ -23,7 +25,7 @@ class Sidebar extends Adw.NavigationPage {
 
   resetSidebar() {
     this.browse_view.collapseAllRows();
-    this.browse_view.selection_model.selected = 12;
+    this.browse_view.selection_model.selected = gtk_index;
     this._search_entry.text = "";
     this._stack.visible_child = this.browse_view;
   }
@@ -52,7 +54,7 @@ class Sidebar extends Adw.NavigationPage {
 
     this.browse_view.connect("browse-view-loaded", () => {
       this.flattened_model = this.#flattenModel(this.browse_view.root_model);
-      this.browse_view.selection_model.selected = 12;
+      this.browse_view.selection_model.selected = gtk_index;
       this.search_view.initializeModel(this.flattened_model);
     });
 
