@@ -8,6 +8,8 @@ bin_conf.set('datadir', datadir)
 bin_conf.set('pkgdatadir', pkgdatadir)
 bin_conf.set('sourcedir', meson.project_source_root())
 
+meson.add_install_script('../build-aux/build-index.js', pkgdatadir)
+
 blueprint_compiler = find_program(
   '/app/bin/blueprint-compiler',
 )

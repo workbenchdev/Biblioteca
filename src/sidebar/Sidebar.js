@@ -8,12 +8,13 @@ import ZoomButtons from "./ZoomButtons.js";
 import BrowseView from "./BrowseView.js";
 import SearchView from "./SearchView.js";
 import DocumentationPage from "./DocumentationPage.js";
+import { decode } from "../util.js";
 
 import Template from "./Sidebar.blp" with { type: "uri" };
 
 import "../icons/edit-find-symbolic.svg";
 
-const gtk_index = 16;
+const GTK_INDEX = 19;
 
 class Sidebar extends Adw.NavigationPage {
   constructor(...params) {
@@ -25,7 +26,7 @@ class Sidebar extends Adw.NavigationPage {
 
   resetSidebar() {
     this.browse_view.collapseAllRows();
-    this.browse_view.selection_model.selected = gtk_index;
+    this.browse_view.selection_model.selected = GTK_INDEX;
     this._search_entry.text = "";
     this._stack.visible_child = this.browse_view;
   }
@@ -38,6 +39,24 @@ class Sidebar extends Adw.NavigationPage {
   #initializeSidebar() {
     this.browse_view = new BrowseView(this);
     this.search_view = new SearchView();
+    this.flattened_model = this.#newListStore();
+
+    let doc_index = Gio.File.new_for_path(pkg.pkgdatadir).resolve_relative_path(
+      "doc-index.json",
+    );
+
+    const content = doc_index.load_contents(null);
+    doc_index = JSON.parse(decode(content[1]));
+    let idx = 0;
+    const promises = [];
+    for (const item of doc_index) {
+      promises.push(this.#load(this.browse_view.root_model, item, [idx++]));
+    }
+
+    Promise.all(promises).then(() => {
+      this.browse_view.selection_model.selected = GTK_INDEX;
+      this.search_view.initializeModel(this.flattened_model);
+    });
 
     this.browse_view.connect("notify::webview", () => {
       const webview_uri = this.browse_view.webview.uri;
@@ -52,12 +71,6 @@ class Sidebar extends Adw.NavigationPage {
       this.browse_view.selectItem(path);
     });
 
-    this.browse_view.connect("browse-view-loaded", () => {
-      this.flattened_model = this.#flattenModel(this.browse_view.root_model);
-      this.browse_view.selection_model.selected = gtk_index;
-      this.search_view.initializeModel(this.flattened_model);
-    });
-
     this._stack.add_child(this.browse_view);
     this._stack.add_child(this.search_view);
     this._stack.visible_child = this.browse_view;
@@ -69,20 +82,27 @@ class Sidebar extends Adw.NavigationPage {
     popover.add_child(this.zoom_buttons, "zoom_buttons");
   }
 
-  #flattenModel(
-    list_store,
-    flattened_model = Gio.ListStore.new(DocumentationPage),
-    path = [0],
-  ) {
-    for (const item of list_store) {
-      if (item.search_name) flattened_model.append(item);
-      if (item.children) {
-        this.#flattenModel(item.children, flattened_model, [...path, 1]);
+  async #load(parent, item, path) {
+    const page = new DocumentationPage({
+      name: item.name ?? null,
+      tag: item.tag ?? null,
+      search_name: item.search_name ?? null,
+      uri: item.uri ?? null,
+      children: item.children ? this.#newListStore() : null,
+    });
+    this.uri_to_tree_path[item.uri] = path.slice();
+    parent.append(page);
+    if (item.search_name) this.flattened_model.append(page);
+    if (item.children) {
+      let idx = 1;
+      for (const child of item.children) {
+        await this.#load(page.children, child, [...path, idx++]);
       }
-      this.uri_to_tree_path[item.uri] = path.slice();
-      path[path.length - 1]++;
     }
-    return flattened_model;
+  }
+
+  #newListStore() {
+    return Gio.ListStore.new(DocumentationPage);
   }
 
   #connectSearchEntry() {
