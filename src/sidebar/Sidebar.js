@@ -13,7 +13,7 @@ import Template from "./Sidebar.blp" with { type: "uri" };
 
 import "../icons/edit-find-symbolic.svg";
 
-const gtk_index = 16;
+const gtk_index = 19;
 
 class Sidebar extends Adw.NavigationPage {
   constructor(...params) {
