@@ -167,9 +167,6 @@ export default GObject.registerClass(
         Webkit.WebView,
       ),
     },
-    Signals: {
-      "browse-view-loaded": {},
-    },
     InternalChildren: ["browse_list_view"],
   },
   BrowseView,
