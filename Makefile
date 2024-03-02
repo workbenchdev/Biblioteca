@@ -4,12 +4,14 @@ SHELL:=/bin/bash -O globstar
 
 setup:
 	flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-	flatpak install --or-update --user --noninteractive flathub org.gnome.Sdk//45 org.gnome.Sdk.Docs//45 org.flatpak.Builder org.freedesktop.Sdk.Extension.rust-stable//23.08 org.freedesktop.Sdk.Extension.node18//23.08 org.freedesktop.Sdk.Extension.vala//23.08 org.freedesktop.Sdk.Extension.llvm16//23.08
+	flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+	flatpak install --or-update --user --noninteractive flathub-beta org.gnome.Sdk//46beta org.gnome.Sdk.Docs//46beta
+	flatpak install --or-update --user --noninteractive flathub org.flatpak.Builder org.freedesktop.Sdk.Extension.node18//23.08
 	npm install
 
 lint:
 # ESLint
-	flatpak run --user --command=/usr/lib/sdk/node18/bin/node --filesystem=host:ro org.gnome.Sdk//45 node_modules/.bin/eslint --max-warnings=0 src
+	flatpak run --user --command=/usr/lib/sdk/node18/bin/node --filesystem=host:ro org.gnome.Sdk//46beta node_modules/.bin/eslint --max-warnings=0 src
 # gettext
 # find po/ -type f -name "*po" -print0 | xargs -0 -n1 msgfmt -o /dev/null --check
 # Flatpak manifests
