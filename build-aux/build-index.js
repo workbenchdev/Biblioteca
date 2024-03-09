@@ -91,19 +91,12 @@ async function scanLibraries(base_dir) {
     GLib.PRIORITY_DEFAULT,
     null,
   );
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const infos = await iter.next_files_async(10, GLib.PRIORITY_DEFAULT, null);
-    if (infos.length === 0) break;
 
-    for (const info of infos) {
-      if (info.get_file_type() !== Gio.FileType.DIRECTORY) continue;
-
-      if (IGNORED_LIBRARIES.includes(info.get_name())) continue;
-
-      const directory = iter.get_child(info);
-      libraries.push(loadLibrary(directory).catch(console.error));
-    }
+  for (const info of iter) {
+    if (info.get_file_type() !== Gio.FileType.DIRECTORY) continue;
+    if (IGNORED_LIBRARIES.includes(info.get_name())) continue;
+    const file = iter.get_child(info);
+    libraries.push(loadLibrary(file).catch(console.error));
   }
 
   return Promise.allSettled(libraries).catch(console.error);
