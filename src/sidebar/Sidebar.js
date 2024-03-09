@@ -41,16 +41,18 @@ class Sidebar extends Adw.NavigationPage {
     this.search_view = new SearchView();
     this.flattened_model = this.#newListStore();
 
-    let doc_index = Gio.File.new_for_path(pkg.pkgdatadir).resolve_relative_path(
+    const index_file = Gio.File.new_for_path(pkg.pkgdatadir).get_child(
       "doc-index.json",
     );
+    const content = index_file.load_contents(null);
+    const doc_index = JSON.parse(decode(content[1]));
 
-    const content = doc_index.load_contents(null);
-    doc_index = JSON.parse(decode(content[1]));
     let idx = 0;
     const promises = [];
     for (const item of doc_index) {
-      promises.push(this.#load(this.browse_view.root_model, item, [idx++]));
+      promises.push(
+        this.#buildPage(this.browse_view.root_model, item, [idx++]),
+      );
     }
 
     Promise.all(promises).then(() => {
@@ -82,7 +84,7 @@ class Sidebar extends Adw.NavigationPage {
     popover.add_child(this.zoom_buttons, "zoom_buttons");
   }
 
-  async #load(parent, item, path) {
+  async #buildPage(parent, item, path) {
     const page = new DocumentationPage({
       name: item.name ?? null,
       tag: item.tag ?? null,
@@ -96,7 +98,7 @@ class Sidebar extends Adw.NavigationPage {
     if (item.children) {
       let idx = 1;
       for (const child of item.children) {
-        await this.#load(page.children, child, [...path, idx++]);
+        await this.#buildPage(page.children, child, [...path, idx++]);
       }
     }
   }

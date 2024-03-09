@@ -57,7 +57,7 @@ const SUBSECTION_TYPES = {
 };
 
 const REQUIRED = ["class", "interface", "record", "domain"];
-const INDEX = [];
+const DOC_INDEX = [];
 
 await loadDocs();
 
@@ -66,7 +66,7 @@ async function loadDocs() {
     scanLibraries(Gio.File.new_for_path("/app/share/doc")),
     scanLibraries(Gio.File.new_for_path("/app/share/doc/glib-2.0")),
   ]);
-  sort_index(INDEX);
+  sort_index(DOC_INDEX);
 
   const [pkgdatadir] = ARGV;
   GLib.mkdir_with_parents(pkgdatadir, 0o755);
@@ -74,7 +74,7 @@ async function loadDocs() {
   await Gio.File.new_for_path(pkgdatadir)
     .get_child("doc-index.json")
     .replace_contents_async(
-      new TextEncoder().encode(JSON.stringify(INDEX)),
+      new TextEncoder().encode(JSON.stringify(DOC_INDEX)),
       null,
       false,
       Gio.FileCreateFlags.NONE,
@@ -118,7 +118,7 @@ async function loadLibrary(directory) {
     const index = JSON.parse(decode(data));
 
     const namespace = `${index.meta.ns}-${index.meta.version}`;
-    INDEX.push({
+    DOC_INDEX.push({
       name: namespace,
       tag: "namespace",
       search_name: namespace,
