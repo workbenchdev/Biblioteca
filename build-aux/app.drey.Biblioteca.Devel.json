@@ -5,6 +5,7 @@
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
   "command": "biblioteca",
+  "separate-locales": false,
   "finish-args": [
     "--share=network",
     "--share=ipc",
