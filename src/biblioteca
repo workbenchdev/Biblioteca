@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export WEBKIT_DISABLE_DMABUF_RENDERER=1
 # export G_MESSAGES_DEBUG=@app_id@
 
 # We do not support translations but the AboutWindow is translated by default
