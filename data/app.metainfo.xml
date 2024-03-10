@@ -3,17 +3,20 @@
   <id>@app_id@</id>
   <launchable type="desktop-id">@app_id@.desktop</launchable>
   <name translatable="no">Biblioteca</name>
-  <developer_name translatable="no">Akshay Warrier</developer_name>
+  <developer id="com.github.AkshayWarrier">
+    <name>Akshay Warrier</name>
+  </developer>
   <update_contact>akshaywarrier@gnome.org</update_contact>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
-  <summary>Read documentation</summary>
+  <summary>Read GNOME documentation offline</summary>
   <translation type="gettext">@app_id@</translation>
   <description>
-    <p>Biblioteca lets you browse and read GNOME documentation.</p>
-    <p>Among other things, Biblioteca comes with</p>
+    <p>Biblioteca lets you browse and read GNOME documentation. Among other things, Biblioteca comes with</p>
     <ul>
       <li>Offline documentation</li>
+      <li>Web browsing</li>
+      <li>Tabs</li>
       <li>Dark mode support</li>
       <li>Fuzzy search</li>
       <li>Mobile / adaptive</li>
@@ -27,6 +30,7 @@
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/workbenchdev/Biblioteca/main/data/screenshot.png</image>
+      <caption>Biblioteca main window with GTK 4 docs selected</caption>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1" />
@@ -67,4 +71,8 @@
     <control>pointing</control>
     <control>touch</control>
   </recommends>
+  <branding>
+    <color type="primary" scheme_preference="light">#99c1f1</color>
+    <color type="primary" scheme_preference="dark">#1c71d8</color>
+  </branding>
 </component>
