@@ -35,6 +35,21 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.3" date="2024-03-18">
+      <description translatable="no">
+        <ul>
+          <li>Fix bug where creating new tab updates current selected tab</li>
+          <li>Improve searching UI</li>
+          <li>Add raised border to WebView on scroll</li>
+          <li>Make tags in search results insensitive</li>
+          <li>Add zoom buttons to primary menu</li>
+          <li>Add support for web content</li>
+          <li>Add shortcuts to view open tabs and toggle sidebar</li>
+          <li>Add support for keyboard navigation in sidebar</li>
+          <li>Fix modality of shortcuts window</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2" date="2023-11-20">
       <description translatable="no">
         <ul>
