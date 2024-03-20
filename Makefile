@@ -5,7 +5,7 @@ SHELL:=/bin/bash -O globstar
 setup:
 	flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 	flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-	flatpak install --or-update --user --noninteractive flathub-beta org.gnome.Sdk//46beta org.gnome.Sdk.Docs//46beta
+	flatpak install --or-update --user --noninteractive flathub org.gnome.Sdk//46 org.gnome.Sdk.Docs//46
 	flatpak install --or-update --user --noninteractive flathub org.flatpak.Builder org.freedesktop.Sdk.Extension.node18//23.08
 	npm install
 

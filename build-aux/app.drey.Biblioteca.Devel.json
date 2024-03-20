@@ -1,7 +1,7 @@
 {
   "id": "app.drey.Biblioteca.Devel",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46beta",
+  "runtime-version": "46",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
   "command": "biblioteca",
