@@ -38,7 +38,7 @@
     <release version="1.3" date="2024-03-20">
       <description translatable="no">
         <ul>
-          <li>Add GLib docs</li>
+          <li>Add GLib/Gio/GObject docs</li>
           <li>Add support for web content</li>
           <li>Improve searching UI</li>
           <li>Add support for keyboard navigation in sidebar</li>
