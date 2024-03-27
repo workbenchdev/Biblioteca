@@ -2,22 +2,26 @@ using Gtk 4.0;
 using Adw 1;
 
 template $Sidebar : Adw.NavigationPage {
+  title: "Biblioteca";
   child: Adw.ToolbarView {
     [top]
-    Box {
-      styles ["toolbar"]
-
-      SearchEntry search_entry {
-        hexpand: true;
-        placeholder-text: _("Search Biblioteca");
-      }
-
+    Adw.HeaderBar {
+      [end]
       MenuButton button_menu {
         menu-model: menu_app;
         icon-name: "open-menu-symbolic";
         tooltip-text: _("Main Menu");
         primary: true;
       }
+    }
+
+    [top]
+    Box {
+      SearchEntry search_entry {
+        hexpand: true;
+        placeholder-text: _("Search Biblioteca");
+      }
+      styles ["toolbar"]
     }
 
     content: Stack stack {
@@ -41,56 +45,62 @@ menu menu_app {
   }
 
   section {
+    item {
+      custom: "zoom_buttons";
+    }
+  }
+
+  section {
     submenu {
       label: _("Bookmarks");
 
       item {
         label: _("Developer Documentation");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://developer.gnome.org/documentation/index.html";
       }
 
 
       item {
         label: _("Human Interface Guidelines");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://developer.gnome.org/hig/";
       }
 
       item {
         label: _("JavaScript");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://gjs.guide";
       }
 
       item {
         label: _("Vala");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://valadoc.org/";
       }
 
       item {
         label: _("Rust");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://gtk-rs.org";
       }
 
       item {
         label: _("Python");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://pygobject.readthedocs.io/";
       }
 
       item {
         label: _("Blueprint");
-        action: "app.open_uri";
+        action: "app.new-tab";
         target: "https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/";
       }
 
       item {
-        label: _("Discourse");
-        action: "app.open_uri";
-        target: "https://discourse.gnome.org/c/platform/5";
+        label: _("DevDocs");
+        action: "app.new-tab";
+        target: "https://devdocs.io/";
       }
     }
   }

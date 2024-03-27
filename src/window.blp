@@ -8,6 +8,7 @@ template $Window: Adw.ApplicationWindow {
   height-request: 360;
   default-width: 1080;
   default-height: 768;
+  title: "Biblioteca";
 
   styles ["main-window"]
 
@@ -28,6 +29,7 @@ template $Window: Adw.ApplicationWindow {
       show-sidebar: bind button_sidebar.active;
 
       content: Adw.NavigationPage content_page {
+        title: _("Documentation");
         child: Adw.BreakpointBin {
           width-request: 360;
           height-request: 360;
@@ -49,6 +51,24 @@ template $Window: Adw.ApplicationWindow {
 
             [top]
             Adw.HeaderBar content_header_bar {
+              title-widget: Stack header_bar_stack {
+                StackPage {
+                  name: "title";
+                  child: Adw.WindowTitle header_bar_title {
+                  title: bind content_page.title;
+                  };
+                }
+
+                StackPage {
+                  name: "url_bar";
+                  child: Adw.Clamp {
+                    Gtk.Entry url_bar {
+                      hexpand: true;
+                      input-purpose: url;
+                    }
+                  };
+                }
+              };
               styles ["content-headerbar"]
 
               [start]
@@ -95,6 +115,11 @@ template $Window: Adw.ApplicationWindow {
             [top]
             Adw.TabBar tab_bar {
               view: tab_view;
+            }
+
+            [top]
+            ProgressBar load_bar {
+              styles ["osd"]
             }
 
             [bottom]

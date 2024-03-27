@@ -1,6 +1,8 @@
-import Gio from "gi://Gio";
 import Adw from "gi://Adw";
+import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GObject from "gi://GObject";
+import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
@@ -40,16 +42,6 @@ class Window extends Adw.ApplicationWindow {
     this._button_back.connect("clicked", this.goBack);
     this._button_forward.connect("clicked", this.goForward);
 
-    this.bind_property_full(
-      "title",
-      this._content_page,
-      "title",
-      GObject.BindingFlags.SYNC_CREATE,
-      (binding, from_value) =>
-        from_value ? [true, from_value] : [false, null],
-      null,
-    );
-
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
@@ -61,6 +53,7 @@ class Window extends Adw.ApplicationWindow {
     this._close_find_button.connect("clicked", () => {
       this.#closeFind();
     });
+    this._url_bar.connect("activate", this.#onActivateURLBar);
 
     Shortcuts(
       this,
@@ -72,9 +65,10 @@ class Window extends Adw.ApplicationWindow {
       this.zoomOut,
       this.resetZoom,
       this.focusGlobalSearch,
+      this.focusURLBar,
       this.toggleSidebar,
       this.toggleOverview,
-      this.showFind
+      this.showFind,
     );
   }
 
@@ -115,6 +109,10 @@ class Window extends Adw.ApplicationWindow {
     this._sidebar._search_entry.select_region(0, -1);
   };
 
+  focusURLBar = () => {
+    if (this._webview.is_online) this._url_bar.grab_focus();
+  };
+
   newTab = (uri = "file:///app/share/doc/gtk4/index.html") => {
     this._webview = new WebView({
       uri: uri,
@@ -125,6 +123,29 @@ class Window extends Adw.ApplicationWindow {
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
+    this._webview.connect("notify::is-online", this.#onWebViewOnline);
+
+    this._webview.connect("notify::estimated-load-progress", () => {
+      this._load_bar.fraction = this._webview.estimated_load_progress;
+      if (this._load_bar.fraction === 1) {
+        // Reset the load bar after a short delay
+        setTimeout(() => {
+          this._load_bar.fraction = 0;
+        }, 500);
+      }
+    });
+
+    this._webview.connect("load-changed", (self, load_event) => {
+      switch (load_event) {
+        case WebKit.LoadEvent.STARTED:
+          tab_page.loading = true;
+          break;
+        case WebKit.LoadEvent.FINISHED:
+          tab_page.loading = false;
+          break;
+      }
+    });
+
     this._webview.bind_property(
       "title",
       tab_page,
@@ -132,10 +153,30 @@ class Window extends Adw.ApplicationWindow {
       GObject.BindingFlags.SYNC_CREATE,
     );
 
-    this._webview.bind_property(
+    this._webview.bind_property_full(
+      "title",
+      this._content_page,
+      "title",
+      GObject.BindingFlags.SYNC_CREATE,
+      (binding, from_value) =>
+        from_value ? [true, from_value] : [false, null],
+      null,
+    );
+
+    this._webview.bind_property_full(
       "title",
       this,
       "title",
+      GObject.BindingFlags.SYNC_CREATE,
+      (binding, from_value) =>
+        from_value ? [true, `${from_value} - Biblioteca`] : [false, null],
+      null,
+    );
+
+    this._webview.bind_property(
+      "zoom-level",
+      this._sidebar.zoom_buttons,
+      "zoom-level",
       GObject.BindingFlags.SYNC_CREATE,
     );
     return tab_page;
@@ -153,16 +194,16 @@ class Window extends Adw.ApplicationWindow {
     if (this._split_view.collapsed && !this._tab_overview.open) {
       this._split_view.show_sidebar = !this._split_view.show_sidebar;
     }
-  }
+  };
 
   toggleOverview = () => {
     this._tab_overview.open = !this._tab_overview.open;
-  }
+  };
 
   showFind = () => {
     this._search_bar.search_mode_enabled = true;
     this._search_bar.add_css_class("card");
-  }
+  };
 
   #closeFind = () => {
     this._search_bar.search_mode_enabled = false;
@@ -170,14 +211,36 @@ class Window extends Adw.ApplicationWindow {
       this._search_bar.remove_css_class("card");
     }, 200);
     // this.#searchHandler.closeSearch();
-  }
+  };
 
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
+    this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
     this.#updateButtons();
-    this.title = this._webview.title;
+    if (this._webview.title) {
+      this.title = `${this._webview.title} - Biblioteca`;
+      this._content_page.title = this._webview.title;
+    }
+    this.#onWebViewOnline();
     this._sidebar.browse_view.webview = this._webview;
+  };
+
+  #onWebViewOnline = () => {
+    if (this._webview.is_online) {
+      this._sidebar.browse_view.unselectSelection();
+
+      this._binding_uri = this._webview.bind_property(
+        "uri",
+        this._url_bar.buffer,
+        "text",
+        GObject.BindingFlags.SYNC_CREATE,
+      );
+      this._header_bar_stack.set_visible_child_name("url_bar");
+      return;
+    }
+    if (this._binding_uri) this._binding_uri.unbind();
+    this._header_bar_stack.set_visible_child_name("title");
   };
 
   #moveNavigationDown = () => {
@@ -188,6 +251,15 @@ class Window extends Adw.ApplicationWindow {
   #moveNavigationUp = () => {
     this._bottom_toolbar.remove(this._box_navigation);
     this._content_header_bar.pack_start(this._box_navigation);
+  };
+
+  #onActivateURLBar = () => {
+    let url = this._url_bar.buffer.text;
+    const scheme = GLib.Uri.peek_scheme(url);
+    if (!scheme) {
+      url = `http://${url}`;
+    }
+    this._webview.load_uri(url);
   };
 
   #createSidebar() {
@@ -219,17 +291,20 @@ export default GObject.registerClass(
       "content_page",
       "toolbar_breakpoint",
       "content_header_bar",
+      "header_bar_stack",
+      "url_bar",
       "box_navigation",
       "button_back",
       "button_forward",
       "tab_button",
       "button_new_tab",
+      "load_bar",
       "bottom_toolbar",
       "tab_overview",
       "tab_view",
       "search_bar",
       "search_entry",
-      "close_find_button"
+      "close_find_button",
     ],
   },
   Window,

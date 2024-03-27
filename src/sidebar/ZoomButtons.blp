@@ -1,0 +1,28 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ZoomButtons: Gtk.Box {
+  homogeneous: true;
+
+  Button button_zoom_out {
+    halign: center;
+    icon-name: "zoom-out-symbolic";
+    action-name: "app.zoom-out";
+    tooltip-text: _("Zoom out");
+
+    styles ["flat", "circular"]
+  }
+
+  Label label_zoom {
+    label: "100%";
+  }
+
+  Button button_zoom_in {
+    halign: center;
+    icon-name: "zoom-in-symbolic";
+    action-name: "app.zoom-in";
+    tooltip-text: _("Zoom in");
+
+    styles ["flat", "circular"]
+  }
+}

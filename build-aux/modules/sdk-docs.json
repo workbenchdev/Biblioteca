@@ -1,0 +1,5 @@
+{
+  "name": "sdk-docs",
+  "buildsystem": "simple",
+  "build-commands": ["cp -a /usr/share/runtime/docs/doc/. /app/share/doc/"]
+}

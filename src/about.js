@@ -3,11 +3,10 @@ import { gettext as _ } from "gettext";
 import Adw from "gi://Adw";
 
 export default function About({ application }) {
-  const dialog = new Adw.AboutWindow({
-    transient_for: application.get_active_window(),
+  const dialog = new Adw.AboutDialog({
     application_name: "Biblioteca",
     developer_name: "Akshay Warrier",
-    copyright: "© 2023 Akshay Warrier",
+    copyright: "© 2024 Akshay Warrier",
     license_type: Gtk.License.GPL_3_0_ONLY,
     version: pkg.version,
     website: "https://github.com/workbenchdev/Biblioteca",
@@ -30,7 +29,7 @@ export default function About({ application }) {
     // "John Doe https://john.com",
     "skøldis https://turtle.garden",
   ]);
-  dialog.present();
+  dialog.present(application.get_active_window());
 
   return { dialog };
 }
