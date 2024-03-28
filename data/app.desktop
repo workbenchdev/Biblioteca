@@ -8,6 +8,6 @@ Type=Application
 Categories=Development;GNOME;GTK;
 Icon=@app_id@
 # TRANSLATORS: Don't translate
-Keywords=GTK;libadwaita;doc;documentation;api;manual;
+Keywords=GTK;libadwaita;doc;documentation;api;manual;devhelp;
 DBusActivatable=true
 StartupNotify=true
