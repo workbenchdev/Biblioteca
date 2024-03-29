@@ -90,9 +90,6 @@ class Window extends Adw.ApplicationWindow {
     this._tab_view.connect("notify::selected-page", this.#updateWebView);
     this.#setupBreakpoint();
 
-    this._button_back.connect("clicked", this.goBack);
-    this._button_forward.connect("clicked", this.goForward);
-
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
