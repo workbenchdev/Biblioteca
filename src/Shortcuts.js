@@ -1,63 +1,34 @@
 import Gtk from "gi://Gtk";
 import Gio from "gi://Gio";
-import GLib from "gi://GLib";
 import resource from "./Shortcuts.blp";
 
-export default function Shortcuts(
-  window,
-  newTab,
-  closeTab,
-  goForward,
-  goBack,
-  zoomIn,
-  zoomOut,
-  resetZoom,
-  focusGlobalSearch,
-  focusURLBar,
-  toggleSidebar,
-  toggleOverview,
-  openFind,
-) {
+export default function Shortcuts(window) {
   const { application } = window;
 
-  let window_shortcuts;
-  const action_shortcuts = new Gio.SimpleAction({
-    name: "shortcuts",
-    parameter_type: null,
-  });
-  action_shortcuts.connect("activate", () => {
-    open();
-  });
+  const action_shortcuts = new Gio.SimpleAction({ name: "shortcuts" });
+  action_shortcuts.connect("activate", () => open());
   application.add_action(action_shortcuts);
   application.set_accels_for_action("app.shortcuts", ["<Control>question"]);
 
-  const action_new_tab = new Gio.SimpleAction({
-    name: "new-tab",
-    parameter_type: new GLib.VariantType("s"),
-  });
-  action_new_tab.connect("activate", (action, parameter) =>
-    newTab(parameter.unpack()),
-  );
+  const accels = [
+    ["win.new-tab('file:///app/share/doc/gtk4/index.html')", ["<Control>T"]],
+    ["win.close-tab", ["<Control>W"]],
+    ["win.navigation-forward", ["<Alt>Right"]],
+    ["win.navigation-back", ["<Alt>Left"]],
+    ["win.zoom-in", ["<Control>plus", "<Control>equal"]],
+    ["win.zoom-out", ["<Control>minus", "<Control>underscore"]],
+    ["win.reset-zoom", ["<Control>0"]],
+    ["win.global-search", ["<Control>K"]],
+    ["win.focus-urlbar", ["<Control>L"]],
+    ["win.toggle-sidebar", ["F9"]],
+    ["win.toggle-overview", ["<Shift><Control>O"]],
+  ];
 
-  const action_zoom_in = new Gio.SimpleAction({
-    name: "zoom-in",
-    parameter_type: null,
-  });
-  action_zoom_in.connect("activate", () => zoomIn());
+  for (const accel of accels) {
+    application.set_accels_for_action(accel[0], accel[1]);
+  }
 
-  const action_zoom_out = new Gio.SimpleAction({
-    name: "zoom-out",
-    parameter_type: null,
-  });
-  action_zoom_out.connect("activate", () => zoomOut());
-  application.add_action(action_new_tab);
-  application.add_action(action_zoom_in);
-  application.add_action(action_zoom_out);
-  application.set_accels_for_action(
-    "app.new-tab('file:///app/share/doc/gtk4/index.html')",
-    ["<Control>T"],
-  );
-
+  let window_shortcuts;
   function open() {
     if (!window_shortcuts) {
       const builder = Gtk.Builder.new_from_resource(resource);
@@ -66,32 +37,4 @@ export default function Shortcuts(
     }
     window_shortcuts.present();
   }
-
-  const shortcuts = [
-    [["<Control>W"], closeTab],
-    [["<Alt>Right"], goForward],
-    [["<Alt>Left"], goBack],
-    [["<Control>plus", "<Control>equal"], zoomIn],
-    [["<Control>minus", "<Control>underscore"], zoomOut],
-    [["<Control>0"], resetZoom],
-    [["<Control>K"], focusGlobalSearch],
-    [["<Control>L"], focusURLBar],
-    [["F9"], toggleSidebar],
-    [["<Shift><Control>o"], toggleOverview],
-    [["<Control>f"], openFind],
-  ];
-
-  const shortcutController = new Gtk.ShortcutController();
-  shortcuts.forEach(([accels, fn]) => {
-    const shortcut = new Gtk.Shortcut({
-      trigger: Gtk.ShortcutTrigger.parse_string(accels.join("|")),
-      action: Gtk.CallbackAction.new(() => {
-        fn();
-        return true;
-      }),
-    });
-    shortcutController.add_shortcut(shortcut);
-  });
-
-  window.add_controller(shortcutController);
 }

@@ -85,7 +85,7 @@ class BrowseView extends Gtk.ScrolledWindow {
       case Gdk.BUTTON_MIDDLE: {
         const index = Math.floor((this._adj.value + y) / ITEM_HEIGHT);
         const uri = this._tree_model.get_row(index).item.uri;
-        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        this.activate_action("win.new-tab", new GLib.Variant("s", uri));
         break;
       }
     }
