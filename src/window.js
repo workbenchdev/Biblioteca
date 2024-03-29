@@ -23,11 +23,62 @@ class Window extends Adw.ApplicationWindow {
     this.#createSidebar();
     this.newTab();
 
-    const update_buttons_action = new Gio.SimpleAction({
-      name: "update-buttons",
-    });
-    update_buttons_action.connect("activate", () => this.#updateButtons());
-    this.add_action(update_buttons_action);
+    const win_group = new Gio.SimpleActionGroup();
+    this.insert_action_group("win", win_group);
+
+    const action_entries = [
+      {
+        name: "new-tab",
+        activate: (action, parameter) => this.newTab(parameter.unpack()),
+        parameter_type: "s",
+      },
+      {
+        name: "close-tab",
+        activate: () => this.closeTab(),
+      },
+      {
+        name: "navigation-forward",
+        activate: () => this.goForward(),
+      },
+      {
+        name: "navigation-back",
+        activate: () => this.goBack(),
+      },
+      {
+        name: "zoom-in",
+        activate: () => this.zoomIn(),
+      },
+      {
+        name: "zoom-out",
+        activate: () => this.zoomOut(),
+      },
+      {
+        name: "reset-zoom",
+        activate: () => this.resetZoom(),
+      },
+      {
+        name: "global-search",
+        activate: () => this.focusGlobalSearch(),
+      },
+      {
+        name: "focus-urlbar",
+        activate: () => this.focusURLBar(),
+      },
+      {
+        name: "toggle-sidebar",
+        activate: () => this.toggleSidebar(),
+      },
+      {
+        name: "toggle-overview",
+        activate: () => this.toggleOverview(),
+      },
+      {
+        name: "update-buttons",
+        activate: () => this.#updateButtons(),
+      },
+    ];
+
+    win_group.add_action_entries(action_entries);
 
     this._tab_button.connect("clicked", () => {
       this._tab_overview.open = !this._tab_overview.open;
@@ -46,20 +97,7 @@ class Window extends Adw.ApplicationWindow {
 
     this._url_bar.connect("activate", this.#onActivateURLBar);
 
-    Shortcuts(
-      this,
-      this.newTab,
-      this.closeTab,
-      this.goForward,
-      this.goBack,
-      this.zoomIn,
-      this.zoomOut,
-      this.resetZoom,
-      this.focusGlobalSearch,
-      this.focusURLBar,
-      this.toggleSidebar,
-      this.toggleOverview,
-    );
+    Shortcuts(this);
   }
 
   open() {
