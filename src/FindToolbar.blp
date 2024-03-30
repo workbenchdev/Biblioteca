@@ -1,0 +1,47 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $FindToolbar: Adw.Bin {
+  vexpand: false;
+  valign: start;
+  hexpand: false;
+  halign: end;
+  margin-start: 24;
+  margin-end: 24;
+
+  SearchBar search_bar {
+    styles ["searchbar"]
+
+    Box {
+      orientation: horizontal;
+      spacing: 6;
+
+      SearchEntry search_entry {
+        placeholder-text: _("Type to search…");
+      }
+
+      Box {
+        Button button_previous {
+          icon-name: "go-up-symbolic";
+          tooltip-text: _("Show Previous Result");
+          action-name: "win.find-prev";
+        }
+
+        Button button_next {
+          icon-name: "go-down-symbolic";
+          tooltip-text: _("Show Next Result");
+          action-name: "win.find-next";
+        }
+
+        styles ["linked"]
+      }
+
+      Button close_find_button {
+        icon-name: "window-close-symbolic";
+        tooltip-text: _("Close Search");
+
+        styles ["circular"]
+      }
+    }
+  }
+}

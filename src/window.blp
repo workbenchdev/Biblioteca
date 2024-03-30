@@ -46,9 +46,6 @@ template $Window: Adw.ApplicationWindow {
           }
 
           child: Adw.ToolbarView {
-            top-bar-style: raised_border;
-            bottom-bar-style: raised_border;
-
             [top]
             Adw.HeaderBar content_header_bar {
               title-widget: Stack header_bar_stack {
@@ -136,46 +133,7 @@ template $Window: Adw.ApplicationWindow {
               }
             }
 
-            Overlay {
-
-              [overlay]
-              SearchBar search_bar {
-                vexpand: false;
-                valign: start;
-                hexpand: false;
-                halign: end;
-                margin-start: 24;
-                margin-end: 24;
-
-                styles ["searchbar"]
-
-                Gtk.Box {
-                  orientation: horizontal;
-                  spacing: 6;
-
-                  Button close_find_button {
-                    icon-name: "window-close-symbolic";
-                    tooltip-text: _("Close Search");
-
-                    styles ["circular"]
-                  }
-
-                  SearchEntry search_entry {
-                    placeholder-text: _("Type to search…");
-                  }
-
-                  Button previous_result {
-                    icon-name: "go-up-symbolic";
-                    tooltip-text: _("Show Previous Result");
-                  }
-
-                  Button next_result {
-                    icon-name: "go-down-symbolic";
-                    tooltip-text: _("Show Next Result");
-                  }
-                }
-              }
-
+            Overlay find_overlay {
               Adw.TabView tab_view {
                 vexpand: true;
                 shortcuts: all_shortcuts;

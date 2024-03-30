@@ -6,6 +6,7 @@ import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
+import FindToolbar from "./FindToolbar.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
@@ -21,7 +22,9 @@ class Window extends Adw.ApplicationWindow {
     if (__DEV__) {
       this.add_css_class("devel");
     }
+
     this.#createSidebar();
+    this.#createFindToolbar();
     this.newTab();
 
     const win_group = new Gio.SimpleActionGroup();
@@ -77,6 +80,18 @@ class Window extends Adw.ApplicationWindow {
         name: "update-buttons",
         activate: () => this.#updateButtons(),
       },
+      {
+        name: "find",
+        activate: () => this._find_toolbar.showFind(),
+      },
+      {
+        name: "find-prev",
+        activate: () => this._find_toolbar.findPrev(),
+      },
+      {
+        name: "find-next",
+        activate: () => this._find_toolbar.findNext(),
+      },
     ];
 
     win_group.add_action_entries(action_entries);
@@ -93,14 +108,6 @@ class Window extends Adw.ApplicationWindow {
     this._toolbar_breakpoint.connect("apply", this.#moveNavigationDown);
     this._toolbar_breakpoint.connect("unapply", this.#moveNavigationUp);
 
-    this._search_bar.connect_entry(this._search_entry);
-    this._search_bar.connect("notify::search-mode-enabled", () => {
-      if (!this._search_bar.search_mode_enabled) this.#closeFind();
-    });
-
-    this._close_find_button.connect("clicked", () => {
-      this.#closeFind();
-    });
     this._url_bar.connect("activate", this.#onActivateURLBar);
 
     Shortcuts(this);
@@ -234,23 +241,11 @@ class Window extends Adw.ApplicationWindow {
     this._tab_overview.open = !this._tab_overview.open;
   };
 
-  showFind = () => {
-    this._search_bar.search_mode_enabled = true;
-    this._search_bar.add_css_class("card");
-  };
-
-  #closeFind = () => {
-    this._search_bar.search_mode_enabled = false;
-    setTimeout(() => {
-      this._search_bar.remove_css_class("card");
-    }, 200);
-    // this.#searchHandler.closeSearch();
-  };
-
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
     this._webview = this._tab_view.selected_page.child;
     this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
+    this._find_toolbar.webview = this._webview;
     this.#updateButtons();
     if (this._webview.title) {
       this.title = `${this._webview.title} - Biblioteca`;
@@ -301,6 +296,13 @@ class Window extends Adw.ApplicationWindow {
     this._split_view.sidebar = this._sidebar;
   }
 
+  #createFindToolbar() {
+    this._find_toolbar = new FindToolbar({
+      window: this,
+    });
+    this._find_overlay.add_overlay(this._find_toolbar);
+  }
+
   #setupBreakpoint() {
     this._window_breakpoint.add_setters(
       [this._sidebar.browse_view, this._sidebar.search_view],
@@ -335,10 +337,8 @@ export default GObject.registerClass(
       "load_bar",
       "bottom_toolbar",
       "tab_overview",
+      "find_overlay",
       "tab_view",
-      "search_bar",
-      "search_entry",
-      "close_find_button",
     ],
   },
   Window,
