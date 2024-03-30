@@ -73,7 +73,7 @@ class SearchView extends Gtk.ScrolledWindow {
         this.selection_model.selected = index;
         if (!this.selection_model.selected_item) return;
         const uri = this.selection_model.selected_item.uri;
-        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        this.activate_action("win.new-tab", new GLib.Variant("s", uri));
         break;
       }
     }

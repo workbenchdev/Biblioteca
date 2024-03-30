@@ -86,6 +86,7 @@ template $Window: Adw.ApplicationWindow {
                 Button button_back {
                   icon-name: "go-previous-symbolic";
                   tooltip-text: _("Back");
+                  action-name: "win.navigation-back";
 
                   styles ["flat"]
                 }
@@ -93,6 +94,7 @@ template $Window: Adw.ApplicationWindow {
                 Button button_forward {
                   icon-name: "go-next-symbolic";
                   tooltip-text: _("Forward");
+                  action-name: "win.navigation-forward";
 
                   styles ["flat"]
                 }
@@ -101,7 +103,7 @@ template $Window: Adw.ApplicationWindow {
               [end]
               Button button_new_tab {
                 icon-name: "tab-new-symbolic";
-                action-name: "app.new-tab";
+                action-name: "win.new-tab";
                 action-target: '"file:///app/share/doc/gtk4/index.html"';
                 tooltip-text: _("New Tab");
 
