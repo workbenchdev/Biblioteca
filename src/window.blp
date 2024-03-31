@@ -47,78 +47,81 @@ template $Window: Adw.ApplicationWindow {
 
           child: Adw.ToolbarView {
             [top]
-            Adw.HeaderBar content_header_bar {
-              title-widget: Stack header_bar_stack {
-                StackPage {
-                  name: "title";
-                  child: Adw.WindowTitle header_bar_title {
-                  title: bind content_page.title;
-                  };
-                }
+            Box {
+              name: "top-toolbars";
+              orientation: vertical;
 
-                StackPage {
-                  name: "url_bar";
-                  child: Adw.Clamp {
-                    Gtk.Entry url_bar {
-                      hexpand: true;
-                      input-purpose: url;
-                    }
-                  };
-                }
-              };
-              styles ["content-headerbar"]
+              Adw.HeaderBar content_header_bar {
+                title-widget: Stack header_bar_stack {
+                  StackPage {
+                    name: "title";
+                    child: Adw.WindowTitle header_bar_title {
+                    title: bind content_page.title;
+                    };
+                  }
 
-              [start]
-              ToggleButton button_sidebar {
-                icon-name: "sidebar-show-symbolic";
-                tooltip-text: _("Open Sidebar");
-                visible: false;
-                active: bind split_view.show-sidebar;
+                  StackPage {
+                    name: "url_bar";
+                    child: Adw.Clamp {
+                      Gtk.Entry url_bar {
+                        hexpand: true;
+                        input-purpose: url;
+                      }
+                    };
+                  }
+                };
+                styles ["content-headerbar"]
 
-                styles ["flat"]
-              }
-
-              [start]
-              Box box_navigation {
-                spacing: 6;
-                halign: start;
-
-                Button button_back {
-                  icon-name: "go-previous-symbolic";
-                  tooltip-text: _("Back");
-                  action-name: "win.navigation-back";
+                [start]
+                ToggleButton button_sidebar {
+                  icon-name: "sidebar-show-symbolic";
+                  tooltip-text: _("Open Sidebar");
+                  visible: false;
+                  active: bind split_view.show-sidebar;
 
                   styles ["flat"]
                 }
 
-                Button button_forward {
-                  icon-name: "go-next-symbolic";
-                  tooltip-text: _("Forward");
-                  action-name: "win.navigation-forward";
+                [start]
+                Box box_navigation {
+                  spacing: 6;
+                  halign: start;
+
+                  Button button_back {
+                    icon-name: "go-previous-symbolic";
+                    tooltip-text: _("Back");
+                    action-name: "win.navigation-back";
+
+                    styles ["flat"]
+                  }
+
+                  Button button_forward {
+                    icon-name: "go-next-symbolic";
+                    tooltip-text: _("Forward");
+                    action-name: "win.navigation-forward";
+
+                    styles ["flat"]
+                  }
+                }
+
+                [end]
+                Button button_new_tab {
+                  icon-name: "tab-new-symbolic";
+                  action-name: "win.new-tab";
+                  action-target: '"file:///app/share/doc/gtk4/index.html"';
+                  tooltip-text: _("New Tab");
 
                   styles ["flat"]
                 }
               }
 
-              [end]
-              Button button_new_tab {
-                icon-name: "tab-new-symbolic";
-                action-name: "win.new-tab";
-                action-target: '"file:///app/share/doc/gtk4/index.html"';
-                tooltip-text: _("New Tab");
-
-                styles ["flat"]
+              Adw.TabBar tab_bar {
+                view: tab_view;
               }
-            }
 
-            [top]
-            Adw.TabBar tab_bar {
-              view: tab_view;
-            }
-
-            [top]
-            ProgressBar load_bar {
-              styles ["osd"]
+              ProgressBar load_bar {
+                styles ["osd"]
+              }
             }
 
             [bottom]

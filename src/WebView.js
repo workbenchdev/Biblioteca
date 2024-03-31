@@ -9,7 +9,7 @@ class WebView extends WebKit.WebView {
     super(params);
     this._sidebar = sidebar;
     this._browse_view = this._sidebar.browse_view;
-    this.connect("notify::uri", this.#onNotifyUri);
+    this.connect("notify::uri", () => this.#updateIsOnline(this.uri));
     this.load_uri(uri);
 
     this.#disablePageSidebar();
@@ -30,6 +30,11 @@ class WebView extends WebKit.WebView {
     if (this._is_online === value) return;
     this._is_online = value;
     this.notify("is-online");
+  }
+
+  load_uri(uri) {
+    this.#updateIsOnline(uri);
+    super.load_uri(uri);
   }
 
   #disablePageSidebar() {
@@ -137,16 +142,14 @@ class WebView extends WebKit.WebView {
     this.user_content_manager.add_style_sheet(stylesheet);
   }
 
-  #onNotifyUri = () => {
-    // Hack
-    this.visible = false;
-    this.visible = true;
-
-    if (!this.uri) return;
-
-    const scheme = GLib.Uri.peek_scheme(this.uri);
-    this.is_online = ["http", "https"].includes(scheme);
-  };
+  #updateIsOnline(uri) {
+    if (!uri) {
+      this.is_online = false;
+    } else {
+      const scheme = GLib.Uri.peek_scheme(uri);
+      this.is_online = ["http", "https"].includes(scheme);
+    }
+  }
 
   #onDecidePolicy = (_self, decision, decision_type) => {
     console.debug(
