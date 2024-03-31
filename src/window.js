@@ -151,6 +151,10 @@ class Window extends Adw.ApplicationWindow {
     this._webview.connect("notify::is-online", this.#onWebViewOnline);
 
     this._webview.connect("notify::estimated-load-progress", () => {
+      if (!this._webview.is_online) {
+        this._load_bar.fraction = 0;
+        return;
+      }
       this._load_bar.fraction = this._webview.estimated_load_progress;
       if (this._load_bar.fraction === 1) {
         // Reset the load bar after a short delay
