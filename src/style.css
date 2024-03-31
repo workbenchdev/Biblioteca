@@ -7,7 +7,13 @@
 /* Enforce border radius */
 .searchbar,
 .searchbar > * > * {
-  border-radius: 0 0 12px 12px;
+  border-radius: 12px 12px 12px 12px;
+}
+
+.searchbar {
+  box-shadow:
+    0 2px 5px 0px rgba(0, 0, 0, 0.09),
+    0 2px 14px 0px rgba(0, 0, 0, 0.05);
 }
 
 /*
