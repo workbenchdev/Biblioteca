@@ -169,7 +169,7 @@ class WebView extends WebKit.WebView {
 
       if (mouse_button === 2) {
         decision.ignore();
-        this.activate_action("app.new-tab", new GLib.Variant("s", uri));
+        this.activate_action("win.new-tab", new GLib.Variant("s", uri));
         return true;
       }
     }
