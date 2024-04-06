@@ -25,6 +25,7 @@ export default function Shortcuts(window) {
     ["win.find", ["<Control>F"]],
     ["win.find-prev", ["<Shift><Control>G"]],
     ["win.find-next", ["<Control>G"]],
+    ["win.close-find", ["Escape"]],
   ];
 
   for (const accel of accels) {

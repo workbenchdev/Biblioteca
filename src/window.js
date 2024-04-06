@@ -6,7 +6,7 @@ import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
-import FindToolbar from "./FindToolbar.js";
+import FindOverlay from "./FindOverlay.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
@@ -24,7 +24,6 @@ class Window extends Adw.ApplicationWindow {
     }
 
     this.#createSidebar();
-    this.#createFindToolbar();
     this.newTab();
 
     const win_group = new Gio.SimpleActionGroup();
@@ -82,15 +81,19 @@ class Window extends Adw.ApplicationWindow {
       },
       {
         name: "find",
-        activate: () => this._find_toolbar.showFind(),
+        activate: () => this._find_overlay.find_toolbar.showFind(),
       },
       {
         name: "find-prev",
-        activate: () => this._find_toolbar.findPrev(),
+        activate: () => this._find_overlay.find_toolbar.findPrev(),
       },
       {
         name: "find-next",
-        activate: () => this._find_toolbar.findNext(),
+        activate: () => this._find_overlay.find_toolbar.findNext(),
+      },
+      {
+        name: "close-find",
+        activate: () => this._find_overlay.find_toolbar.closeSearch(),
       },
     ];
 
@@ -160,7 +163,8 @@ class Window extends Adw.ApplicationWindow {
       sidebar: this._sidebar,
     });
 
-    const tab_page = this._tab_view.append(this._webview);
+    this._find_overlay = new FindOverlay({ webview: this._webview });
+    const tab_page = this._tab_view.append(this._find_overlay);
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
@@ -243,9 +247,9 @@ class Window extends Adw.ApplicationWindow {
 
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
-    this._webview = this._tab_view.selected_page.child;
+    this._find_overlay = this._tab_view.selected_page.child;
+    this._webview = this._find_overlay.child;
     this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
-    this._find_toolbar.webview = this._webview;
     this.#updateButtons();
     if (this._webview.title) {
       this.title = `${this._webview.title} - Biblioteca`;
@@ -296,13 +300,6 @@ class Window extends Adw.ApplicationWindow {
     this._split_view.sidebar = this._sidebar;
   }
 
-  #createFindToolbar() {
-    this._find_toolbar = new FindToolbar({
-      window: this,
-    });
-    this._find_overlay.add_overlay(this._find_toolbar);
-  }
-
   #setupBreakpoint() {
     this._window_breakpoint.add_setters(
       [this._sidebar.browse_view, this._sidebar.search_view],
@@ -337,7 +334,6 @@ export default GObject.registerClass(
       "load_bar",
       "bottom_toolbar",
       "tab_overview",
-      "find_overlay",
       "tab_view",
     ],
   },

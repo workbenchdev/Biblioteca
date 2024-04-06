@@ -133,11 +133,9 @@ template $Window: Adw.ApplicationWindow {
               }
             }
 
-            Overlay find_overlay {
-              Adw.TabView tab_view {
-                vexpand: true;
-                shortcuts: all_shortcuts;
-              }
+            Adw.TabView tab_view {
+              vexpand: true;
+              shortcuts: all_shortcuts;
             }
           };
         };

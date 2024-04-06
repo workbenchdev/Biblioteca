@@ -16,8 +16,27 @@ template $FindToolbar: Adw.Bin {
       orientation: horizontal;
       spacing: 6;
 
-      SearchEntry search_entry {
-        placeholder-text: _("Type to search…");
+      Box {
+        valign: center;
+        width-request: 220;
+        css-name: "entry";
+
+        Image {
+          icon-name: 'edit-find-symbolic';
+        }
+
+        Text search_text {
+          hexpand: true;
+          vexpand: true;
+          width-chars: 10;
+          max-width-chars: 10;
+        }
+
+        Label label_info {
+          label: "";
+          xalign: 1;
+          opacity: 0.5;
+        }
       }
 
       Box {
@@ -39,6 +58,7 @@ template $FindToolbar: Adw.Bin {
       Button close_find_button {
         icon-name: "window-close-symbolic";
         tooltip-text: _("Close Search");
+        action-name: "win.close-find";
 
         styles ["circular"]
       }
