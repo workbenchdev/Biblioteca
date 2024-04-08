@@ -1,6 +1,4 @@
-.main-window,
-.main-window .content-headerbar,
-.main-window tabbox {
+#top-toolbars {
   background-color: #ffffff;
 }
 
