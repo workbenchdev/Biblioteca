@@ -5,9 +5,8 @@
 }
 
 /* Enforce border radius */
-.searchbar,
 .searchbar > * > * {
-  border-radius: 12px 12px 12px 12px;
+  border-radius: 12px;
 }
 
 .searchbar {

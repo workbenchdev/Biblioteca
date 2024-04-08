@@ -81,19 +81,19 @@ class Window extends Adw.ApplicationWindow {
       },
       {
         name: "find",
-        activate: () => this._find_overlay.find_toolbar.showFind(),
+        activate: () => this._find_overlay.showFind(),
       },
       {
         name: "find-prev",
-        activate: () => this._find_overlay.find_toolbar.findPrev(),
+        activate: () => this._find_overlay.findPrev(),
       },
       {
         name: "find-next",
-        activate: () => this._find_overlay.find_toolbar.findNext(),
+        activate: () => this._find_overlay.findNext(),
       },
       {
         name: "close-find",
-        activate: () => this._find_overlay.find_toolbar.closeSearch(),
+        activate: () => this._find_overlay.closeSearch(),
       },
     ];
 
