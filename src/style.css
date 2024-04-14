@@ -2,6 +2,17 @@
   background-color: #ffffff;
 }
 
+/* Enforce border radius */
+.searchbar > * > * {
+  border-radius: 12px;
+}
+
+.searchbar {
+  box-shadow:
+    0 2px 5px 0px rgba(0, 0, 0, 0.09),
+    0 2px 14px 0px rgba(0, 0, 0, 0.05);
+}
+
 /*
  * From Builder's stylesheet:
  * https://gitlab.gnome.org/GNOME/gnome-builder/-/blob/45d4ec9b6f1aa2236c9bb7dfb846b35f9b959618/src/libide/gui/style.css#L33

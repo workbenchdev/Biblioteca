@@ -22,6 +22,10 @@ export default function Shortcuts(window) {
     ["win.focus-urlbar", ["<Control>L"]],
     ["win.toggle-sidebar", ["F9"]],
     ["win.toggle-overview", ["<Shift><Control>O"]],
+    ["win.find", ["<Control>F"]],
+    ["win.find-prev", ["<Shift><Control>G"]],
+    ["win.find-next", ["<Control>G"]],
+    ["win.close-find", ["Escape"]],
   ];
 
   for (const accel of accels) {

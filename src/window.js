@@ -6,12 +6,14 @@ import WebKit from "gi://WebKit";
 import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
+import FindOverlay from "./FindOverlay.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
 import "./icons/sidebar-show-symbolic.svg";
 import "./icons/tab-new-symbolic.svg";
 import "./icons/view-grid-symbolic.svg";
+import "./icons/loupe-large-symbolic.svg";
 
 class Window extends Adw.ApplicationWindow {
   constructor(params = {}) {
@@ -20,6 +22,7 @@ class Window extends Adw.ApplicationWindow {
     if (__DEV__) {
       this.add_css_class("devel");
     }
+
     this.#createSidebar();
     this.newTab();
 
@@ -75,6 +78,22 @@ class Window extends Adw.ApplicationWindow {
       {
         name: "update-buttons",
         activate: () => this.#updateButtons(),
+      },
+      {
+        name: "find",
+        activate: () => this._find_overlay.showFind(),
+      },
+      {
+        name: "find-prev",
+        activate: () => this._find_overlay.findPrev(),
+      },
+      {
+        name: "find-next",
+        activate: () => this._find_overlay.findNext(),
+      },
+      {
+        name: "close-find",
+        activate: () => this._find_overlay.closeSearch(),
       },
     ];
 
@@ -144,7 +163,8 @@ class Window extends Adw.ApplicationWindow {
       sidebar: this._sidebar,
     });
 
-    const tab_page = this._tab_view.append(this._webview);
+    this._find_overlay = new FindOverlay({ webview: this._webview });
+    const tab_page = this._tab_view.append(this._find_overlay);
     this._tab_view.selected_page = tab_page;
     this.#updateWebView();
 
@@ -231,7 +251,8 @@ class Window extends Adw.ApplicationWindow {
 
   #updateWebView = () => {
     if (!this._tab_view.selected_page) return;
-    this._webview = this._tab_view.selected_page.child;
+    this._find_overlay = this._tab_view.selected_page.child;
+    this._webview = this._find_overlay.child;
     this._sidebar.zoom_buttons.zoom_level = this._webview.zoom_level;
     this.#updateButtons();
     if (this._webview.title) {
