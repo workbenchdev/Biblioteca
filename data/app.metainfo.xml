@@ -40,7 +40,7 @@
         <ul>
           <li>Add support for Find in page (Ctrl + F)</li>
           <li>Fix bug where shortcuts don't work when WebView is focused</li>
-          <li>Remove progress bar from offline docs</li>
+          <li>Do not show a progress bar for offline docs</li>
         </ul>
       </description>
     </release>
