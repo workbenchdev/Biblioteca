@@ -1,5 +1,5 @@
 project('Biblioteca',
-  version: '1.3',
+  version: '1.4',
   meson_version: '>= 0.59.0',
   license: 'GPL-3.0-only'
 )

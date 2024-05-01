@@ -35,6 +35,15 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
+    <release version="1.4" date="2024-05-01">
+      <description translatable="no">
+        <ul>
+          <li>Add support for Find in page (Ctrl + F)</li>
+          <li>Fix bug where shortcuts don't work when WebView is focused</li>
+          <li>Do not show a progress bar for offline docs</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.3" date="2024-03-20">
       <description translatable="no">
         <ul>
