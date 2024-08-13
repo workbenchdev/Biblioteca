@@ -19,6 +19,7 @@ class WebView extends WebKit.WebView {
       this.activate_action("win.update-buttons", null);
     });
     this.connect("decide-policy", this.#onDecidePolicy);
+    this.connect("context-menu", this.#onContextMenu);
   }
 
   get is_online() {
@@ -173,6 +174,24 @@ class WebView extends WebKit.WebView {
         return true;
       }
     }
+    return false;
+  };
+
+  #onContextMenu = (webView, contextMenu, event, hitTestResult) => {
+    const itemsToRemove = [
+      WebKit.ContextMenuAction.STOP,
+      WebKit.ContextMenuAction.RELOAD,
+      WebKit.ContextMenuAction.INSPECT_ELEMENT,
+    ];
+
+    const items = contextMenu.get_items();
+    for (let i = items.length - 1; i >= 0; i--) {
+      const item = items[i];
+      if (itemsToRemove.includes(item.get_stock_action())) {
+        contextMenu.remove(item);
+      }
+    }
+
     return false;
   };
 }
