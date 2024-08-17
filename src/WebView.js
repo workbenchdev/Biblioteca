@@ -181,7 +181,6 @@ class WebView extends WebKit.WebView {
     const itemsToRemove = [
       WebKit.ContextMenuAction.STOP,
       WebKit.ContextMenuAction.RELOAD,
-      WebKit.ContextMenuAction.INSPECT_ELEMENT,
     ];
 
     const items = contextMenu.get_items();
