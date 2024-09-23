@@ -28,6 +28,7 @@ export default function About({ application }) {
     // or
     // "John Doe https://john.com",
     "skøldis https://turtle.garden",
+    "José Hunter https://github.com/halfmexican",
   ]);
   dialog.present(application.get_active_window());
 
