@@ -27,7 +27,7 @@ export default function About({ application }) {
     // "John Doe <john@example.com>",
     // or
     // "John Doe https://john.com",
-    "skøldis https://turtle.garden",
+    "Sunniva Løvstad https://turtle.garden",
     "José Hunter https://github.com/halfmexican",
   ]);
   dialog.present(application.get_active_window());
