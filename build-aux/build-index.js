@@ -27,9 +27,17 @@ Gio._promisify(
   "replace_contents_finish",
 );
 
-// Biblioteca is GTK4 only; these are GTK 3 libraries
-// we only support gi-docgen and gtk3 uses gtk-doc
-const IGNORED_LIBRARIES = ["atk", "libhandy-1"];
+// Deprecated
+const IGNORED_LIBRARIES = [
+  "atk",
+  "libhandy-1",
+  "webkit2gtk-4.1",
+  "webkit2gtk-web-extension-4.1",
+  "javascriptcoregtk-4.1",
+  "gcr-3",
+  "gcr-ui-3",
+  "gck-1",
+];
 
 const SECTION_TYPES = {
   class: ["Classes", "#classes"],
@@ -62,10 +70,7 @@ const DOC_INDEX = [];
 await loadDocs();
 
 async function loadDocs() {
-  await Promise.all([
-    scanLibraries(Gio.File.new_for_path("/app/share/doc")),
-    scanLibraries(Gio.File.new_for_path("/app/share/doc/glib-2.0")),
-  ]);
+  await scanLibraries(Gio.File.new_for_path("/app/share/doc"));
   sort_index(DOC_INDEX);
 
   const [pkgdatadir] = ARGV;
