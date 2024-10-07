@@ -35,7 +35,7 @@
   </screenshots>
   <content_rating type="oars-1.1" />
   <releases>
-    <release version="1.5" date="2024-10-xx">
+    <release version="1.5" date="2024-10-07">
       <description translatable="no">
         <ul>
           <li>Update to GNOME 47</li>
