@@ -42,7 +42,8 @@
           <li>Update vte to 0.78</li>
           <li>Update libportal to 0.8.1</li>
           <li>Update libshumate to 1.3.0</li>
-          <li>Update libspelling to 0.4.0</li>
+          <li>Update libspelling to 0.4.2</li>
+          <li>Remove irrelevant context menu entries</li>
         </ul>
       </description>
     </release>
