@@ -7,6 +7,8 @@ import Shortcuts from "./Shortcuts.js";
 import Sidebar from "./sidebar/Sidebar.js";
 import WebView from "./WebView.js";
 import FindOverlay from "./FindOverlay.js";
+import { settings } from "./util.js";
+import { persistWindowState } from "../troll/src/util.js";
 
 import Template from "./window.blp" with { type: "uri" };
 
@@ -18,6 +20,8 @@ import "./icons/loupe-large-symbolic.svg";
 class Window extends Adw.ApplicationWindow {
   constructor(params = {}) {
     super(params);
+
+    persistWindowState({ window: this, settings });
 
     if (__DEV__) {
       this.add_css_class("devel");
