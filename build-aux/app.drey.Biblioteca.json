@@ -32,6 +32,7 @@
     "modules/libportal.json",
     "modules/libspelling.json",
     "modules/blueprint-compiler.json",
+    "modules/gom.json",
     "modules/sdk-docs.json",
     {
       "name": "Biblioteca",
