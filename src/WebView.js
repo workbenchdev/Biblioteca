@@ -4,6 +4,22 @@ import GLib from "gi://GLib";
 
 import Template from "./WebView.blp" with { type: "uri" };
 
+const UNDESIRED_CONTEXT_MENU_ACTIONS = [
+  // https://github.com/workbenchdev/Biblioteca/issues/105
+  WebKit.ContextMenuAction.STOP,
+  WebKit.ContextMenuAction.RELOAD,
+  // unsupported
+  WebKit.ContextMenuAction.OPEN_LINK_IN_NEW_WINDOW,
+  WebKit.ContextMenuAction.DOWNLOAD_LINK_TO_DISK,
+  WebKit.ContextMenuAction.OPEN_IMAGE_IN_NEW_WINDOW,
+  WebKit.ContextMenuAction.DOWNLOAD_IMAGE_TO_DISK,
+  WebKit.ContextMenuAction.OPEN_FRAME_IN_NEW_WINDOW,
+  WebKit.ContextMenuAction.OPEN_VIDEO_IN_NEW_WINDOW,
+  WebKit.ContextMenuAction.OPEN_AUDIO_IN_NEW_WINDOW,
+  WebKit.ContextMenuAction.DOWNLOAD_VIDEO_TO_DISK,
+  WebKit.ContextMenuAction.DOWNLOAD_AUDIO_TO_DISK,
+];
+
 class WebView extends WebKit.WebView {
   constructor({ uri, sidebar, ...params }) {
     super(params);
@@ -177,17 +193,11 @@ class WebView extends WebKit.WebView {
     return false;
   };
 
-  #onContextMenu = (webView, contextMenu, event, hitTestResult) => {
-    const itemsToRemove = [
-      WebKit.ContextMenuAction.STOP,
-      WebKit.ContextMenuAction.RELOAD,
-    ];
-
-    const items = contextMenu.get_items();
-    for (let i = items.length - 1; i >= 0; i--) {
-      const item = items[i];
-      if (itemsToRemove.includes(item.get_stock_action())) {
-        contextMenu.remove(item);
+  #onContextMenu = (web_view, context_menu, hit_test_result) => {
+    const items = context_menu.get_items();
+    for (const item of items) {
+      if (UNDESIRED_CONTEXT_MENU_ACTIONS.includes(item.get_stock_action())) {
+        context_menu.remove(item);
       }
     }
 
