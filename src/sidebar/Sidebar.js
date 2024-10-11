@@ -14,19 +14,19 @@ import Template from "./Sidebar.blp" with { type: "uri" };
 
 import "../icons/edit-find-symbolic.svg";
 
-const GTK_INDEX = 19;
+let doc_index;
 
 class Sidebar extends Adw.NavigationPage {
   constructor(...params) {
     super(params);
     this.uri_to_tree_path = {};
     this.#initializeSidebar();
-    this.#connectSearchEntry();
+    this._search_entry.connect("search-changed", this.#onSearch);
   }
 
   resetSidebar() {
     this.browse_view.collapseAllRows();
-    this.browse_view.selection_model.selected = GTK_INDEX;
+    this.browse_view.selection_model.selected = doc_index?.start_index ?? 0;
     this._search_entry.text = "";
     this._stack.visible_child = this.browse_view;
   }
@@ -45,18 +45,18 @@ class Sidebar extends Adw.NavigationPage {
       "doc-index.json",
     );
     const content = index_file.load_contents(null);
-    const doc_index = JSON.parse(decode(content[1]));
+    doc_index = JSON.parse(decode(content[1]));
 
     let idx = 0;
     const promises = [];
-    for (const item of doc_index) {
+    for (const item of doc_index.docs) {
       promises.push(
         this.#buildPage(this.browse_view.root_model, item, [idx++]),
       );
     }
 
     Promise.all(promises).then(() => {
-      this.browse_view.selection_model.selected = GTK_INDEX;
+      this.browse_view.selection_model.selected = doc_index.start_index;
       this.search_view.initializeModel(this.flattened_model);
     });
 
@@ -107,21 +107,19 @@ class Sidebar extends Adw.NavigationPage {
     return Gio.ListStore.new(DocumentationPage);
   }
 
-  #connectSearchEntry() {
-    this._search_entry.connect("search-changed", () => {
-      if (this._search_entry.text) {
-        this._stack.visible_child = this.search_view;
-        this.search_view.search_term = this._search_entry.text;
-        if (!this.search_view.selection_model.n_items)
-          this._stack.visible_child = this._status_page;
-      } else {
-        const index = this.browse_view.selection_model.selected;
-        this._stack.visible_child = this.browse_view;
-        // Make sure the selection doesnt change when switching views
-        this.browse_view.selection_model.selected = index;
-      }
-    });
-  }
+  #onSearch = () => {
+    if (this._search_entry.text) {
+      this._stack.visible_child = this.search_view;
+      this.search_view.search_term = this._search_entry.text;
+      if (!this.search_view.selection_model.n_items)
+        this._stack.visible_child = this._status_page;
+    } else {
+      const index = this.browse_view.selection_model.selected;
+      this._stack.visible_child = this.browse_view;
+      // Make sure the selection doesnt change when switching views
+      this.browse_view.selection_model.selected = index;
+    }
+  };
 }
 
 export default GObject.registerClass(
