@@ -76,10 +76,17 @@ async function loadDocs() {
   const [pkgdatadir] = ARGV;
   GLib.mkdir_with_parents(pkgdatadir, 0o755);
 
+  const start_index = DOC_INDEX.findIndex((doc) => doc.name === "Gtk-4.0");
+
   await Gio.File.new_for_path(pkgdatadir)
     .get_child("doc-index.json")
     .replace_contents_async(
-      new TextEncoder().encode(JSON.stringify(DOC_INDEX)),
+      new TextEncoder().encode(
+        JSON.stringify({
+          start_index,
+          docs: DOC_INDEX,
+        }),
+      ),
       null,
       false,
       Gio.FileCreateFlags.NONE,
