@@ -111,6 +111,7 @@
     <control>keyboard</control>
     <control>pointing</control>
     <control>touch</control>
+    <internet>always</internet>
   </recommends>
   <branding>
     <color type="primary" scheme_preference="light">#99c1f1</color>
