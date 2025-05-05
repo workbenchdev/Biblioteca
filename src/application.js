@@ -16,6 +16,7 @@ application.connect("activate", () => {
   if (!window) {
     window = new Window({ application });
   }
+  setColorScheme();
   window.open();
 });
 
@@ -25,12 +26,11 @@ application.set_option_context_description(
 
 Actions({ application });
 
-const style_manager = Adw.StyleManager.get_default();
 function setColorScheme() {
+  const style_manager = Adw.StyleManager.get_default();
   const color_scheme = settings.get_int("color-scheme");
   style_manager.set_color_scheme(color_scheme);
 }
-setColorScheme();
 settings.connect("changed::color-scheme", setColorScheme);
 
 export default application;
