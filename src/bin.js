@@ -1,6 +1,6 @@
 #!@GJS@ -m
 
-import { exit, programArgs } from "system";
+import { exit, programArgs, programInvocationName } from "system";
 import GLib from "gi://GLib";
 import { setConsoleLogDomain } from "console";
 import Xdp from "gi://Xdp";
@@ -29,5 +29,5 @@ if (__DEV__) {
 }
 
 const module = await import("resource:///app/drey/Biblioteca/main.js");
-const exit_code = await module.main(programArgs);
+const exit_code = await module.main([programInvocationName, ...programArgs]);
 exit(exit_code);

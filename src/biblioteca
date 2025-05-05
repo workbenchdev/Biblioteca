@@ -6,4 +6,4 @@
 # force app in English see https://github.com/workbenchdev/Biblioteca/pull/40#issuecomment-1811380922
 LANG=en_US.UTF-8
 
-@app_id@
+@app_id@ "$@"
