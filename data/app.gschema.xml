@@ -4,16 +4,16 @@
     <key name="color-scheme" type="i">
       <default>0</default>
     </key>
-    <key name="width" type="i">
+    <key name="window-width" type="i">
       <default>0</default>
     </key>
-    <key name="height" type="i">
+    <key name="window-height" type="i">
       <default>0</default>
     </key>
-    <key name="maximized" type="b">
+    <key name="window-maximized" type="b">
       <default>false</default>
     </key>
-    <key name="fullscreened" type="b">
+    <key name="window-fullscreened" type="b">
       <default>false</default>
     </key>
   </schema>
