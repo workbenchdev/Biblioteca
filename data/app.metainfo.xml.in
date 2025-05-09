@@ -38,6 +38,7 @@
     <release version="1.6" date="2025-05-06">
       <description translatable="no">
         <ul>
+          <li>Add missing class method docs</li>
           <li>Update to GNOME 48</li>
           <li>Update vte to 0.80.1</li>
           <li>Update libportal to 0.9.1</li>
