@@ -149,12 +149,11 @@ function getChildren(index, dir) {
     let location;
 
     // class_method types use the 'struct_for' field to denote the class it belongs to
-    let type_name = (symbol.struct_for) ? symbol.struct_for : symbol.type_name;
+    const type_name = symbol.struct_for ? symbol.struct_for : symbol.type_name;
 
     if (sections[symbol.type]) {
       location = sections[symbol.type];
-    }
-    else if (type_name) {
+    } else if (type_name) {
       if (!subsections[type_name]) {
         const new_subsection = {};
         for (const subsection in SUBSECTION_TYPES)
