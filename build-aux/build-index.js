@@ -137,6 +137,7 @@ async function loadLibrary(directory) {
 
 function getChildren(index, dir) {
   const index_html = dir.get_child("index.html").get_uri();
+  // a flat-list of every document page in index.json
   const symbols = index.symbols;
 
   const sections = {};
@@ -146,23 +147,30 @@ function getChildren(index, dir) {
 
   for (const symbol of symbols) {
     let location;
-    if (sections[symbol.type]) location = sections[symbol.type];
-    else if (symbol.type_name) {
-      if (!subsections[symbol.type_name]) {
+
+    // class_method types use the 'struct_for' field to denote the class it belongs to
+    const type_name = symbol.struct_for ? symbol.struct_for : symbol.type_name;
+
+    if (sections[symbol.type]) {
+      location = sections[symbol.type];
+    } else if (type_name) {
+      if (!subsections[type_name]) {
         const new_subsection = {};
         for (const subsection in SUBSECTION_TYPES)
           new_subsection[subsection] = [];
-        subsections[symbol.type_name] = new_subsection;
+        subsections[type_name] = new_subsection;
       }
-      location = subsections[symbol.type_name][symbol.type];
+      location = subsections[type_name][symbol.type];
     }
-    if (location)
+
+    if (location) {
       location.push({
         name: symbol.name,
         tag: getTagForDocument(symbol),
         search_name: getSearchNameForDocument(symbol, index.meta),
         uri: `${dir.get_uri()}/${getLinkForDocument(symbol)}`,
       });
+    }
   }
 
   createSubsections(subsections, sections);
