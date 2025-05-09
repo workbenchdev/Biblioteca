@@ -17,8 +17,21 @@
   "sources": [
     {
       "type": "archive",
-      "url": "https://download.gnome.org/sources/vte/0.78/vte-0.78.0.tar.xz",
-      "sha256": "07f09c6228a8bb3c1599dd0f5a6ec797b30d3010c3ac91cf21b69d9635dfaf7c"
+      "url": "https://download.gnome.org/sources/vte/0.80/vte-0.80.1.tar.xz",
+      "sha256": "0cdbd0e983afd9d22e065e323a743160072bf64b453e00b15edbe6f2dcdda46c"
+    }
+  ],
+  "modules": [
+    {
+      "name": "fast_float",
+      "buildsystem": "cmake-ninja",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/fastfloat/fast_float/archive/refs/tags/v6.1.6.tar.gz",
+          "sha256": "4458aae4b0eb55717968edda42987cabf5f7fc737aee8fede87a70035dba9ab0"
+        }
+      ]
     }
   ]
 }
