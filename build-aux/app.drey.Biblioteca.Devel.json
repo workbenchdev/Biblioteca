@@ -1,7 +1,7 @@
 {
   "id": "app.drey.Biblioteca.Devel",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "49",
+  "runtime-version": "51beta",
   "sdk": "org.gnome.Sdk",
   "sdk-extensions": ["org.gnome.Sdk.Docs"],
   "command": "biblioteca",
@@ -26,14 +26,12 @@
     "*.a"
   ],
   "modules": [
-    "modules/gi-docgen.json",
     "modules/gom.json",
     "modules/jsonrpc-glib.json",
-    "modules/libportal.json",
     "modules/libshumate.json",
     "modules/libspelling.json",
-    "modules/sdk-docs.json",
     "modules/vte.json",
+    "modules/sdk-docs.json",
     {
       "name": "Biblioteca",
       "buildsystem": "meson",

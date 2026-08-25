@@ -21,7 +21,7 @@ application.connect("activate", () => {
 });
 
 application.set_option_context_description(
-  "<https://github.com/workbenchdev/Biblioteca>",
+  "<https://biblioteca.sonny.re>",
 );
 
 Actions({ application });

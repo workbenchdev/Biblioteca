@@ -9,9 +9,9 @@ export default function About({ application }) {
     copyright: "© 2024 Akshay Warrier",
     license_type: Gtk.License.GPL_3_0_ONLY,
     version: pkg.version,
-    website: "https://github.com/workbenchdev/Biblioteca",
+    website: "https://biblioteca.sonny.re",
     application_icon: pkg.name,
-    issue_url: "https://github.com/workbenchdev/Biblioteca/issues",
+    issue_url: "https://biblioteca.sonny.re/feedback",
     developers: [
       "Akshay Warrier https://github.com/AkshayWarrier",
       "Sonny Piers https://sonny.re",

@@ -1,12 +1,18 @@
 {
   "name": "libspelling",
-  "buildsystem": "meson",
-  "config-opts": ["-Ddocs=true", "-Dvapi=false"],
+  "buildsystem": "simple",
+  "build-commands": [
+    "ar x *.deb",
+    "tar -xf data.tar.*",
+    "install -d /app/share/doc",
+    "cp -a usr/share/doc/. /app/share/doc/",
+    "gunzip /app/share/doc/libspelling-1/index.json.gz"
+  ],
   "sources": [
     {
-      "type": "archive",
-      "url": "https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.9.tar.xz",
-      "sha256": "d093fd35ae0f1c98fb58876505287fc0a885e47da9d2411d6d7cd595f34d4ebf"
+      "type": "file",
+      "url": "https://launchpad.net/ubuntu/+archive/primary/+files/libspelling-1-doc_0.4.10-2_all.deb",
+      "sha256": "768d9426ed5feaa4c28e5cbebb2f15838835895434bad0b6213eedfa5c37750d"
     }
   ]
 }

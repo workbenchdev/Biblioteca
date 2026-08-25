@@ -1,37 +1,16 @@
 {
   "name": "vte",
-  "buildsystem": "meson",
-  "config-opts": [
-    "-Ddocs=true",
-    "-Dgtk3=false",
-    "-Dgtk4=true",
-    "-Dvapi=false",
-    "-Dglade=false"
-  ],
-  "cleanup": [
-    "/etc",
-    "/bin/vte-2.91-gtk4",
-    "/lib/systemd",
-    "/libexec/vte-urlencode-cwd"
+  "buildsystem": "simple",
+  "build-commands": [
+    "install -d /app/share/doc",
+    "cp -a share/doc/. /app/share/doc/"
   ],
   "sources": [
     {
       "type": "archive",
-      "url": "https://download.gnome.org/sources/vte/0.82/vte-0.82.1.tar.xz",
-      "sha256": "79376d70402d271e2d38424418e1aea72357934d272e321e3906b71706a78e3a"
-    }
-  ],
-  "modules": [
-    {
-      "name": "fast_float",
-      "buildsystem": "cmake-ninja",
-      "sources": [
-        {
-          "type": "archive",
-          "url": "https://github.com/fastfloat/fast_float/archive/refs/tags/v6.1.6.tar.gz",
-          "sha256": "4458aae4b0eb55717968edda42987cabf5f7fc737aee8fede87a70035dba9ab0"
-        }
-      ]
+      "url": "https://dl.fedoraproject.org/pub/fedora/linux/updates/44/Everything/x86_64/Packages/v/vte291-gtk4-devel-0.84.1-1.fc44.x86_64.rpm",
+      "sha256": "a5559ba7c75ecfd215cc761f69e671dbde4ed7b126ad41260f1ece8f3c1e5e39",
+      "archive-type": "rpm"
     }
   ]
 }

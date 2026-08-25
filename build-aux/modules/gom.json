@@ -1,12 +1,16 @@
 {
   "name": "gom",
-  "buildsystem": "meson",
-  "config-opts": ["-Denable-gtk-doc=true"],
+  "buildsystem": "simple",
+  "build-commands": [
+    "install -d /app/share/doc",
+    "cp -a share/doc/. /app/share/doc/"
+  ],
   "sources": [
     {
       "type": "archive",
-      "url": "https://download.gnome.org/sources/gom/0.5/gom-0.5.4.tar.xz",
-      "sha256": "57ba806fe080a937d5664178d21bad7653b2c561ea128187a7b10bc1762b7f65"
+      "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/os/Packages/g/gom-devel-0.5.6-1.fc44.x86_64.rpm",
+      "sha256": "734be96b6a96a9836ac7d92f8e551dec578338e2550bbc5f03f098eb38e2f1de",
+      "archive-type": "rpm"
     }
   ]
 }

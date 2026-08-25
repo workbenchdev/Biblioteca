@@ -20,7 +20,7 @@ configure_file(
 )
 
 appstream_file = configure_file(
-  input: 'app.metainfo.xml.in',
+  input: 'app.metainfo.xml',
   output: '@0@.metainfo.xml'.format(app_id),
   configuration: { 'app_id': app_id },
   install_dir: join_paths(get_option('datadir'), 'metainfo')
