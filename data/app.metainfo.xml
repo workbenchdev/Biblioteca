@@ -54,13 +54,12 @@
     <color type="primary" scheme_preference="dark">#1c71d8</color>
   </branding>
   <releases>
-    <release version="1.8" date="2026-09-xx">
+    <release version="1.8" date="2026-09-25">
       <description translatable="no">
         <ul>
           <li>Update to GNOME 51</li>
           <li>Update gom to 0.5.6</li>
-          <li>Update libportal to 0.10.0</li>
-          <li>Update libshumate to 1.6.3</li>
+          <li>Update libshumate to 1.7.0</li>
           <li>Update libspelling to 0.4.10</li>
           <li>Update vte to 0.84.1</li>
         </ul>

@@ -8,8 +8,8 @@
   "sources": [
     {
       "type": "archive",
-      "url": "https://dl.fedoraproject.org/pub/fedora/linux/updates/44/Everything/x86_64/Packages/l/libshumate-doc-1.6.3-1.fc44.noarch.rpm",
-      "sha256": "a51aa92fedf2312f734fe50339b1fb422533de794fca4c726dd82a9781f67776",
+      "url": "https://dl.fedoraproject.org/pub/fedora/linux/updates/testing/45/Everything/x86_64/Packages/l/libshumate-doc-1.7.0-1.fc45.noarch.rpm",
+      "sha256": "689fd6191902afd9240f80ac9f50da1075d6c25799693965512d6b24fe02db42",
       "archive-type": "rpm"
     }
   ]
